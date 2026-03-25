@@ -6,14 +6,18 @@
     "raw_weight": 0.02,
     "rank": 1,
     "total_count": 95,
-    "rank_score": 100.0,
+    "rank_score": 100,
     "timestamp": "2026-03-25 16:34:26",
     "words": [
       "嘴唇发紫",
       "心脏不好"
     ],
     "word_count": 2,
-    "length": 9
+    "length": 9,
+    "rank_global": 1,
+    "heat_score": 100.0,
+    "comprehensive_score": 100.0,
+    "global_rank_final": 1
   },
   {
     "id": "20260325_0001",
@@ -22,7 +26,7 @@
     "raw_weight": 0.0333,
     "rank": 2,
     "total_count": 95,
-    "rank_score": 98.95,
+    "rank_score": 85.0,
     "timestamp": "2026-03-25 16:34:26",
     "words": [
       "心脏病",
@@ -31,7 +35,11 @@
       "跑马"
     ],
     "word_count": 4,
-    "length": 16
+    "length": 16,
+    "rank_global": 2,
+    "heat_score": 93.76,
+    "comprehensive_score": 87.63,
+    "global_rank_final": 2
   },
   {
     "id": "20260325_0002",
@@ -40,7 +48,7 @@
     "raw_weight": 0.04,
     "rank": 3,
     "total_count": 95,
-    "rank_score": 97.89,
+    "rank_score": 72.25,
     "timestamp": "2026-03-25 16:34:26",
     "words": [
       "情况",
@@ -54,7 +62,11 @@
       "发现"
     ],
     "word_count": 9,
-    "length": 34
+    "length": 34,
+    "rank_global": 3,
+    "heat_score": 90.62,
+    "comprehensive_score": 77.76,
+    "global_rank_final": 3
   },
   {
     "id": "20260325_0003",
@@ -63,7 +75,7 @@
     "raw_weight": 0.0588,
     "rank": 4,
     "total_count": 95,
-    "rank_score": 96.84,
+    "rank_score": 61.41,
     "timestamp": "2026-03-25 16:34:26",
     "words": [
       "世界",
@@ -75,7 +87,11 @@
       "时期"
     ],
     "word_count": 7,
-    "length": 16
+    "length": 16,
+    "rank_global": 4,
+    "heat_score": 81.81,
+    "comprehensive_score": 67.53,
+    "global_rank_final": 4
   },
   {
     "id": "20260325_0004",
@@ -84,14 +100,18 @@
     "raw_weight": 0.08,
     "rank": 5,
     "total_count": 95,
-    "rank_score": 95.79,
+    "rank_score": 52.2,
     "timestamp": "2026-03-25 16:34:26",
     "words": [
       "避",
       "谶"
     ],
     "word_count": 2,
-    "length": 2
+    "length": 2,
+    "rank_global": 5,
+    "heat_score": 71.87,
+    "comprehensive_score": 58.1,
+    "global_rank_final": 5
   },
   {
     "id": "20260325_0005",
@@ -100,7 +120,7 @@
     "raw_weight": 0.1,
     "rank": 6,
     "total_count": 95,
-    "rank_score": 94.74,
+    "rank_score": 44.37,
     "timestamp": "2026-03-25 16:34:26",
     "words": [
       "年度",
@@ -117,7 +137,11 @@
       "学习"
     ],
     "word_count": 12,
-    "length": 30
+    "length": 30,
+    "rank_global": 6,
+    "heat_score": 62.49,
+    "comprehensive_score": 49.81,
+    "global_rank_final": 6
   },
   {
     "id": "20260325_0006",
@@ -126,7 +150,7 @@
     "raw_weight": 0.1,
     "rank": 7,
     "total_count": 95,
-    "rank_score": 93.68,
+    "rank_score": 44.37,
     "timestamp": "2026-03-25 16:34:26",
     "words": [
       "网传",
@@ -145,7 +169,11 @@
       "原理"
     ],
     "word_count": 14,
-    "length": 47
+    "length": 47,
+    "rank_global": 6,
+    "heat_score": 62.49,
+    "comprehensive_score": 49.81,
+    "global_rank_final": 7
   },
   {
     "id": "20260325_0007",
@@ -154,7 +182,7 @@
     "raw_weight": 0.1,
     "rank": 8,
     "total_count": 95,
-    "rank_score": 92.63,
+    "rank_score": 44.37,
     "timestamp": "2026-03-25 16:34:26",
     "words": [
       "国家",
@@ -166,7 +194,11 @@
       "查"
     ],
     "word_count": 7,
-    "length": 18
+    "length": 18,
+    "rank_global": 6,
+    "heat_score": 62.49,
+    "comprehensive_score": 49.81,
+    "global_rank_final": 8
   },
   {
     "id": "20260325_0008",
@@ -175,7 +207,7 @@
     "raw_weight": 0.1176,
     "rank": 9,
     "total_count": 95,
-    "rank_score": 91.58,
+    "rank_score": 27.25,
     "timestamp": "2026-03-25 16:34:26",
     "words": [
       "是否",
@@ -185,7 +217,11 @@
       "狐狸"
     ],
     "word_count": 5,
-    "length": 12
+    "length": 12,
+    "rank_global": 9,
+    "heat_score": 54.24,
+    "comprehensive_score": 35.35,
+    "global_rank_final": 9
   },
   {
     "id": "20260325_0009",
@@ -194,7 +230,7 @@
     "raw_weight": 0.125,
     "rank": 10,
     "total_count": 95,
-    "rank_score": 90.53,
+    "rank_score": 23.16,
     "timestamp": "2026-03-25 16:34:26",
     "words": [
       "Claude",
@@ -203,7 +239,11 @@
       "OpenClaw"
     ],
     "word_count": 4,
-    "length": 19
+    "length": 19,
+    "rank_global": 10,
+    "heat_score": 50.77,
+    "comprehensive_score": 31.44,
+    "global_rank_final": 10
   },
   {
     "id": "20260325_0010",
@@ -212,7 +252,7 @@
     "raw_weight": 0.1333,
     "rank": 11,
     "total_count": 95,
-    "rank_score": 89.47,
+    "rank_score": 19.69,
     "timestamp": "2026-03-25 16:34:26",
     "words": [
       "霜儿",
@@ -223,7 +263,11 @@
       "洞"
     ],
     "word_count": 6,
-    "length": 12
+    "length": 12,
+    "rank_global": 11,
+    "heat_score": 46.88,
+    "comprehensive_score": 27.85,
+    "global_rank_final": 11
   },
   {
     "id": "20260325_0011",
@@ -232,7 +276,7 @@
     "raw_weight": 0.14,
     "rank": 12,
     "total_count": 95,
-    "rank_score": 88.42,
+    "rank_score": 16.73,
     "timestamp": "2026-03-25 16:34:26",
     "words": [
       "旧",
@@ -243,7 +287,11 @@
       "五六倍"
     ],
     "word_count": 6,
-    "length": 11
+    "length": 11,
+    "rank_global": 12,
+    "heat_score": 43.74,
+    "comprehensive_score": 24.83,
+    "global_rank_final": 12
   },
   {
     "id": "20260325_0012",
@@ -252,7 +300,7 @@
     "raw_weight": 0.15,
     "rank": 13,
     "total_count": 95,
-    "rank_score": 87.37,
+    "rank_score": 14.22,
     "timestamp": "2026-03-25 16:34:26",
     "words": [
       "王自如",
@@ -265,7 +313,11 @@
       "离谱"
     ],
     "word_count": 8,
-    "length": 21
+    "length": 21,
+    "rank_global": 13,
+    "heat_score": 39.05,
+    "comprehensive_score": 21.67,
+    "global_rank_final": 13
   },
   {
     "id": "20260325_0013",
@@ -274,7 +326,7 @@
     "raw_weight": 0.16,
     "rank": 14,
     "total_count": 95,
-    "rank_score": 86.32,
+    "rank_score": 12.09,
     "timestamp": "2026-03-25 16:34:26",
     "words": [
       "外交部",
@@ -293,7 +345,11 @@
       "具体情况"
     ],
     "word_count": 14,
-    "length": 41
+    "length": 41,
+    "rank_global": 14,
+    "heat_score": 34.36,
+    "comprehensive_score": 18.77,
+    "global_rank_final": 14
   },
   {
     "id": "20260325_0014",
@@ -302,7 +358,7 @@
     "raw_weight": 0.1765,
     "rank": 15,
     "total_count": 95,
-    "rank_score": 85.26,
+    "rank_score": 10.28,
     "timestamp": "2026-03-25 16:34:26",
     "words": [
       "只值",
@@ -314,7 +370,11 @@
       "价"
     ],
     "word_count": 7,
-    "length": 19
+    "length": 19,
+    "rank_global": 15,
+    "heat_score": 26.63,
+    "comprehensive_score": 15.18,
+    "global_rank_final": 15
   },
   {
     "id": "20260325_0015",
@@ -323,7 +383,7 @@
     "raw_weight": 0.2,
     "rank": 16,
     "total_count": 95,
-    "rank_score": 84.21,
+    "rank_score": 8.74,
     "timestamp": "2026-03-25 16:34:26",
     "words": [
       "黄仁勋",
@@ -331,7 +391,11 @@
       "中本聪"
     ],
     "word_count": 3,
-    "length": 7
+    "length": 7,
+    "rank_global": 16,
+    "heat_score": 15.61,
+    "comprehensive_score": 10.8,
+    "global_rank_final": 16
   },
   {
     "id": "20260325_0016",
@@ -340,7 +404,7 @@
     "raw_weight": 0.2,
     "rank": 17,
     "total_count": 95,
-    "rank_score": 83.16,
+    "rank_score": 8.74,
     "timestamp": "2026-03-25 16:34:26",
     "words": [
       "张雪峰",
@@ -350,7 +414,11 @@
       "贫困学生"
     ],
     "word_count": 5,
-    "length": 13
+    "length": 13,
+    "rank_global": 16,
+    "heat_score": 15.61,
+    "comprehensive_score": 10.8,
+    "global_rank_final": 17
   },
   {
     "id": "20260325_0017",
@@ -359,7 +427,7 @@
     "raw_weight": 0.2,
     "rank": 18,
     "total_count": 95,
-    "rank_score": 82.11,
+    "rank_score": 8.74,
     "timestamp": "2026-03-25 16:34:26",
     "words": [
       "伊朗",
@@ -379,7 +447,11 @@
       "达成协议"
     ],
     "word_count": 15,
-    "length": 37
+    "length": 37,
+    "rank_global": 16,
+    "heat_score": 15.61,
+    "comprehensive_score": 10.8,
+    "global_rank_final": 18
   },
   {
     "id": "20260325_0018",
@@ -388,7 +460,7 @@
     "raw_weight": 0.22,
     "rank": 19,
     "total_count": 95,
-    "rank_score": 81.05,
+    "rank_score": 5.36,
     "timestamp": "2026-03-25 16:34:26",
     "words": [
       "美国",
@@ -410,7 +482,11 @@
       "和谈"
     ],
     "word_count": 17,
-    "length": 50
+    "length": 50,
+    "rank_global": 19,
+    "heat_score": 6.24,
+    "comprehensive_score": 5.62,
+    "global_rank_final": 19
   },
   {
     "id": "20260325_0019",
@@ -419,7 +495,7 @@
     "raw_weight": 0.2333,
     "rank": 20,
     "total_count": 95,
-    "rank_score": 80.0,
+    "rank_score": 4.56,
     "timestamp": "2026-03-25 16:34:26",
     "words": [
       "电锯",
@@ -430,6 +506,10 @@
       "饺子"
     ],
     "word_count": 6,
-    "length": 11
+    "length": 11,
+    "rank_global": 20,
+    "heat_score": 0.0,
+    "comprehensive_score": 3.19,
+    "global_rank_final": 20
   }
 ]
