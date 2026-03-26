@@ -35,14 +35,23 @@ class RankingProcessor:
     
     PROJECT_NAME = "社交媒体热点词分析项目"
     
-    # 分类关键词（用于识别科技类）
+    # 扩展科技关键词库（用于识别科技类热点）
     TECH_KEYWORDS = [
-        'AI', '大模型', 'OpenClaw', 'Claude', 'Meta', 'GPT', 'Token', '词元',
-        'Sora', 'OpenAI', '鸿蒙', '华为', '小米', '苹果', '腾讯', '阿里',
-        '字节', '芯片', '机器人', '算法', '数据', '智能', '云计算', '5G', '6G',
-        '人工智能', '机器学习', '深度学习', '自动驾驶', 'WebAssembly', 'React', 'Vue',
-        'Claude Code', 'Cursor', 'GitHub', 'Copilot', '编程', '前端', '后端',
-        'OpenClaw', 'Claude', 'AI', '人工智能', '大模型', '机器人'
+        # AI/大模型相关
+        'AI', '人工智能', '大模型', 'OpenClaw', 'Claude', 'Meta', 'GPT', 'Token', '词元',
+        'Sora', 'OpenAI', 'DeepSeek', 'Claude Code', 'LLM', '机器学习', '深度学习',
+        # 硬件/手机/电脑
+        '鸿蒙', '华为', '小米', '苹果', '腾讯', '阿里', '字节', '芯片', '机器人',
+        '手机', 'iPhone', 'Mac', '笔记本', '电脑', '显示器', '平板', '折叠屏',
+        # 软件/编程
+        '算法', '数据', '智能', '云计算', '5G', '6G', 'WebAssembly', 'React', 'Vue',
+        '前端', '后端', '编程', '代码', '开源', '框架', 'API', 'SDK',
+        # 互联网/科技公司
+        '美团', '京东', '百度', '知乎', '微博', '抖音', '微信', '拼多多',
+        # 科技事件
+        '评测', '发布', '首发', '体验', '更新', '上线', '关停', '开源',
+        # 其他科技相关
+        '科技', '技术', '创新', '研发', '专利', '产品'
     ]
     
     def __init__(self, cleaned_data_path: str = None):
@@ -60,7 +69,32 @@ class RankingProcessor:
         self.ranking_engine = RankingEngine()
         self.wordcloud_generator = WordCloudGenerator()
         
-        print(f"[初始化] {self.PROJECT_NAME} - 排行处理器")
+        print(f"[初始化] {self.PROJECT_NAME} - 排行处理器（优化版）")
+    
+    def _ensure_directory(self, dir_path: str) -> bool:
+        """
+        确保目录存在，如果路径是文件则删除并创建目录
+        
+        Args:
+            dir_path: 目录路径
+            
+        Returns:
+            是否成功
+        """
+        try:
+            # 如果路径存在但是文件，则删除
+            if os.path.exists(dir_path) and not os.path.isdir(dir_path):
+                os.remove(dir_path)
+                print(f"[修复] 删除文件: {dir_path}，重新创建目录")
+            
+            # 创建目录
+            if not os.path.exists(dir_path):
+                os.makedirs(dir_path, exist_ok=True)
+                print(f"[创建] 创建目录: {dir_path}")
+            return True
+        except Exception as e:
+            print(f"[警告] 目录处理失败: {e}")
+            return False
     
     def load_data(self, data_path: str = None) -> List[Dict]:
         """
@@ -157,6 +191,9 @@ class RankingProcessor:
         """
         print(f"\n[处理] 生成{name}词云...")
         
+        # 确保输出目录存在
+        self._ensure_directory(output_dir)
+        
         # 使用 wordcloud_generator 生成词云
         result = self.wordcloud_generator.generate_from_cleaned_data(items, output_dir)
         
@@ -188,16 +225,8 @@ class RankingProcessor:
             output_dir: 输出目录
             name: 名称（用于文件名）
         """
-        # 修复目录创建问题
-        try:
-            if not os.path.exists(output_dir):
-                os.makedirs(output_dir, exist_ok=True)
-                print(f"[创建] 创建目录: {output_dir}")
-        except Exception as e:
-            print(f"[警告] 目录创建失败: {e}")
-            # 使用当前目录作为备选
-            output_dir = '.'
-            print(f"[备选] 使用当前目录")
+        # 确保目录存在
+        self._ensure_directory(output_dir)
         
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
         output_path = os.path.join(output_dir, f'ranking_{name}_{timestamp}.json')
@@ -265,7 +294,14 @@ class RankingProcessor:
             project_root = os.path.dirname(os.path.dirname(__file__))
             output_dir = os.path.join(project_root, 'output', 'rankings')
         
-        # 3. 处理综合排行
+        # 3. 确保输出目录存在
+        self._ensure_directory(output_dir)
+        
+        # 4. 确保词云输出目录存在
+        wordcloud_output_dir = os.path.join(os.path.dirname(output_dir), 'wordclouds')
+        self._ensure_directory(wordcloud_output_dir)
+        
+        # 5. 处理综合排行
         print(f"\n{'─'*70}")
         print("【综合热点排行】")
         print(f"{'─'*70}")
@@ -274,13 +310,12 @@ class RankingProcessor:
         self.save_ranking_result(all_ranked, output_dir, "all")
         self.print_ranking_report(all_ranked, "综合", top_n=15)
         
-        # 4. 生成综合排行词云
-        wordcloud_output_dir = os.path.join(os.path.dirname(output_dir), 'wordclouds')
+        # 6. 生成综合排行词云
         all_wordcloud = self.generate_wordcloud_for_items(
             all_ranked, wordcloud_output_dir, "all"
         )
         
-        # 5. 筛选科技类数据
+        # 7. 筛选科技类数据
         tech_items = self.filter_tech_items(items)
         
         if tech_items:
@@ -288,12 +323,12 @@ class RankingProcessor:
             print("【科技热点排行】")
             print(f"{'─'*70}")
             
-            # 6. 处理科技排行
+            # 8. 处理科技排行
             tech_ranked = self.process_rankings(tech_items, "科技")
             self.save_ranking_result(tech_ranked, output_dir, "tech")
             self.print_ranking_report(tech_ranked, "科技", top_n=15)
             
-            # 7. 生成科技排行词云
+            # 9. 生成科技排行词云
             tech_wordcloud = self.generate_wordcloud_for_items(
                 tech_ranked, wordcloud_output_dir, "tech"
             )
@@ -314,6 +349,7 @@ if __name__ == '__main__':
     # 文件路径
     processed_dir = os.path.join(project_root, 'data', 'processed')
     output_dir = os.path.join(project_root, 'output', 'rankings')
+    wordcloud_dir = os.path.join(project_root, 'output', 'wordclouds')
     
     # 查找最新的清洗数据文件
     cleaned_files = []
@@ -330,12 +366,25 @@ if __name__ == '__main__':
     latest_file = max(cleaned_files, key=os.path.getmtime)
     print(f"[信息] 使用数据文件: {os.path.basename(latest_file)}")
     
-    # 确保输出目录存在
+    # 预处理：确保输出目录存在（如果路径是文件则删除）
+    def ensure_path_is_directory(path):
+        """确保路径是目录，如果存在且是文件则删除"""
+        if os.path.exists(path) and not os.path.isdir(path):
+            try:
+                os.remove(path)
+                print(f"[修复] 删除文件: {path}，准备创建目录")
+            except Exception as e:
+                print(f"[警告] 无法删除文件: {e}")
+    
+    ensure_path_is_directory(output_dir)
+    ensure_path_is_directory(wordcloud_dir)
+    
+    # 创建目录
     try:
-        if not os.path.exists(output_dir):
-            os.makedirs(output_dir, exist_ok=True)
-    except Exception:
-        pass
+        os.makedirs(output_dir, exist_ok=True)
+        os.makedirs(wordcloud_dir, exist_ok=True)
+    except Exception as e:
+        print(f"[警告] 目录创建失败: {e}")
     
     # 初始化处理器并运行
     processor = RankingProcessor()
