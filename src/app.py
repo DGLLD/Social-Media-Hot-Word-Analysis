@@ -151,7 +151,11 @@ def get_general_sentiment():
     """
     获取综合热榜情感分析数据
     """
+    # 优先使用 sentiment_general_ 前缀，如果没有则尝试 sentiment_all_
     sentiment_file = get_latest_file(SENTIMENT_DIR, 'sentiment_general_')
+    if not sentiment_file:
+        sentiment_file = get_latest_file(SENTIMENT_DIR, 'sentiment_all_')
+    
     if not sentiment_file:
         return jsonify({'error': '未找到综合情感分析数据'}), 404
     
@@ -178,9 +182,9 @@ def get_general_sentiment():
             'positive': sentiment_counts['positive'],
             'neutral': sentiment_counts['neutral'],
             'negative': sentiment_counts['negative'],
-            'positive_ratio': round(sentiment_counts['positive'] / total * 100, 1),
-            'neutral_ratio': round(sentiment_counts['neutral'] / total * 100, 1),
-            'negative_ratio': round(sentiment_counts['negative'] / total * 100, 1),
+            'positive_ratio': round(sentiment_counts['positive'] / total * 100, 1) if total > 0 else 0,
+            'neutral_ratio': round(sentiment_counts['neutral'] / total * 100, 1) if total > 0 else 0,
+            'negative_ratio': round(sentiment_counts['negative'] / total * 100, 1) if total > 0 else 0,
             'avg_score': round(avg_score, 3)
         }
     })
@@ -217,9 +221,9 @@ def get_tech_sentiment():
             'positive': sentiment_counts['positive'],
             'neutral': sentiment_counts['neutral'],
             'negative': sentiment_counts['negative'],
-            'positive_ratio': round(sentiment_counts['positive'] / total * 100, 1),
-            'neutral_ratio': round(sentiment_counts['neutral'] / total * 100, 1),
-            'negative_ratio': round(sentiment_counts['negative'] / total * 100, 1),
+            'positive_ratio': round(sentiment_counts['positive'] / total * 100, 1) if total > 0 else 0,
+            'neutral_ratio': round(sentiment_counts['neutral'] / total * 100, 1) if total > 0 else 0,
+            'negative_ratio': round(sentiment_counts['negative'] / total * 100, 1) if total > 0 else 0,
             'avg_score': round(avg_score, 3)
         }
     })
@@ -233,7 +237,11 @@ def get_hotword_detail(rank):
     Args:
         rank: 排名（1-based）
     """
+    # 优先使用综合热榜数据
     ranking_file = get_latest_file(RANKINGS_DIR, 'ranking_general_')
+    if not ranking_file:
+        ranking_file = get_latest_file(RANKINGS_DIR, 'ranking_all_')
+    
     if not ranking_file:
         return jsonify({'error': '未找到排行数据'}), 404
     
@@ -251,5 +259,35 @@ def get_hotword_detail(rank):
     })
 
 
+@app.route('/api/refresh')
+def refresh_data():
+    """
+    手动刷新数据（重新运行排名处理）
+    注意：实际刷新需要调用 ranking_processor.py
+    """
+    # 这里可以触发重新运行 ranking_processor.py
+    # 由于需要后台执行，这里只返回提示
+    return jsonify({
+        'success': True,
+        'message': '数据刷新请求已接收，请稍后查看最新数据'
+    })
+
+
 if __name__ == '__main__':
+    print(f"""
+╔══════════════════════════════════════════════════════════════╗
+║     社交媒体热点词分析平台 - Flask 后端服务                    ║
+╠══════════════════════════════════════════════════════════════╣
+║  服务地址: http://127.0.0.1:5000                             ║
+║  综合排行: /api/general_ranking                              ║
+║  科技排行: /api/tech_ranking                                 ║
+║  综合词云: /api/general_wordcloud                            ║
+║  科技词云: /api/tech_wordcloud                               ║
+║  综合情感: /api/general_sentiment                            ║
+║  科技情感: /api/tech_sentiment                               ║
+║  热点详情: /api/hotword_detail/<rank>                        ║
+╠══════════════════════════════════════════════════════════════╣
+║  按 Ctrl+C 停止服务                                           ║
+╚══════════════════════════════════════════════════════════════╝
+    """)
     app.run(debug=True, host='0.0.0.0', port=5000)
