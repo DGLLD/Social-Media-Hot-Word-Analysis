@@ -2,363 +2,69 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>社交媒体热点词分析平台</title>
-    <!-- ECharts CDN -->
     <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            background: linear-gradient(135deg, #f5f7fa 0%, #e9ecef 100%);
-            font-family: 'Segoe UI', 'PingFang SC', Roboto, 'Helvetica Neue', sans-serif;
-            color: #1e293b;
-            min-height: 100vh;
-        }
-
-        /* 头部导航 */
-        .navbar {
-            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-            color: white;
-            padding: 1rem 2rem;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .navbar-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .logo h1 {
-            font-size: 1.5rem;
-            font-weight: 700;
-        }
-
-        .logo p {
-            font-size: 0.75rem;
-            opacity: 0.7;
-        }
-
-        .nav-tabs {
-            display: flex;
-            gap: 0.5rem;
-            background: rgba(255,255,255,0.1);
-            border-radius: 2rem;
-            padding: 0.25rem;
-        }
-
-        .tab-btn {
-            padding: 0.5rem 1.5rem;
-            border: none;
-            background: transparent;
-            color: white;
-            border-radius: 2rem;
-            cursor: pointer;
-            font-size: 0.9rem;
-            transition: all 0.2s;
-        }
-
-        .tab-btn.active {
-            background: #3b82f6;
-            color: white;
-        }
-
-        .tab-btn:hover:not(.active) {
-            background: rgba(255,255,255,0.2);
-        }
-
-        .timestamp {
-            font-size: 0.8rem;
-            opacity: 0.7;
-        }
-
-        /* 主容器 */
-        .container {
-            max-width: 1400px;
-            margin: 2rem auto;
-            padding: 0 1.5rem;
-        }
-
-        /* 双栏布局 */
-        .dashboard {
-            display: grid;
-            grid-template-columns: 1fr 0.9fr;
-            gap: 1.5rem;
-        }
-
-        /* 卡片样式 */
-        .card {
-            background: white;
-            border-radius: 1.5rem;
-            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05), 0 2px 4px -2px rgba(0,0,0,0.02);
-            overflow: hidden;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 20px 30px -10px rgba(0,0,0,0.1);
-        }
-
-        .card-header {
-            padding: 1rem 1.5rem;
-            border-bottom: 1px solid #eef2ff;
-            font-weight: 600;
-            font-size: 1.1rem;
-            background: #fafcff;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .card-header i {
-            color: #3b82f6;
-            margin-right: 0.5rem;
-        }
-
-        /* 排行榜列表 */
-        .ranking-list {
-            max-height: 550px;
-            overflow-y: auto;
-        }
-
-        .ranking-item {
-            display: flex;
-            align-items: center;
-            padding: 0.8rem 1.2rem;
-            border-bottom: 1px solid #f0f2f8;
-            cursor: pointer;
-            transition: background 0.15s;
-        }
-
-        .ranking-item:hover {
-            background: #f8fafc;
-        }
-
-        .ranking-item.selected {
-            background: #eff6ff;
-            border-left: 3px solid #3b82f6;
-        }
-
-        .rank-num {
-            width: 2.5rem;
-            font-weight: 700;
-            color: #94a3b8;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: linear-gradient(135deg, #f5f7fa 0%, #e9ecef 100%); font-family: 'Segoe UI', sans-serif; color: #1e293b; }
+        .navbar { background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); color: white; padding: 1rem 2rem; position: sticky; top: 0; z-index: 100; }
+        .navbar-content { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+        .logo h1 { font-size: 1.5rem; }
+        .logo p { font-size: 0.75rem; opacity: 0.7; }
+        .nav-tabs { display: flex; gap: 0.5rem; background: rgba(255,255,255,0.1); border-radius: 2rem; padding: 0.25rem; }
+        .tab-btn { padding: 0.5rem 1.5rem; border: none; background: transparent; color: white; border-radius: 2rem; cursor: pointer; }
+        .tab-btn.active { background: #3b82f6; }
+        .timestamp { font-size: 0.8rem; opacity: 0.7; }
+        .container { max-width: 1400px; margin: 2rem auto; padding: 0 1.5rem; }
+        .dashboard { display: grid; grid-template-columns: 1fr 0.9fr; gap: 1.5rem; }
+        @media (max-width: 900px) { .dashboard { grid-template-columns: 1fr; } }
+        .card { background: white; border-radius: 1.5rem; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05); overflow: hidden; }
+        .card-header { padding: 1rem 1.5rem; border-bottom: 1px solid #eef2ff; font-weight: 600; background: #fafcff; display: flex; justify-content: space-between; }
+        .card-header i { color: #3b82f6; margin-right: 0.5rem; }
+        .ranking-list { max-height: 550px; overflow-y: auto; }
+        .ranking-item { display: flex; align-items: center; padding: 0.8rem 1.2rem; border-bottom: 1px solid #f0f2f8; cursor: pointer; }
+        .ranking-item:hover { background: #f8fafc; }
+        .ranking-item.selected { background: #eff6ff; border-left: 3px solid #3b82f6; }
+        .rank-num { width: 2.5rem; font-weight: 700; color: #94a3b8; }
         .rank-1 { color: #f59e0b; }
         .rank-2 { color: #64748b; }
         .rank-3 { color: #b45309; }
-
-        .rank-content {
-            flex: 1;
-            margin-left: 0.5rem;
-        }
-
-        .rank-title {
-            font-weight: 500;
-            margin-bottom: 0.2rem;
-            line-height: 1.4;
-        }
-
-        .rank-meta {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            font-size: 0.7rem;
-            color: #6c86a3;
-        }
-
-        .heat-badge {
-            background: #eef2ff;
-            padding: 0.2rem 0.5rem;
-            border-radius: 1rem;
-            font-weight: 500;
-            font-size: 0.7rem;
-        }
-
-        .sentiment-badge {
-            padding: 0.2rem 0.5rem;
-            border-radius: 1rem;
-            font-size: 0.7rem;
-        }
-
+        .rank-content { flex: 1; margin-left: 0.5rem; }
+        .rank-title { font-weight: 500; margin-bottom: 0.2rem; }
+        .rank-meta { display: flex; gap: 1rem; flex-wrap: wrap; font-size: 0.7rem; color: #6c86a3; }
+        .heat-badge { background: #eef2ff; padding: 0.2rem 0.5rem; border-radius: 1rem; }
+        .sentiment-badge { padding: 0.2rem 0.5rem; border-radius: 1rem; font-size: 0.7rem; }
         .sentiment-positive { background: #d1fae5; color: #059669; }
         .sentiment-neutral { background: #fef3c7; color: #d97706; }
         .sentiment-negative { background: #fee2e2; color: #dc2626; }
-
-        /* 词云区域 */
-        .wordcloud-container {
-            padding: 1rem;
-            min-height: 320px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: #fefefe;
-        }
-
-        .wordcloud-container img {
-            max-width: 100%;
-            border-radius: 0.75rem;
-            cursor: pointer;
-            transition: transform 0.2s;
-        }
-
-        .wordcloud-container img:hover {
-            transform: scale(1.02);
-        }
-
-        /* 情感分析区域 */
-        .sentiment-stats {
-            display: flex;
-            gap: 1rem;
-            padding: 1rem;
-            background: #f8fafc;
-            border-radius: 1rem;
-            margin-bottom: 1rem;
-        }
-
-        .stat-card {
-            flex: 1;
-            text-align: center;
-            padding: 0.8rem;
-            background: white;
-            border-radius: 0.75rem;
-            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
-        }
-
-        .stat-number {
-            font-size: 1.5rem;
-            font-weight: 700;
-        }
-
-        .stat-label {
-            font-size: 0.7rem;
-            color: #64748b;
-        }
-
+        .wordcloud-container { padding: 1rem; min-height: 320px; display: flex; justify-content: center; align-items: center; }
+        .wordcloud-container img { max-width: 100%; border-radius: 0.75rem; cursor: pointer; }
+        .sentiment-chart { height: 180px; margin: 0.5rem 1rem; }
+        .sentiment-stats { display: flex; gap: 1rem; padding: 1rem; background: #f8fafc; border-radius: 1rem; margin: 0.5rem 1rem; }
+        .stat-card { flex: 1; text-align: center; padding: 0.5rem; background: white; border-radius: 0.75rem; }
+        .stat-number { font-size: 1.2rem; font-weight: 700; }
+        .stat-label { font-size: 0.65rem; color: #64748b; }
         .stat-positive .stat-number { color: #10b981; }
         .stat-neutral .stat-number { color: #f59e0b; }
         .stat-negative .stat-number { color: #ef4444; }
-
-        .sentiment-chart {
-            height: 220px;
-            margin: 0.5rem 1rem 1rem 1rem;
-        }
-
-        /* 详情面板 */
-        .detail-panel {
-            padding: 1rem;
-            max-height: 400px;
-            overflow-y: auto;
-        }
-
-        .detail-title {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: #1e293b;
-            line-height: 1.4;
-        }
-
-        .detail-meta {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            margin-bottom: 1rem;
-            font-size: 0.8rem;
-            color: #64748b;
-        }
-
-        .detail-score {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin: 0.5rem 0;
-        }
-
-        .keywords {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin: 0.5rem 0;
-        }
-
-        .keyword-tag {
-            background: #eef2ff;
-            padding: 0.2rem 0.8rem;
-            border-radius: 1rem;
-            font-size: 0.7rem;
-            color: #3b82f6;
-        }
-
-        .sentiment-words {
-            margin-top: 0.5rem;
-            padding: 0.5rem;
-            background: #f8fafc;
-            border-radius: 0.5rem;
-            font-size: 0.75rem;
-        }
-
-        /* 加载状态 */
-        .loading {
-            text-align: center;
-            padding: 2rem;
-            color: #94a3b8;
-        }
-
-        /* 响应式 */
-        @media (max-width: 900px) {
-            .dashboard {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* 滚动条 */
-        ::-webkit-scrollbar {
-            width: 5px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #f1f1f1;
-            border-radius: 5px;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #cbd5e1;
-            border-radius: 5px;
-        }
-
-        .detail-link {
-            color: #3b82f6;
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .detail-link:hover {
-            color: #1d4ed8;
-            text-decoration: underline;
-        }
+        .detail-panel { padding: 1rem; max-height: 300px; overflow-y: auto; }
+        .detail-title { font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem; }
+        .detail-meta { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 0.5rem; font-size: 0.75rem; color: #64748b; }
+        .detail-score { font-size: 1rem; font-weight: 600; margin: 0.5rem 0; }
+        .keywords { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0.5rem 0; }
+        .keyword-tag { background: #eef2ff; padding: 0.2rem 0.6rem; border-radius: 1rem; font-size: 0.7rem; color: #3b82f6; }
+        .sentiment-words { margin-top: 0.5rem; padding: 0.5rem; background: #f8fafc; border-radius: 0.5rem; font-size: 0.7rem; }
+        .loading { text-align: center; padding: 2rem; color: #94a3b8; }
+        ::-webkit-scrollbar { width: 5px; }
+        .detail-link { color: #3b82f6; text-decoration: none; }
     </style>
 </head>
 <body>
     <div class="navbar">
         <div class="navbar-content">
-            <div class="logo">
-                <h1><i class="fas fa-chart-line"></i> 热点洞察</h1>
-                <p>社交媒体热点词分析平台</p>
-            </div>
+            <div class="logo"><h1><i class="fas fa-chart-line"></i> 热点洞察</h1><p>社交媒体热点词分析平台</p></div>
             <div class="nav-tabs">
                 <button class="tab-btn active" data-tab="general">🔥 综合热榜</button>
                 <button class="tab-btn" data-tab="tech">💻 科技热榜</button>
@@ -372,365 +78,207 @@
             <!-- 左侧：排行榜 + 词云 -->
             <div>
                 <div class="card">
-                    <div class="card-header">
-                        <span><i class="fas fa-fire"></i> 热点排行榜</span>
-                        <span id="ranking-count" class="heat-badge">0条</span>
-                    </div>
-                    <div class="ranking-list" id="ranking-list">
-                        <div class="loading"><i class="fas fa-spinner fa-pulse"></i> 加载中...</div>
-                    </div>
+                    <div class="card-header"><span><i class="fas fa-fire"></i> 热点排行榜</span><span id="ranking-count" class="heat-badge">0条</span></div>
+                    <div class="ranking-list" id="ranking-list"><div class="loading">加载中...</div></div>
                 </div>
-
                 <div class="card" style="margin-top: 1.5rem;">
-                    <div class="card-header">
-                        <span><i class="fas fa-cloud"></i> 热点词云</span>
-                        <span style="font-size: 0.7rem; color: #6c86a3;">点击图片放大查看</span>
-                    </div>
-                    <div class="wordcloud-container" id="wordcloud-container">
-                        <div class="loading"><i class="fas fa-spinner fa-pulse"></i> 加载词云中...</div>
-                    </div>
+                    <div class="card-header"><span><i class="fas fa-cloud"></i> 热点词云</span></div>
+                    <div class="wordcloud-container" id="wordcloud-container"><div class="loading">加载词云中...</div></div>
                 </div>
             </div>
 
-            <!-- 右侧：情感分析 + 详情 -->
+            <!-- 右侧：情感分析 + 详情（都随点击变化）-->
             <div>
                 <div class="card">
-                    <div class="card-header">
-                        <span><i class="fas fa-smile"></i> 情感分析</span>
-                        <span id="sentiment-avg" class="heat-badge">平均分: --</span>
-                    </div>
-                    <div class="sentiment-stats" id="sentiment-stats">
-                        <div class="loading">加载中...</div>
-                    </div>
+                    <div class="card-header"><span><i class="fas fa-chart-pie"></i> 情感分析（当前热词）</span><span id="current-hotword-name" class="heat-badge">未选择</span></div>
+                    <div class="sentiment-stats" id="sentiment-stats"><div class="loading">点击热词查看情感分析</div></div>
                     <div id="sentiment-chart" class="sentiment-chart"></div>
+                    <div class="sentiment-words" id="sentiment-words" style="margin: 0 1rem 1rem 1rem;"></div>
                 </div>
-
                 <div class="card" style="margin-top: 1.5rem;">
-                    <div class="card-header">
-                        <span><i class="fas fa-info-circle"></i> 热点详情</span>
-                        <span style="font-size: 0.7rem;">点击左侧热词查看详情</span>
-                    </div>
-                    <div class="detail-panel" id="detail-panel">
-                        <div class="loading" style="padding: 2rem;">
-                            <i class="fas fa-mouse-pointer"></i> 点击左侧任意热词查看详细分析
-                        </div>
-                    </div>
+                    <div class="card-header"><span><i class="fas fa-info-circle"></i> 热点详情</span></div>
+                    <div class="detail-panel" id="detail-panel"><div class="loading">点击左侧热词查看详情</div></div>
                 </div>
             </div>
         </div>
     </div>
 
     <script>
-        // 全局变量
         let currentTab = 'general';
-        let currentData = [];
         let sentimentChart = null;
-        let selectedIndex = -1;
 
-        // API 基础路径（使用相对路径）
-        const API_BASE = '/api';
-
-        // 情感标签样式映射
         function getSentimentStyle(label) {
-            if (label === 'positive') {
-                return { label: '正面', class: 'sentiment-positive', icon: '😊' };
-            } else if (label === 'negative') {
-                return { label: '负面', class: 'sentiment-negative', icon: '😞' };
+            if (label === 'positive') return { label: '正面', class: 'sentiment-positive', icon: '😊' };
+            if (label === 'negative') return { label: '负面', class: 'sentiment-negative', icon: '😞' };
+            return { label: '中性', class: 'sentiment-neutral', icon: '😐' };
+        }
+
+        function escapeHtml(str) {
+            if (!str) return '';
+            return str.replace(/[&<>]/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[m] || m));
+        }
+
+        // 更新情感分析面板（基于单个热词）
+        function updateSentimentPanel(item) {
+            const style = getSentimentStyle(item.sentiment_label);
+            const score = item.sentiment_score || 0.5;
+            const posWords = item.positive_words || [];
+            const negWords = item.negative_words || [];
+            
+            // 更新标题
+            document.getElementById('current-hotword-name').innerText = item.title.length > 20 ? item.title.substring(0, 20) + '...' : item.title;
+            
+            // 更新统计卡片
+            const statsContainer = document.getElementById('sentiment-stats');
+            statsContainer.innerHTML = `
+                <div class="stat-card stat-positive"><div class="stat-number">${(score * 100).toFixed(0)}%</div><div class="stat-label">😊 正面倾向</div></div>
+                <div class="stat-card stat-neutral"><div class="stat-number">${((1 - Math.abs(score - 0.5)) * 100).toFixed(0)}%</div><div class="stat-label">😐 情感强度</div></div>
+                <div class="stat-card stat-negative"><div class="stat-number">${((1 - score) * 100).toFixed(0)}%</div><div class="stat-label">😞 负面倾向</div></div>
+            `;
+            
+            // 更新饼图（只显示当前热词的情感倾向）
+            if (sentimentChart) sentimentChart.dispose();
+            sentimentChart = echarts.init(document.getElementById('sentiment-chart'));
+            sentimentChart.setOption({
+                tooltip: { trigger: 'item', formatter: '{b}: {d}%' },
+                series: [{
+                    type: 'pie', radius: '65%', center: ['50%', '50%'],
+                    data: [
+                        { name: '正面倾向', value: score * 100, itemStyle: { color: '#10b981' } },
+                        { name: '负面倾向', value: (1 - score) * 100, itemStyle: { color: '#ef4444' } }
+                    ],
+                    label: { show: true, formatter: '{b}: {d}%', fontSize: 12 }
+                }]
+            });
+            
+            // 更新情感词
+            const wordsContainer = document.getElementById('sentiment-words');
+            if (posWords.length > 0 || negWords.length > 0) {
+                wordsContainer.innerHTML = `
+                    <strong>情感关键词：</strong><br>
+                    ${posWords.length ? `<span style="color:#10b981;">😊 正面词: ${posWords.map(w => `<span class="keyword-tag" style="background:#d1fae5;">${escapeHtml(w)}</span>`).join('')}</span><br>` : ''}
+                    ${negWords.length ? `<span style="color:#ef4444;">😞 负面词: ${negWords.map(w => `<span class="keyword-tag" style="background:#fee2e2;">${escapeHtml(w)}</span>`).join('')}</span>` : ''}
+                `;
             } else {
-                return { label: '中性', class: 'sentiment-neutral', icon: '😐' };
+                wordsContainer.innerHTML = `<span style="color:#94a3b8;">未检测到明显的情感关键词</span>`;
+            }
+        }
+
+        // 加载详情面板
+        async function loadDetail(rank) {
+            const panel = document.getElementById('detail-panel');
+            panel.innerHTML = '<div class="loading">加载中...</div>';
+            try {
+                const res = await fetch(`/api/hotword_detail/${rank}?type=${currentTab}&t=${Date.now()}`);
+                const result = await res.json();
+                if (!result.success) throw new Error(result.error);
+                const item = result.data;
+                const style = getSentimentStyle(item.sentiment_label);
+                const score = item.sentiment_score || 0.5;
+                const keywords = item.sentiment_keywords || item.words || [];
+                const heat = Math.round(item.comprehensive_score || item.rank_score || 0);
+                
+                // 更新详情面板
+                panel.innerHTML = `
+                    <div class="detail-title">${escapeHtml(item.title)}</div>
+                    <div class="detail-meta">
+                        <span class="heat-badge">🔥 热度: ${heat}</span>
+                        <span class="sentiment-badge ${style.class}">${style.icon} ${style.label}</span>
+                        <span>权重: ${item.raw_weight}</span>
+                    </div>
+                    <div class="detail-score">情感分数: ${score.toFixed(4)} (0-1, 越高越正面)</div>
+                    <div>关键词:</div>
+                    <div class="keywords">${keywords.slice(0,8).map(k => `<span class="keyword-tag">${escapeHtml(k)}</span>`).join('')}</div>
+                    <div style="margin-top:1rem;"><a href="${item.url || '#'}" target="_blank">查看搜索结果</a></div>
+                `;
+                
+                // 更新情感分析面板
+                updateSentimentPanel(item);
+            } catch (err) {
+                panel.innerHTML = `<div class="loading">加载失败: ${err.message}</div>`;
             }
         }
 
         // 加载排行榜
         async function loadRanking() {
-            const endpoint = currentTab === 'general' ? '/general_ranking' : '/tech_ranking';
-            const rankingList = document.getElementById('ranking-list');
-            rankingList.innerHTML = '<div class="loading"><i class="fas fa-spinner fa-pulse"></i> 加载中...</div>';
-            
+            const endpoint = currentTab === 'general' ? '/api/general_ranking' : '/api/tech_ranking';
+            const container = document.getElementById('ranking-list');
+            container.innerHTML = '<div class="loading">加载中...</div>';
             try {
-                const response = await fetch(`${API_BASE}${endpoint}`);
-                const result = await response.json();
-                
-                if (!result.success) {
-                    rankingList.innerHTML = `<div class="loading">加载失败: ${result.error}</div>`;
-                    return;
-                }
-                
-                currentData = result.data;
-                document.getElementById('ranking-count').innerText = `${currentData.length}条`;
+                const res = await fetch(`${endpoint}?t=${Date.now()}`);
+                const result = await res.json();
+                if (!result.success) throw new Error(result.error);
+                const data = result.data;
+                document.getElementById('ranking-count').innerText = `${data.length}条`;
                 document.getElementById('timestamp').innerText = `更新于 ${result.timestamp}`;
-                
-                renderRankingList(currentData);
-                
-                // 默认选中第一条
-                if (currentData.length > 0 && selectedIndex === -1) {
-                    selectedIndex = 0;
-                    loadHotwordDetail(1);
-                    highlightSelected(0);
-                }
-            } catch (error) {
-                rankingList.innerHTML = `<div class="loading">加载失败: ${error.message}</div>`;
-            }
-        }
-
-        // 渲染排行榜列表
-        function renderRankingList(data) {
-            const rankingList = document.getElementById('ranking-list');
-            
-            if (!data || data.length === 0) {
-                rankingList.innerHTML = '<div class="loading">暂无数据</div>';
-                return;
-            }
-            
-            rankingList.innerHTML = data.map((item, idx) => {
-                const rankClass = idx === 0 ? 'rank-1' : (idx === 1 ? 'rank-2' : (idx === 2 ? 'rank-3' : ''));
-                const sentimentStyle = getSentimentStyle(item.sentiment_label);
-                const heatScore = item.comprehensive_score || item.rank_score || 0;
-                
-                return `
-                    <div class="ranking-item" data-index="${idx}" data-rank="${idx+1}">
-                        <div class="rank-num ${rankClass}">#${idx+1}</div>
-                        <div class="rank-content">
-                            <div class="rank-title">${escapeHtml(item.title)}</div>
-                            <div class="rank-meta">
-                                <span class="heat-badge">🔥 ${Math.round(heatScore)}</span>
-                                <span class="sentiment-badge ${sentimentStyle.class}">${sentimentStyle.icon} ${sentimentStyle.label}</span>
-                                <span>权重: ${item.raw_weight}</span>
+                container.innerHTML = data.map((item, idx) => {
+                    const style = getSentimentStyle(item.sentiment_label);
+                    const heat = Math.round(item.comprehensive_score || item.rank_score || 0);
+                    return `
+                        <div class="ranking-item" data-rank="${idx+1}">
+                            <div class="rank-num ${idx === 0 ? 'rank-1' : idx === 1 ? 'rank-2' : idx === 2 ? 'rank-3' : ''}">#${idx+1}</div>
+                            <div class="rank-content">
+                                <div class="rank-title">${escapeHtml(item.title)}</div>
+                                <div class="rank-meta">
+                                    <span class="heat-badge">🔥 ${heat}</span>
+                                    <span class="sentiment-badge ${style.class}">${style.icon} ${style.label}</span>
+                                    <span>权重: ${item.raw_weight}</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                `;
-            }).join('');
-            
-            // 绑定点击事件
-            document.querySelectorAll('.ranking-item').forEach(el => {
-                el.addEventListener('click', () => {
-                    const idx = parseInt(el.dataset.index);
-                    selectedIndex = idx;
-                    loadHotwordDetail(idx + 1);
-                    highlightSelected(idx);
+                    `;
+                }).join('');
+                document.querySelectorAll('.ranking-item').forEach(el => {
+                    el.addEventListener('click', () => {
+                        const rank = parseInt(el.dataset.rank);
+                        document.querySelectorAll('.ranking-item').forEach(e => e.classList.remove('selected'));
+                        el.classList.add('selected');
+                        loadDetail(rank);
+                    });
                 });
-            });
-        }
-
-        // 高亮选中项
-        function highlightSelected(idx) {
-            document.querySelectorAll('.ranking-item').forEach((el, i) => {
-                if (i === idx) {
-                    el.classList.add('selected');
-                } else {
-                    el.classList.remove('selected');
+                if (data.length > 0) {
+                    const first = document.querySelector('.ranking-item');
+                    if (first) {
+                        first.classList.add('selected');
+                        loadDetail(1);
+                    }
                 }
-            });
-        }
-
-        // 加载热点详情
-        async function loadHotwordDetail(rank) {
-            const detailPanel = document.getElementById('detail-panel');
-            detailPanel.innerHTML = '<div class="loading"><i class="fas fa-spinner fa-pulse"></i> 加载详情...</div>';
-            
-            try {
-                const response = await fetch(`${API_BASE}/hotword_detail/${rank}?type=${currentTab}`);
-                const result = await response.json();
-                
-                if (!result.success) {
-                    detailPanel.innerHTML = `<div class="loading">加载失败: ${result.error}</div>`;
-                    return;
-                }
-                
-                const item = result.data;
-                const sentimentStyle = getSentimentStyle(item.sentiment_label);
-                const keywords = item.sentiment_keywords || item.words || [];
-                const positiveWords = item.positive_words || [];
-                const negativeWords = item.negative_words || [];
-                const heatScore = item.comprehensive_score || item.rank_score || 0;
-                const sentimentScore = item.sentiment_score || 0.5;
-                
-                // 构建情感分数颜色
-                let scoreColor = '#f59e0b';
-                if (sentimentScore >= 0.6) scoreColor = '#10b981';
-                if (sentimentScore <= 0.4) scoreColor = '#ef4444';
-                
-                detailPanel.innerHTML = `
-                    <div class="detail-title">${escapeHtml(item.title)}</div>
-                    <div class="detail-meta">
-                        <span class="heat-badge">🔥 热度分: ${Math.round(heatScore)}</span>
-                        <span class="sentiment-badge ${sentimentStyle.class}">${sentimentStyle.icon} 情感: ${sentimentStyle.label}</span>
-                        <span>权重: ${item.raw_weight}</span>
-                    </div>
-                    <div class="detail-score" style="color: ${scoreColor};">
-                        <i class="fas fa-chart-line"></i> 情感分数: ${sentimentScore.toFixed(4)}
-                        <span style="font-size: 0.7rem; color: #64748b;">(0-1, 越高越正面)</span>
-                    </div>
-                    <div class="detail-meta">
-                        <span><i class="fas fa-calendar"></i> 时间: ${item.timestamp || '未知'}</span>
-                        <span><i class="fas fa-hashtag"></i> 词数: ${item.word_count || 0}</span>
-                        ${item.snow_score ? `<span><i class="fas fa-tag"></i> SnowNLP: ${item.snow_score.toFixed(4)}</span>` : ''}
-                    </div>
-                    ${positiveWords.length > 0 ? `
-                    <div class="sentiment-words">
-                        <i class="fas fa-smile" style="color: #10b981;"></i> 正面词: ${positiveWords.map(w => `<span class="keyword-tag" style="background:#d1fae5;">${escapeHtml(w)}</span>`).join('')}
-                    </div>
-                    ` : ''}
-                    ${negativeWords.length > 0 ? `
-                    <div class="sentiment-words">
-                        <i class="fas fa-frown" style="color: #ef4444;"></i> 负面词: ${negativeWords.map(w => `<span class="keyword-tag" style="background:#fee2e2;">${escapeHtml(w)}</span>`).join('')}
-                    </div>
-                    ` : ''}
-                    <div><strong><i class="fas fa-key"></i> 关键词:</strong></div>
-                    <div class="keywords">
-                        ${keywords.slice(0, 8).map(k => `<span class="keyword-tag">${escapeHtml(k)}</span>`).join('')}
-                    </div>
-                    <div style="margin-top: 1rem; padding-top: 0.8rem; border-top: 1px solid #eef2ff;">
-                        <i class="fas fa-search"></i> 
-                        <a href="${item.url || '#'}" target="_blank" class="detail-link">
-                            查看搜索结果
-                        </a>
-                        <span style="font-size: 0.7rem; color: #94a3b8;">（点击查看相关讨论）</span>
-                    </div>
-                `;
-            } catch (error) {
-                detailPanel.innerHTML = `<div class="loading">加载失败: ${error.message}</div>`;
+            } catch (err) {
+                container.innerHTML = `<div class="loading">加载失败: ${err.message}</div>`;
             }
         }
 
         // 加载词云
         async function loadWordcloud() {
-            const endpoint = currentTab === 'general' ? '/general_wordcloud' : '/tech_wordcloud';
+            const endpoint = currentTab === 'general' ? '/api/general_wordcloud' : '/api/tech_wordcloud';
             const container = document.getElementById('wordcloud-container');
-            container.innerHTML = '<div class="loading"><i class="fas fa-spinner fa-pulse"></i> 加载词云中...</div>';
-            
+            container.innerHTML = '<div class="loading">加载词云中...</div>';
             try {
-                const imgUrl = `${API_BASE}${endpoint}?t=${Date.now()}`;
                 const img = document.createElement('img');
-                img.src = imgUrl;
-                img.style.maxWidth = '100%';
-                img.style.borderRadius = '0.75rem';
-                img.style.cursor = 'pointer';
-                img.title = '点击放大查看';
-                img.onclick = () => {
-                    window.open(imgUrl, '_blank');
-                };
-                img.onload = () => {
-                    container.innerHTML = '';
-                    container.appendChild(img);
-                };
-                img.onerror = () => {
-                    container.innerHTML = '<div class="loading">词云图片加载失败</div>';
-                };
-            } catch (error) {
-                container.innerHTML = `<div class="loading">加载失败: ${error.message}</div>`;
+                img.src = `${endpoint}?t=${Date.now()}`;
+                img.onclick = () => window.open(img.src, '_blank');
+                img.onload = () => { container.innerHTML = ''; container.appendChild(img); };
+                img.onerror = () => { container.innerHTML = '<div class="loading">词云加载失败</div>'; };
+            } catch (err) {
+                container.innerHTML = `<div class="loading">加载失败: ${err.message}</div>`;
             }
         }
 
-        // 加载情感分析
-        async function loadSentiment() {
-            const endpoint = currentTab === 'general' ? '/general_sentiment' : '/tech_sentiment';
-            const statsContainer = document.getElementById('sentiment-stats');
-            statsContainer.innerHTML = '<div class="loading">加载中...</div>';
-            
-            try {
-                const response = await fetch(`${API_BASE}${endpoint}`);
-                const result = await response.json();
-                
-                if (!result.success) {
-                    statsContainer.innerHTML = `<div class="loading">加载失败: ${result.error}</div>`;
-                    return;
-                }
-                
-                const stats = result.statistics;
-                document.getElementById('sentiment-avg').innerText = `平均分: ${stats.avg_score}`;
-                
-                statsContainer.innerHTML = `
-                    <div class="stat-card stat-positive">
-                        <div class="stat-number">${stats.positive}</div>
-                        <div class="stat-label">😊 正面 ${stats.positive_ratio}%</div>
-                    </div>
-                    <div class="stat-card stat-neutral">
-                        <div class="stat-number">${stats.neutral}</div>
-                        <div class="stat-label">😐 中性 ${stats.neutral_ratio}%</div>
-                    </div>
-                    <div class="stat-card stat-negative">
-                        <div class="stat-number">${stats.negative}</div>
-                        <div class="stat-label">😞 负面 ${stats.negative_ratio}%</div>
-                    </div>
-                `;
-                
-                // 渲染情感分布饼图
-                if (sentimentChart) {
-                    sentimentChart.dispose();
-                }
-                sentimentChart = echarts.init(document.getElementById('sentiment-chart'));
-                sentimentChart.setOption({
-                    tooltip: { trigger: 'item', formatter: '{b}: {d}% ({c}条)' },
-                    legend: { orient: 'vertical', left: 'left', data: ['正面', '中性', '负面'] },
-                    series: [{
-                        name: '情感分布',
-                        type: 'pie',
-                        radius: '55%',
-                        center: ['50%', '50%'],
-                        data: [
-                            { name: '正面', value: stats.positive, itemStyle: { color: '#10b981' } },
-                            { name: '中性', value: stats.neutral, itemStyle: { color: '#f59e0b' } },
-                            { name: '负面', value: stats.negative, itemStyle: { color: '#ef4444' } }
-                        ],
-                        label: { show: true, formatter: '{b}: {d}%', fontSize: 12 },
-                        emphasis: { scale: true }
-                    }]
-                });
-            } catch (error) {
-                statsContainer.innerHTML = `<div class="loading">加载失败: ${error.message}</div>`;
-            }
-        }
-
-        // 切换标签页
         function switchTab(tab) {
             currentTab = tab;
-            selectedIndex = -1;
-            
-            // 更新按钮样式
-            document.querySelectorAll('.tab-btn').forEach(btn => {
-                if (btn.dataset.tab === tab) {
-                    btn.classList.add('active');
-                } else {
-                    btn.classList.remove('active');
-                }
-            });
-            
-            // 重置详情面板
-            document.getElementById('detail-panel').innerHTML = `
-                <div class="loading" style="padding: 2rem;">
-                    <i class="fas fa-mouse-pointer"></i> 点击左侧热词查看详细分析
-                </div>
-            `;
-            
-            // 加载数据
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.toggle('active', btn.dataset.tab === tab));
+            document.getElementById('detail-panel').innerHTML = '<div class="loading">点击左侧热词查看详情</div>';
+            document.getElementById('sentiment-stats').innerHTML = '<div class="loading">点击热词查看情感分析</div>';
+            document.getElementById('sentiment-words').innerHTML = '';
+            document.getElementById('current-hotword-name').innerText = '未选择';
+            if (sentimentChart) sentimentChart.dispose();
+            sentimentChart = null;
             loadRanking();
             loadWordcloud();
-            loadSentiment();
         }
 
-        // HTML转义
-        function escapeHtml(str) {
-            if (!str) return '';
-            return str.replace(/[&<>]/g, function(m) {
-                if (m === '&') return '&amp;';
-                if (m === '<') return '&lt;';
-                if (m === '>') return '&gt;';
-                return m;
-            });
-        }
-
-        // 初始化
         document.addEventListener('DOMContentLoaded', () => {
-            // 绑定标签页切换
-            document.querySelectorAll('.tab-btn').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    switchTab(btn.dataset.tab);
-                });
-            });
-            
-            // 加载数据
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.addEventListener('click', () => switchTab(btn.dataset.tab)));
             switchTab('general');
         });
     </script>

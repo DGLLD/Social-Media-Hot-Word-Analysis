@@ -9,7 +9,7 @@
     "rank": 1,
     "total_count": 25,
     "rank_score": 100,
-    "timestamp": "2026-03-26 16:22:09",
+    "timestamp": "2026-03-26 16:35:52",
     "words": [
       "年度",
       "征文",
@@ -30,7 +30,20 @@
     "rank_global": 1,
     "heat_score": 100.0,
     "comprehensive_score": 100.0,
-    "global_rank_final": 1
+    "global_rank_final": 1,
+    "sentiment_score": 0.7496,
+    "sentiment_label": "positive",
+    "sentiment_icon": "😊",
+    "sentiment_keywords": [
+      "杂谈",
+      "告别",
+      "效率",
+      "｜",
+      "纸"
+    ],
+    "snow_score": 0.7496,
+    "positive_words": [],
+    "negative_words": []
   },
   {
     "id": "20260326_tech_0001",
@@ -42,7 +55,7 @@
     "rank": 2,
     "total_count": 25,
     "rank_score": 85.0,
-    "timestamp": "2026-03-26 16:22:09",
+    "timestamp": "2026-03-26 16:35:52",
     "words": [
       "Claude",
       "刚刚",
@@ -55,7 +68,19 @@
     "rank_global": 2,
     "heat_score": 97.22,
     "comprehensive_score": 88.67,
-    "global_rank_final": 2
+    "global_rank_final": 2,
+    "sentiment_score": 0.7604,
+    "sentiment_label": "positive",
+    "sentiment_icon": "😊",
+    "sentiment_keywords": [
+      "杀死",
+      "OpenClaw",
+      "刚刚",
+      "Claude"
+    ],
+    "snow_score": 0.7604,
+    "positive_words": [],
+    "negative_words": []
   },
   {
     "id": "20260326_tech_0002",
@@ -67,7 +92,7 @@
     "rank": 3,
     "total_count": 25,
     "rank_score": 72.25,
-    "timestamp": "2026-03-26 16:22:09",
+    "timestamp": "2026-03-26 16:35:52",
     "words": [
       "王自如",
       "公开",
@@ -84,7 +109,20 @@
     "rank_global": 3,
     "heat_score": 94.44,
     "comprehensive_score": 78.91,
-    "global_rank_final": 3
+    "global_rank_final": 3,
+    "sentiment_score": 0.2276,
+    "sentiment_label": "negative",
+    "sentiment_icon": "😞",
+    "sentiment_keywords": [
+      "公开",
+      "01",
+      "招聘",
+      "有多",
+      "谱"
+    ],
+    "snow_score": 0.2276,
+    "positive_words": [],
+    "negative_words": []
   },
   {
     "id": "20260326_tech_0003",
@@ -96,7 +134,7 @@
     "rank": 4,
     "total_count": 25,
     "rank_score": 61.41,
-    "timestamp": "2026-03-26 16:22:09",
+    "timestamp": "2026-03-26 16:35:52",
     "words": [
       "黄仁勋",
       "即",
@@ -108,7 +146,19 @@
     "rank_global": 4,
     "heat_score": 88.89,
     "comprehensive_score": 69.65,
-    "global_rank_final": 4
+    "global_rank_final": 4,
+    "sentiment_score": 0.6468,
+    "sentiment_label": "positive",
+    "sentiment_icon": "😊",
+    "sentiment_keywords": [
+      "聪",
+      "勋",
+      "中",
+      "黄仁"
+    ],
+    "snow_score": 0.6468,
+    "positive_words": [],
+    "negative_words": []
   },
   {
     "id": "20260326_tech_0004",
@@ -120,7 +170,7 @@
     "rank": 5,
     "total_count": 25,
     "rank_score": 52.2,
-    "timestamp": "2026-03-26 16:22:09",
+    "timestamp": "2026-03-26 16:35:52",
     "words": [
       "便宜",
       "Mac",
@@ -136,7 +186,20 @@
     "rank_global": 5,
     "heat_score": 83.33,
     "comprehensive_score": 61.54,
-    "global_rank_final": 5
+    "global_rank_final": 5,
+    "sentiment_score": 0.2218,
+    "sentiment_label": "negative",
+    "sentiment_icon": "😞",
+    "sentiment_keywords": [
+      "笔记本",
+      "：MacBook",
+      "Neo",
+      "Mac",
+      "首发"
+    ],
+    "snow_score": 0.2218,
+    "positive_words": [],
+    "negative_words": []
   },
   {
     "id": "20260326_tech_0005",
@@ -148,7 +211,7 @@
     "rank": 6,
     "total_count": 25,
     "rank_score": 52.2,
-    "timestamp": "2026-03-26 16:22:09",
+    "timestamp": "2026-03-26 16:35:52",
     "words": [
       "一加",
       "15T",
@@ -169,7 +232,20 @@
     "rank_global": 5,
     "heat_score": 83.33,
     "comprehensive_score": 61.54,
-    "global_rank_final": 6
+    "global_rank_final": 6,
+    "sentiment_score": 0.2728,
+    "sentiment_label": "negative",
+    "sentiment_icon": "😞",
+    "sentiment_keywords": [
+      "至尊",
+      "机",
+      "发布",
+      "8",
+      "骁龙"
+    ],
+    "snow_score": 0.2728,
+    "positive_words": [],
+    "negative_words": []
   },
   {
     "id": "20260326_tech_0006",
@@ -181,7 +257,7 @@
     "rank": 7,
     "total_count": 25,
     "rank_score": 37.71,
-    "timestamp": "2026-03-26 16:22:09",
+    "timestamp": "2026-03-26 16:35:52",
     "words": [
       "资深",
       "前端",
@@ -195,7 +271,20 @@
     "rank_global": 7,
     "heat_score": 77.78,
     "comprehensive_score": 49.73,
-    "global_rank_final": 7
+    "global_rank_final": 7,
+    "sentiment_score": 0.9226,
+    "sentiment_label": "positive",
+    "sentiment_icon": "😊",
+    "sentiment_keywords": [
+      "悄悄",
+      "学",
+      "都",
+      "前端",
+      "WebAssembly"
+    ],
+    "snow_score": 0.9226,
+    "positive_words": [],
+    "negative_words": []
   },
   {
     "id": "20260326_tech_0007",
@@ -207,7 +296,7 @@
     "rank": 8,
     "total_count": 25,
     "rank_score": 32.06,
-    "timestamp": "2026-03-26 16:22:09",
+    "timestamp": "2026-03-26 16:35:52",
     "words": [
       "派评",
       "近期",
@@ -221,7 +310,20 @@
     "rank_global": 8,
     "heat_score": 66.67,
     "comprehensive_score": 42.44,
-    "global_rank_final": 8
+    "global_rank_final": 8,
+    "sentiment_score": 0.9111,
+    "sentiment_label": "positive",
+    "sentiment_icon": "😊",
+    "sentiment_keywords": [
+      "近期",
+      "｜",
+      "值得",
+      "关注",
+      "评"
+    ],
+    "snow_score": 0.9111,
+    "positive_words": [],
+    "negative_words": []
   },
   {
     "id": "20260326_tech_0008",
@@ -233,7 +335,7 @@
     "rank": 9,
     "total_count": 25,
     "rank_score": 32.06,
-    "timestamp": "2026-03-26 16:22:09",
+    "timestamp": "2026-03-26 16:35:52",
     "words": [
       "上海",
       "开始",
@@ -248,7 +350,19 @@
     "rank_global": 8,
     "heat_score": 66.67,
     "comprehensive_score": 42.44,
-    "global_rank_final": 9
+    "global_rank_final": 9,
+    "sentiment_score": 0.9766,
+    "sentiment_label": "positive",
+    "sentiment_icon": "😊",
+    "sentiment_keywords": [
+      "鼓励",
+      "就业",
+      "老年人",
+      "上海"
+    ],
+    "snow_score": 0.9766,
+    "positive_words": [],
+    "negative_words": []
   },
   {
     "id": "20260326_tech_0009",
@@ -260,7 +374,7 @@
     "rank": 10,
     "total_count": 25,
     "rank_score": 23.16,
-    "timestamp": "2026-03-26 16:22:09",
+    "timestamp": "2026-03-26 16:35:52",
     "words": [
       "很多",
       "工作",
@@ -276,7 +390,20 @@
     "rank_global": 10,
     "heat_score": 61.11,
     "comprehensive_score": 34.55,
-    "global_rank_final": 10
+    "global_rank_final": 10,
+    "sentiment_score": 0.5126,
+    "sentiment_label": "neutral",
+    "sentiment_icon": "😐",
+    "sentiment_keywords": [
+      "前端",
+      "工作",
+      "5",
+      "年",
+      "很多"
+    ],
+    "snow_score": 0.5126,
+    "positive_words": [],
+    "negative_words": []
   },
   {
     "id": "20260326_tech_0010",
@@ -288,7 +415,7 @@
     "rank": 11,
     "total_count": 25,
     "rank_score": 19.69,
-    "timestamp": "2026-03-26 16:22:09",
+    "timestamp": "2026-03-26 16:35:52",
     "words": [
       "点",
       "氪",
@@ -317,7 +444,24 @@
     "rank_global": 11,
     "heat_score": 55.56,
     "comprehensive_score": 30.45,
-    "global_rank_final": 11
+    "global_rank_final": 11,
+    "sentiment_score": 0.0028,
+    "sentiment_label": "negative",
+    "sentiment_icon": "😞",
+    "sentiment_keywords": [
+      "1",
+      "点",
+      "源性",
+      "猝死",
+      "15"
+    ],
+    "snow_score": 0.0046,
+    "positive_words": [],
+    "negative_words": [
+      "去世",
+      "冲突",
+      "猝死"
+    ]
   },
   {
     "id": "20260326_tech_0011",
@@ -329,7 +473,7 @@
     "rank": 12,
     "total_count": 25,
     "rank_score": 19.69,
-    "timestamp": "2026-03-26 16:22:09",
+    "timestamp": "2026-03-26 16:35:52",
     "words": [
       "8GB",
       "内存",
@@ -352,7 +496,20 @@
     "rank_global": 11,
     "heat_score": 55.56,
     "comprehensive_score": 30.45,
-    "global_rank_final": 12
+    "global_rank_final": 12,
+    "sentiment_score": 0.9247,
+    "sentiment_label": "positive",
+    "sentiment_icon": "😊",
+    "sentiment_keywords": [
+      "苹果",
+      "仍",
+      "MacBook",
+      "60",
+      "Neo"
+    ],
+    "snow_score": 0.9247,
+    "positive_words": [],
+    "negative_words": []
   },
   {
     "id": "20260326_tech_0012",
@@ -364,7 +521,7 @@
     "rank": 13,
     "total_count": 25,
     "rank_score": 14.22,
-    "timestamp": "2026-03-26 16:22:09",
+    "timestamp": "2026-03-26 16:35:52",
     "words": [
       "新",
       "玩意",
@@ -381,7 +538,20 @@
     "rank_global": 13,
     "heat_score": 50.0,
     "comprehensive_score": 24.95,
-    "global_rank_final": 13
+    "global_rank_final": 13,
+    "sentiment_score": 0.274,
+    "sentiment_label": "negative",
+    "sentiment_icon": "😞",
+    "sentiment_keywords": [
+      "少数派",
+      "编辑",
+      "237｜",
+      "玩意",
+      "买"
+    ],
+    "snow_score": 0.274,
+    "positive_words": [],
+    "negative_words": []
   },
   {
     "id": "20260326_tech_0013",
@@ -393,7 +563,7 @@
     "rank": 14,
     "total_count": 25,
     "rank_score": 12.09,
-    "timestamp": "2026-03-26 16:22:09",
+    "timestamp": "2026-03-26 16:35:52",
     "words": [
       "雷军",
       "笔记本",
@@ -406,7 +576,20 @@
     "rank_global": 14,
     "heat_score": 44.44,
     "comprehensive_score": 21.8,
-    "global_rank_final": 14
+    "global_rank_final": 14,
+    "sentiment_score": 0.36,
+    "sentiment_label": "negative",
+    "sentiment_icon": "😞",
+    "sentiment_keywords": [
+      "分钟",
+      "十",
+      "笔记本",
+      "留",
+      "只"
+    ],
+    "snow_score": 0.36,
+    "positive_words": [],
+    "negative_words": []
   },
   {
     "id": "20260326_tech_0014",
@@ -418,7 +601,7 @@
     "rank": 15,
     "total_count": 25,
     "rank_score": 12.09,
-    "timestamp": "2026-03-26 16:22:09",
+    "timestamp": "2026-03-26 16:35:52",
     "words": [
       "深入",
       "理解",
@@ -435,7 +618,20 @@
     "rank_global": 14,
     "heat_score": 44.44,
     "comprehensive_score": 21.8,
-    "global_rank_final": 15
+    "global_rank_final": 15,
+    "sentiment_score": 0.2146,
+    "sentiment_label": "negative",
+    "sentiment_icon": "😞",
+    "sentiment_keywords": [
+      "运算",
+      "合并",
+      "符",
+      "??",
+      "空值"
+    ],
+    "snow_score": 0.2146,
+    "positive_words": [],
+    "negative_words": []
   },
   {
     "id": "20260326_tech_0015",
@@ -447,7 +643,7 @@
     "rank": 16,
     "total_count": 25,
     "rank_score": 8.74,
-    "timestamp": "2026-03-26 16:22:09",
+    "timestamp": "2026-03-26 16:35:52",
     "words": [
       "派评",
       "近期",
@@ -461,7 +657,20 @@
     "rank_global": 16,
     "heat_score": 33.33,
     "comprehensive_score": 16.12,
-    "global_rank_final": 16
+    "global_rank_final": 16,
+    "sentiment_score": 0.9809,
+    "sentiment_label": "positive",
+    "sentiment_icon": "😊",
+    "sentiment_keywords": [
+      "|",
+      "近期",
+      "值得",
+      "关注",
+      "评"
+    ],
+    "snow_score": 0.9809,
+    "positive_words": [],
+    "negative_words": []
   },
   {
     "id": "20260326_tech_0016",
@@ -473,7 +682,7 @@
     "rank": 17,
     "total_count": 25,
     "rank_score": 7.43,
-    "timestamp": "2026-03-26 16:22:09",
+    "timestamp": "2026-03-26 16:35:52",
     "words": [
       "小米",
       "集团",
@@ -494,7 +703,24 @@
     "rank_global": 17,
     "heat_score": 27.78,
     "comprehensive_score": 13.53,
-    "global_rank_final": 17
+    "global_rank_final": 17,
+    "sentiment_score": 0.9883,
+    "sentiment_label": "positive",
+    "sentiment_icon": "😊",
+    "sentiment_keywords": [
+      "4572.9",
+      "全年",
+      "收",
+      "营",
+      "亿"
+    ],
+    "snow_score": 0.9805,
+    "positive_words": [
+      "增长",
+      "创新",
+      "新高"
+    ],
+    "negative_words": []
   },
   {
     "id": "20260326_tech_0017",
@@ -506,7 +732,7 @@
     "rank": 18,
     "total_count": 25,
     "rank_score": 7.43,
-    "timestamp": "2026-03-26 16:22:09",
+    "timestamp": "2026-03-26 16:35:52",
     "words": [
       "设计师",
       "慌",
@@ -524,7 +750,20 @@
     "rank_global": 17,
     "heat_score": 27.78,
     "comprehensive_score": 13.53,
-    "global_rank_final": 18
+    "global_rank_final": 18,
+    "sentiment_score": 0.4179,
+    "sentiment_label": "neutral",
+    "sentiment_icon": "😐",
+    "sentiment_keywords": [
+      "Stitch",
+      "慌",
+      "：Google",
+      "出",
+      "设计师"
+    ],
+    "snow_score": 0.4179,
+    "positive_words": [],
+    "negative_words": []
   },
   {
     "id": "20260326_tech_0018",
@@ -536,7 +775,7 @@
     "rank": 19,
     "total_count": 25,
     "rank_score": 5.36,
-    "timestamp": "2026-03-26 16:22:09",
+    "timestamp": "2026-03-26 16:35:52",
     "words": [
       "加油站",
       "排队",
@@ -552,7 +791,20 @@
     "rank_global": 19,
     "heat_score": 22.22,
     "comprehensive_score": 10.42,
-    "global_rank_final": 19
+    "global_rank_final": 19,
+    "sentiment_score": 0.0151,
+    "sentiment_label": "negative",
+    "sentiment_icon": "😞",
+    "sentiment_keywords": [
+      "撑",
+      "不",
+      "包",
+      "钱",
+      "100"
+    ],
+    "snow_score": 0.0151,
+    "positive_words": [],
+    "negative_words": []
   },
   {
     "id": "20260326_tech_0019",
@@ -564,7 +816,7 @@
     "rank": 20,
     "total_count": 25,
     "rank_score": 4.56,
-    "timestamp": "2026-03-26 16:22:09",
+    "timestamp": "2026-03-26 16:35:52",
     "words": [
       "本周",
       "看",
@@ -579,7 +831,20 @@
     "rank_global": 20,
     "heat_score": 16.67,
     "comprehensive_score": 8.19,
-    "global_rank_final": 20
+    "global_rank_final": 20,
+    "sentiment_score": 0.9732,
+    "sentiment_label": "positive",
+    "sentiment_icon": "😊",
+    "sentiment_keywords": [
+      "看",
+      "值得",
+      "|",
+      "10",
+      "部"
+    ],
+    "snow_score": 0.9732,
+    "positive_words": [],
+    "negative_words": []
   },
   {
     "id": "20260326_tech_0020",
@@ -591,7 +856,7 @@
     "rank": 21,
     "total_count": 25,
     "rank_score": 3.88,
-    "timestamp": "2026-03-26 16:22:09",
+    "timestamp": "2026-03-26 16:35:52",
     "words": [
       "腾讯",
       "挖",
@@ -613,7 +878,20 @@
     "rank_global": 21,
     "heat_score": 13.89,
     "comprehensive_score": 6.88,
-    "global_rank_final": 21
+    "global_rank_final": 21,
+    "sentiment_score": 0.0341,
+    "sentiment_label": "negative",
+    "sentiment_icon": "😞",
+    "sentiment_keywords": [
+      "丨",
+      "智能",
+      "汇报",
+      "字节",
+      "挖来"
+    ],
+    "snow_score": 0.0341,
+    "positive_words": [],
+    "negative_words": []
   },
   {
     "id": "20260326_tech_0021",
@@ -625,7 +903,7 @@
     "rank": 22,
     "total_count": 25,
     "rank_score": 3.29,
-    "timestamp": "2026-03-26 16:22:09",
+    "timestamp": "2026-03-26 16:35:52",
     "words": [
       "AI",
       "写",
@@ -641,7 +919,20 @@
     "rank_global": 22,
     "heat_score": 11.11,
     "comprehensive_score": 5.64,
-    "global_rank_final": 22
+    "global_rank_final": 22,
+    "sentiment_score": 0.5487,
+    "sentiment_label": "neutral",
+    "sentiment_icon": "😐",
+    "sentiment_keywords": [
+      "代码",
+      "写",
+      "快",
+      "越来越",
+      "🚀AI"
+    ],
+    "snow_score": 0.5487,
+    "positive_words": [],
+    "negative_words": []
   },
   {
     "id": "20260326_tech_0022",
@@ -653,7 +944,7 @@
     "rank": 23,
     "total_count": 25,
     "rank_score": 2.8,
-    "timestamp": "2026-03-26 16:22:09",
+    "timestamp": "2026-03-26 16:35:52",
     "words": [
       "年度",
       "征文",
@@ -672,7 +963,20 @@
     "rank_global": 23,
     "heat_score": 0.0,
     "comprehensive_score": 1.96,
-    "global_rank_final": 23
+    "global_rank_final": 23,
+    "sentiment_score": 0.6798,
+    "sentiment_label": "positive",
+    "sentiment_icon": "😊",
+    "sentiment_keywords": [
+      "当机器",
+      "十字路口",
+      "学会",
+      "「",
+      "｜AI"
+    ],
+    "snow_score": 0.6798,
+    "positive_words": [],
+    "negative_words": []
   },
   {
     "id": "20260326_tech_0023",
@@ -684,7 +988,7 @@
     "rank": 24,
     "total_count": 25,
     "rank_score": 2.8,
-    "timestamp": "2026-03-26 16:22:09",
+    "timestamp": "2026-03-26 16:35:52",
     "words": [
       "马斯克",
       "转发",
@@ -703,7 +1007,20 @@
     "rank_global": 23,
     "heat_score": 0.0,
     "comprehensive_score": 1.96,
-    "global_rank_final": 24
+    "global_rank_final": 24,
+    "sentiment_score": 0.9711,
+    "sentiment_label": "positive",
+    "sentiment_icon": "😊",
+    "sentiment_keywords": [
+      "失业",
+      "名单",
+      "高",
+      "AI",
+      "30"
+    ],
+    "snow_score": 0.9711,
+    "positive_words": [],
+    "negative_words": []
   },
   {
     "id": "20260326_tech_0024",
@@ -715,7 +1032,7 @@
     "rank": 25,
     "total_count": 25,
     "rank_score": 2.8,
-    "timestamp": "2026-03-26 16:22:09",
+    "timestamp": "2026-03-26 16:35:52",
     "words": [
       "苹果",
       "iOS",
@@ -741,6 +1058,19 @@
     "rank_global": 23,
     "heat_score": 0.0,
     "comprehensive_score": 1.96,
-    "global_rank_final": 25
+    "global_rank_final": 25,
+    "sentiment_score": 0.3428,
+    "sentiment_label": "negative",
+    "sentiment_icon": "😞",
+    "sentiment_keywords": [
+      "版",
+      "正式",
+      "未",
+      "更新",
+      "汇总"
+    ],
+    "snow_score": 0.3428,
+    "positive_words": [],
+    "negative_words": []
   }
 ]
