@@ -1,152 +1,152 @@
 [
   {
     "rank": 1,
-    "word": "美国",
-    "freq": 3
+    "word": "AI",
+    "freq": 5
   },
   {
     "rank": 2,
-    "word": "张雪峰",
+    "word": "笔记本",
     "freq": 2
   },
   {
     "rank": 3,
-    "word": "水印",
+    "word": "MacBook",
     "freq": 2
   },
   {
     "rank": 4,
-    "word": "伊朗",
+    "word": "Neo",
     "freq": 2
   },
   {
     "rank": 5,
-    "word": "嘴唇发紫",
-    "freq": 1
+    "word": "前端",
+    "freq": 2
   },
   {
     "rank": 6,
-    "word": "心脏不好",
-    "freq": 1
+    "word": "派评",
+    "freq": 2
   },
   {
     "rank": 7,
-    "word": "心脏病",
-    "freq": 1
+    "word": "近期",
+    "freq": 2
   },
   {
     "rank": 8,
-    "word": "心源性猝死",
-    "freq": 1
+    "word": "值得",
+    "freq": 2
   },
   {
     "rank": 9,
-    "word": "急救",
-    "freq": 1
+    "word": "关注",
+    "freq": 2
   },
   {
     "rank": 10,
-    "word": "尽早",
-    "freq": 1
+    "word": "App",
+    "freq": 2
   },
   {
     "rank": 11,
-    "word": "世界",
-    "freq": 1
+    "word": "开始",
+    "freq": 2
   },
   {
     "rank": 12,
-    "word": "二战",
-    "freq": 1
+    "word": "苹果",
+    "freq": 2
   },
   {
     "rank": 13,
-    "word": "暴力",
-    "freq": 1
+    "word": "最近",
+    "freq": 2
   },
   {
     "rank": 14,
-    "word": "网传",
+    "word": "效率",
     "freq": 1
   },
   {
     "rank": 15,
-    "word": "App",
+    "word": "杂谈",
     "freq": 1
   },
   {
     "rank": 16,
-    "word": "截图",
+    "word": "告别",
     "freq": 1
   },
   {
     "rank": 17,
-    "word": "可追踪",
+    "word": "纸笔",
     "freq": 1
   },
   {
     "rank": 18,
-    "word": "身份",
+    "word": "拓荒",
     "freq": 1
   },
   {
     "rank": 19,
-    "word": "金融",
+    "word": "辅助",
     "freq": 1
   },
   {
     "rank": 20,
-    "word": "监督管理",
+    "word": "学习",
     "freq": 1
   },
   {
     "rank": 21,
-    "word": "总局",
+    "word": "Claude",
     "freq": 1
   },
   {
     "rank": 22,
-    "word": "副局长",
+    "word": "刚刚",
     "freq": 1
   },
   {
     "rank": 23,
-    "word": "周亮",
+    "word": "杀死",
     "freq": 1
   },
   {
     "rank": 24,
-    "word": "是否",
+    "word": "OpenClaw",
     "freq": 1
   },
   {
     "rank": 25,
-    "word": "雪山",
+    "word": "王自如",
     "freq": 1
   },
   {
     "rank": 26,
-    "word": "救过",
+    "word": "公开",
     "freq": 1
   },
   {
     "rank": 27,
-    "word": "一只",
+    "word": "招聘",
     "freq": 1
   },
   {
     "rank": 28,
-    "word": "狐狸",
+    "word": "员工",
     "freq": 1
   },
   {
     "rank": 29,
-    "word": "霜儿",
+    "word": "离谱",
     "freq": 1
   },
   {
     "rank": 30,
-    "word": "有喜",
+    "word": "黄仁勋",
     "freq": 1
   }
 ]

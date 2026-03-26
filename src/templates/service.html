@@ -160,10 +160,6 @@
             color: #94a3b8;
         }
 
-        .rank-1, .rank-2, .rank-3 {
-            font-weight: 800;
-        }
-
         .rank-1 { color: #f59e0b; }
         .rank-2 { color: #64748b; }
         .rank-3 { color: #b45309; }
@@ -176,6 +172,7 @@
         .rank-title {
             font-weight: 500;
             margin-bottom: 0.2rem;
+            line-height: 1.4;
         }
 
         .rank-meta {
@@ -259,8 +256,8 @@
         .stat-negative .stat-number { color: #ef4444; }
 
         .sentiment-chart {
-            height: 200px;
-            margin-top: 0.5rem;
+            height: 220px;
+            margin: 0.5rem 1rem 1rem 1rem;
         }
 
         /* 详情面板 */
@@ -275,6 +272,7 @@
             font-weight: 600;
             margin-bottom: 0.5rem;
             color: #1e293b;
+            line-height: 1.4;
         }
 
         .detail-meta {
@@ -342,12 +340,12 @@
             border-radius: 5px;
         }
 
-        /* 链接样式 */
         .detail-link {
             color: #3b82f6;
             text-decoration: none;
             transition: color 0.2s;
         }
+
         .detail-link:hover {
             color: #1d4ed8;
             text-decoration: underline;
@@ -386,7 +384,7 @@
                 <div class="card" style="margin-top: 1.5rem;">
                     <div class="card-header">
                         <span><i class="fas fa-cloud"></i> 热点词云</span>
-                        <span id="wordcloud-hint" style="font-size: 0.7rem; color: #6c86a3;">点击词云可放大查看</span>
+                        <span style="font-size: 0.7rem; color: #6c86a3;">点击图片放大查看</span>
                     </div>
                     <div class="wordcloud-container" id="wordcloud-container">
                         <div class="loading"><i class="fas fa-spinner fa-pulse"></i> 加载词云中...</div>
@@ -410,7 +408,7 @@
                 <div class="card" style="margin-top: 1.5rem;">
                     <div class="card-header">
                         <span><i class="fas fa-info-circle"></i> 热点详情</span>
-                        <span id="detail-hint" style="font-size: 0.7rem;">点击左侧热词查看详情</span>
+                        <span style="font-size: 0.7rem;">点击左侧热词查看详情</span>
                     </div>
                     <div class="detail-panel" id="detail-panel">
                         <div class="loading" style="padding: 2rem;">
@@ -429,11 +427,11 @@
         let sentimentChart = null;
         let selectedIndex = -1;
 
-        // API 基础路径
+        // API 基础路径（使用相对路径）
         const API_BASE = '/api';
 
         // 情感标签样式映射
-        function getSentimentStyle(score, label) {
+        function getSentimentStyle(label) {
             if (label === 'positive') {
                 return { label: '正面', class: 'sentiment-positive', icon: '😊' };
             } else if (label === 'negative') {
@@ -441,12 +439,6 @@
             } else {
                 return { label: '中性', class: 'sentiment-neutral', icon: '😐' };
             }
-        }
-
-        // 格式化时间戳
-        function formatTimestamp(timestamp) {
-            if (!timestamp) return '未知';
-            return timestamp;
         }
 
         // 加载排行榜
@@ -492,7 +484,7 @@
             
             rankingList.innerHTML = data.map((item, idx) => {
                 const rankClass = idx === 0 ? 'rank-1' : (idx === 1 ? 'rank-2' : (idx === 2 ? 'rank-3' : ''));
-                const sentimentStyle = getSentimentStyle(item.sentiment_score, item.sentiment_label);
+                const sentimentStyle = getSentimentStyle(item.sentiment_label);
                 const heatScore = item.comprehensive_score || item.rank_score || 0;
                 
                 return `
@@ -501,7 +493,7 @@
                         <div class="rank-content">
                             <div class="rank-title">${escapeHtml(item.title)}</div>
                             <div class="rank-meta">
-                                <span class="heat-badge">🔥 ${heatScore}</span>
+                                <span class="heat-badge">🔥 ${Math.round(heatScore)}</span>
                                 <span class="sentiment-badge ${sentimentStyle.class}">${sentimentStyle.icon} ${sentimentStyle.label}</span>
                                 <span>权重: ${item.raw_weight}</span>
                             </div>
@@ -532,13 +524,12 @@
             });
         }
 
-        // 加载热点详情（根据当前标签页类型）
+        // 加载热点详情
         async function loadHotwordDetail(rank) {
             const detailPanel = document.getElementById('detail-panel');
             detailPanel.innerHTML = '<div class="loading"><i class="fas fa-spinner fa-pulse"></i> 加载详情...</div>';
             
             try {
-                // 根据当前标签页传递 type 参数
                 const response = await fetch(`${API_BASE}/hotword_detail/${rank}?type=${currentTab}`);
                 const result = await response.json();
                 
@@ -548,7 +539,7 @@
                 }
                 
                 const item = result.data;
-                const sentimentStyle = getSentimentStyle(item.sentiment_score, item.sentiment_label);
+                const sentimentStyle = getSentimentStyle(item.sentiment_label);
                 const keywords = item.sentiment_keywords || item.words || [];
                 const positiveWords = item.positive_words || [];
                 const negativeWords = item.negative_words || [];
@@ -563,7 +554,7 @@
                 detailPanel.innerHTML = `
                     <div class="detail-title">${escapeHtml(item.title)}</div>
                     <div class="detail-meta">
-                        <span class="heat-badge">🔥 热度分: ${heatScore}</span>
+                        <span class="heat-badge">🔥 热度分: ${Math.round(heatScore)}</span>
                         <span class="sentiment-badge ${sentimentStyle.class}">${sentimentStyle.icon} 情感: ${sentimentStyle.label}</span>
                         <span>权重: ${item.raw_weight}</span>
                     </div>
@@ -574,7 +565,7 @@
                     <div class="detail-meta">
                         <span><i class="fas fa-calendar"></i> 时间: ${item.timestamp || '未知'}</span>
                         <span><i class="fas fa-hashtag"></i> 词数: ${item.word_count || 0}</span>
-                        <span><i class="fas fa-tag"></i> SnowNLP: ${(item.snow_score || 0.5).toFixed(4)}</span>
+                        ${item.snow_score ? `<span><i class="fas fa-tag"></i> SnowNLP: ${item.snow_score.toFixed(4)}</span>` : ''}
                     </div>
                     ${positiveWords.length > 0 ? `
                     <div class="sentiment-words">
@@ -665,14 +656,14 @@
                     </div>
                 `;
                 
-                // 渲染情感分布图
+                // 渲染情感分布饼图
                 if (sentimentChart) {
                     sentimentChart.dispose();
                 }
                 sentimentChart = echarts.init(document.getElementById('sentiment-chart'));
                 sentimentChart.setOption({
                     tooltip: { trigger: 'item', formatter: '{b}: {d}% ({c}条)' },
-                    legend: { top: 'bottom', orient: 'horizontal' },
+                    legend: { orient: 'vertical', left: 'left', data: ['正面', '中性', '负面'] },
                     series: [{
                         name: '情感分布',
                         type: 'pie',
@@ -683,7 +674,7 @@
                             { name: '中性', value: stats.neutral, itemStyle: { color: '#f59e0b' } },
                             { name: '负面', value: stats.negative, itemStyle: { color: '#ef4444' } }
                         ],
-                        label: { show: true, formatter: '{b}: {d}%', fontSize: 11 },
+                        label: { show: true, formatter: '{b}: {d}%', fontSize: 12 },
                         emphasis: { scale: true }
                     }]
                 });
@@ -727,8 +718,6 @@
                 if (m === '<') return '&lt;';
                 if (m === '>') return '&gt;';
                 return m;
-            }).replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, function(c) {
-                return c;
             });
         }
 

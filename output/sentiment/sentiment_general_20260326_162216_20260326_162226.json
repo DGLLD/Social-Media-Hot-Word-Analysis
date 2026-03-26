@@ -8,7 +8,7 @@
     "raw_weight": 0.02,
     "rank": 1,
     "total_count": 70,
-    "rank_score": 100.0,
+    "rank_score": 100,
     "timestamp": "2026-03-26 16:22:09",
     "words": [
       "嘴唇发紫",
@@ -16,7 +16,23 @@
     ],
     "word_count": 2,
     "length": 9,
-    "global_rank": 1
+    "global_rank": 1,
+    "rank_global": 1,
+    "heat_score": 100.0,
+    "comprehensive_score": 100.0,
+    "global_rank_final": 1,
+    "sentiment_score": 0.587,
+    "sentiment_label": "neutral",
+    "sentiment_icon": "😐",
+    "sentiment_keywords": [
+      "不好",
+      "发紫",
+      "心脏",
+      "嘴唇"
+    ],
+    "snow_score": 0.587,
+    "positive_words": [],
+    "negative_words": []
   },
   {
     "id": "20260326_general_0001",
@@ -27,7 +43,7 @@
     "raw_weight": 0.0333,
     "rank": 2,
     "total_count": 70,
-    "rank_score": 98.57,
+    "rank_score": 85.0,
     "timestamp": "2026-03-26 16:22:09",
     "words": [
       "心脏病",
@@ -37,7 +53,24 @@
     ],
     "word_count": 4,
     "length": 16,
-    "global_rank": 2
+    "global_rank": 2,
+    "rank_global": 2,
+    "heat_score": 98.64,
+    "comprehensive_score": 89.09,
+    "global_rank_final": 2,
+    "sentiment_score": 0.7855,
+    "sentiment_label": "positive",
+    "sentiment_icon": "😊",
+    "sentiment_keywords": [
+      "张",
+      "雪峰",
+      "跑",
+      "预言",
+      "马"
+    ],
+    "snow_score": 0.7855,
+    "positive_words": [],
+    "negative_words": []
   },
   {
     "id": "20260326_general_0002",
@@ -48,7 +81,7 @@
     "raw_weight": 0.04,
     "rank": 3,
     "total_count": 70,
-    "rank_score": 97.14,
+    "rank_score": 72.25,
     "timestamp": "2026-03-26 16:22:09",
     "words": [
       "情况",
@@ -63,7 +96,26 @@
     ],
     "word_count": 9,
     "length": 34,
-    "global_rank": 3
+    "global_rank": 3,
+    "rank_global": 3,
+    "heat_score": 97.96,
+    "comprehensive_score": 79.96,
+    "global_rank_final": 3,
+    "sentiment_score": 0.0242,
+    "sentiment_label": "negative",
+    "sentiment_icon": "😞",
+    "sentiment_keywords": [
+      "因心",
+      "源性",
+      "猝",
+      "导致",
+      "第一"
+    ],
+    "snow_score": 0.0404,
+    "positive_words": [],
+    "negative_words": [
+      "猝死"
+    ]
   },
   {
     "id": "20260326_general_0003",
@@ -74,7 +126,7 @@
     "raw_weight": 0.0588,
     "rank": 4,
     "total_count": 70,
-    "rank_score": 95.71,
+    "rank_score": 61.41,
     "timestamp": "2026-03-26 16:22:09",
     "words": [
       "世界",
@@ -87,7 +139,24 @@
     ],
     "word_count": 7,
     "length": 16,
-    "global_rank": 4
+    "global_rank": 4,
+    "rank_global": 4,
+    "heat_score": 96.04,
+    "comprehensive_score": 71.8,
+    "global_rank_final": 4,
+    "sentiment_score": 0.9999,
+    "sentiment_label": "positive",
+    "sentiment_icon": "😊",
+    "sentiment_keywords": [
+      "处于",
+      "最",
+      "二战",
+      "正",
+      "暴力"
+    ],
+    "snow_score": 0.9999,
+    "positive_words": [],
+    "negative_words": []
   },
   {
     "id": "20260326_general_0004",
@@ -98,7 +167,7 @@
     "raw_weight": 0.08,
     "rank": 5,
     "total_count": 70,
-    "rank_score": 94.29,
+    "rank_score": 52.2,
     "timestamp": "2026-03-26 16:22:09",
     "words": [
       "避",
@@ -106,36 +175,21 @@
     ],
     "word_count": 2,
     "length": 2,
-    "global_rank": 5
-  },
-  {
-    "id": "20260326_tech_0000",
-    "title": "年度征文｜效率杂谈：告别纸笔拓荒，怎么用 AI 来辅助学习？",
-    "url": "https://sspai.com/post/106878",
-    "source_file": "科技热榜_20260325_11.txt",
-    "source_type": "tech",
-    "raw_weight": 0.1,
-    "rank": 1,
-    "total_count": 25,
-    "rank_score": 100.0,
-    "timestamp": "2026-03-26 16:22:09",
-    "words": [
-      "年度",
-      "征文",
-      "效率",
-      "杂谈",
-      "告别",
-      "纸笔",
-      "拓荒",
-      "用",
-      "AI",
-      "来",
-      "辅助",
-      "学习"
+    "global_rank": 5,
+    "rank_global": 5,
+    "heat_score": 93.88,
+    "comprehensive_score": 64.7,
+    "global_rank_final": 5,
+    "sentiment_score": 0.5295,
+    "sentiment_label": "neutral",
+    "sentiment_icon": "😐",
+    "sentiment_keywords": [
+      "谶",
+      "避"
     ],
-    "word_count": 12,
-    "length": 30,
-    "global_rank": 6
+    "snow_score": 0.5295,
+    "positive_words": [],
+    "negative_words": []
   },
   {
     "id": "20260326_general_0005",
@@ -146,7 +200,7 @@
     "raw_weight": 0.1,
     "rank": 6,
     "total_count": 70,
-    "rank_score": 92.86,
+    "rank_score": 44.37,
     "timestamp": "2026-03-26 16:22:09",
     "words": [
       "网传",
@@ -166,7 +220,24 @@
     ],
     "word_count": 14,
     "length": 47,
-    "global_rank": 7
+    "global_rank": 7,
+    "rank_global": 6,
+    "heat_score": 91.84,
+    "comprehensive_score": 58.61,
+    "global_rank_final": 6,
+    "sentiment_score": 0.3968,
+    "sentiment_label": "negative",
+    "sentiment_icon": "😞",
+    "sentiment_keywords": [
+      "暗水",
+      "「",
+      "印",
+      "图",
+      "都"
+    ],
+    "snow_score": 0.3968,
+    "positive_words": [],
+    "negative_words": []
   },
   {
     "id": "20260326_general_0006",
@@ -177,7 +248,7 @@
     "raw_weight": 0.1,
     "rank": 7,
     "total_count": 70,
-    "rank_score": 91.43,
+    "rank_score": 44.37,
     "timestamp": "2026-03-26 16:22:09",
     "words": [
       "国家",
@@ -190,7 +261,24 @@
     ],
     "word_count": 7,
     "length": 18,
-    "global_rank": 8
+    "global_rank": 8,
+    "rank_global": 6,
+    "heat_score": 91.84,
+    "comprehensive_score": 58.61,
+    "global_rank_final": 7,
+    "sentiment_score": 0.0721,
+    "sentiment_label": "negative",
+    "sentiment_icon": "😞",
+    "sentiment_keywords": [
+      "副",
+      "总局",
+      "局长",
+      "管理",
+      "监督"
+    ],
+    "snow_score": 0.0721,
+    "positive_words": [],
+    "negative_words": []
   },
   {
     "id": "20260326_general_0007",
@@ -201,7 +289,7 @@
     "raw_weight": 0.1176,
     "rank": 8,
     "total_count": 70,
-    "rank_score": 90.0,
+    "rank_score": 32.06,
     "timestamp": "2026-03-26 16:22:09",
     "words": [
       "是否",
@@ -212,28 +300,23 @@
     ],
     "word_count": 5,
     "length": 12,
-    "global_rank": 9
-  },
-  {
-    "id": "20260326_tech_0001",
-    "title": "Claude刚刚杀死了OpenClaw",
-    "url": "https://www.36kr.com/p/3736521034498311",
-    "source_file": "科技热榜_20260325_11.txt",
-    "source_type": "tech",
-    "raw_weight": 0.125,
-    "rank": 2,
-    "total_count": 25,
-    "rank_score": 96.0,
-    "timestamp": "2026-03-26 16:22:09",
-    "words": [
-      "Claude",
-      "刚刚",
-      "杀死",
-      "OpenClaw"
+    "global_rank": 9,
+    "rank_global": 8,
+    "heat_score": 90.04,
+    "comprehensive_score": 49.45,
+    "global_rank_final": 8,
+    "sentiment_score": 0.9503,
+    "sentiment_label": "positive",
+    "sentiment_icon": "😊",
+    "sentiment_keywords": [
+      "只",
+      "救过",
+      "狐狸",
+      "雪山"
     ],
-    "word_count": 4,
-    "length": 19,
-    "global_rank": 10
+    "snow_score": 0.9503,
+    "positive_words": [],
+    "negative_words": []
   },
   {
     "id": "20260326_general_0008",
@@ -244,7 +327,7 @@
     "raw_weight": 0.1333,
     "rank": 9,
     "total_count": 70,
-    "rank_score": 88.57,
+    "rank_score": 27.25,
     "timestamp": "2026-03-26 16:22:09",
     "words": [
       "霜儿",
@@ -256,7 +339,24 @@
     ],
     "word_count": 6,
     "length": 12,
-    "global_rank": 11
+    "global_rank": 11,
+    "rank_global": 9,
+    "heat_score": 88.44,
+    "comprehensive_score": 45.61,
+    "global_rank_final": 9,
+    "sentiment_score": 0.9819,
+    "sentiment_label": "positive",
+    "sentiment_icon": "😊",
+    "sentiment_keywords": [
+      "抗抗",
+      "取名",
+      "喜",
+      "拼脑",
+      "儿"
+    ],
+    "snow_score": 0.9819,
+    "positive_words": [],
+    "negative_words": []
   },
   {
     "id": "20260326_general_0009",
@@ -267,7 +367,7 @@
     "raw_weight": 0.14,
     "rank": 10,
     "total_count": 70,
-    "rank_score": 87.14,
+    "rank_score": 23.16,
     "timestamp": "2026-03-26 16:22:09",
     "words": [
       "旧",
@@ -279,32 +379,26 @@
     ],
     "word_count": 6,
     "length": 11,
-    "global_rank": 12
-  },
-  {
-    "id": "20260326_tech_0002",
-    "title": "王自如公开招聘01号员工，这要求有多离谱？",
-    "url": "https://juejin.cn/post/7619900409898074112",
-    "source_file": "科技热榜_20260325_11.txt",
-    "source_type": "tech",
-    "raw_weight": 0.15,
-    "rank": 3,
-    "total_count": 25,
-    "rank_score": 92.0,
-    "timestamp": "2026-03-26 16:22:09",
-    "words": [
-      "王自如",
-      "公开",
-      "招聘",
-      "号",
-      "员工",
-      "要求",
-      "多",
-      "离谱"
+    "global_rank": 12,
+    "rank_global": 10,
+    "heat_score": 87.76,
+    "comprehensive_score": 42.54,
+    "global_rank_final": 10,
+    "sentiment_score": 0.5815,
+    "sentiment_label": "neutral",
+    "sentiment_icon": "😐",
+    "sentiment_keywords": [
+      "暴涨",
+      "价",
+      "回收",
+      "手机",
+      "五六"
     ],
-    "word_count": 8,
-    "length": 21,
-    "global_rank": 13
+    "snow_score": 0.3025,
+    "positive_words": [
+      "暴涨"
+    ],
+    "negative_words": []
   },
   {
     "id": "20260326_general_0010",
@@ -315,7 +409,7 @@
     "raw_weight": 0.16,
     "rank": 11,
     "total_count": 70,
-    "rank_score": 85.71,
+    "rank_score": 19.69,
     "timestamp": "2026-03-26 16:22:09",
     "words": [
       "外交部",
@@ -335,7 +429,24 @@
     ],
     "word_count": 14,
     "length": 41,
-    "global_rank": 14
+    "global_rank": 14,
+    "rank_global": 11,
+    "heat_score": 85.71,
+    "comprehensive_score": 39.5,
+    "global_rank_final": 11,
+    "sentiment_score": 0.6801,
+    "sentiment_label": "positive",
+    "sentiment_icon": "😊",
+    "sentiment_keywords": [
+      "日本",
+      "自卫队",
+      "闯入",
+      "人员",
+      "日方"
+    ],
+    "snow_score": 0.6801,
+    "positive_words": [],
+    "negative_words": []
   },
   {
     "id": "20260326_general_0011",
@@ -346,7 +457,7 @@
     "raw_weight": 0.1765,
     "rank": 12,
     "total_count": 70,
-    "rank_score": 84.29,
+    "rank_score": 16.73,
     "timestamp": "2026-03-26 16:22:09",
     "words": [
       "只值",
@@ -359,27 +470,24 @@
     ],
     "word_count": 7,
     "length": 19,
-    "global_rank": 15
-  },
-  {
-    "id": "20260326_tech_0003",
-    "title": "黄仁勋即中本聪",
-    "url": "https://www.huxiu.com/article/4843388.html",
-    "source_file": "科技热榜_20260325_11.txt",
-    "source_type": "tech",
-    "raw_weight": 0.2,
-    "rank": 4,
-    "total_count": 25,
-    "rank_score": 88.0,
-    "timestamp": "2026-03-26 16:22:09",
-    "words": [
-      "黄仁勋",
-      "即",
-      "中本聪"
+    "global_rank": 15,
+    "rank_global": 12,
+    "heat_score": 84.03,
+    "comprehensive_score": 36.92,
+    "global_rank_final": 12,
+    "sentiment_score": 0.0013,
+    "sentiment_label": "negative",
+    "sentiment_icon": "😞",
+    "sentiment_keywords": [
+      "机",
+      "现",
+      "二手",
+      "回收",
+      "元"
     ],
-    "word_count": 3,
-    "length": 7,
-    "global_rank": 16
+    "snow_score": 0.0013,
+    "positive_words": [],
+    "negative_words": []
   },
   {
     "id": "20260326_general_0012",
@@ -390,7 +498,7 @@
     "raw_weight": 0.2,
     "rank": 13,
     "total_count": 70,
-    "rank_score": 82.86,
+    "rank_score": 14.22,
     "timestamp": "2026-03-26 16:22:09",
     "words": [
       "张雪峰",
@@ -401,7 +509,24 @@
     ],
     "word_count": 5,
     "length": 13,
-    "global_rank": 17
+    "global_rank": 17,
+    "rank_global": 13,
+    "heat_score": 81.63,
+    "comprehensive_score": 34.44,
+    "global_rank_final": 13,
+    "sentiment_score": 0.9747,
+    "sentiment_label": "positive",
+    "sentiment_icon": "😊",
+    "sentiment_keywords": [
+      "千万",
+      "资助",
+      "捐款",
+      "雪峰",
+      "贫困"
+    ],
+    "snow_score": 0.9747,
+    "positive_words": [],
+    "negative_words": []
   },
   {
     "id": "20260326_general_0013",
@@ -412,7 +537,7 @@
     "raw_weight": 0.2,
     "rank": 14,
     "total_count": 70,
-    "rank_score": 81.43,
+    "rank_score": 14.22,
     "timestamp": "2026-03-26 16:22:09",
     "words": [
       "伊朗",
@@ -433,7 +558,24 @@
     ],
     "word_count": 15,
     "length": 37,
-    "global_rank": 18
+    "global_rank": 18,
+    "rank_global": 13,
+    "heat_score": 81.63,
+    "comprehensive_score": 34.44,
+    "global_rank_final": 14,
+    "sentiment_score": 0.9993,
+    "sentiment_label": "positive",
+    "sentiment_icon": "😊",
+    "sentiment_keywords": [
+      "收到",
+      "调解人",
+      "已",
+      "达成",
+      "暗示"
+    ],
+    "snow_score": 0.9993,
+    "positive_words": [],
+    "negative_words": []
   },
   {
     "id": "20260326_general_0014",
@@ -444,7 +586,7 @@
     "raw_weight": 0.22,
     "rank": 15,
     "total_count": 70,
-    "rank_score": 80.0,
+    "rank_score": 10.28,
     "timestamp": "2026-03-26 16:22:09",
     "words": [
       "美国",
@@ -467,7 +609,26 @@
     ],
     "word_count": 17,
     "length": 50,
-    "global_rank": 19
+    "global_rank": 19,
+    "rank_global": 15,
+    "heat_score": 79.59,
+    "comprehensive_score": 31.07,
+    "global_rank_final": 15,
+    "sentiment_score": 0.4414,
+    "sentiment_label": "neutral",
+    "sentiment_icon": "😐",
+    "sentiment_keywords": [
+      "美国",
+      "一个",
+      "15",
+      "月",
+      "讨论"
+    ],
+    "snow_score": 0.7357,
+    "positive_words": [],
+    "negative_words": [
+      "冲突"
+    ]
   },
   {
     "id": "20260326_general_0015",
@@ -478,7 +639,7 @@
     "raw_weight": 0.2333,
     "rank": 16,
     "total_count": 70,
-    "rank_score": 78.57,
+    "rank_score": 8.74,
     "timestamp": "2026-03-26 16:22:09",
     "words": [
       "电锯",
@@ -490,7 +651,24 @@
     ],
     "word_count": 6,
     "length": 11,
-    "global_rank": 20
+    "global_rank": 20,
+    "rank_global": 16,
+    "heat_score": 78.23,
+    "comprehensive_score": 29.59,
+    "global_rank_final": 16,
+    "sentiment_score": 0.1832,
+    "sentiment_label": "negative",
+    "sentiment_icon": "😞",
+    "sentiment_keywords": [
+      "人烂",
+      "强行",
+      "尾",
+      "锯",
+      "包"
+    ],
+    "snow_score": 0.1832,
+    "positive_words": [],
+    "negative_words": []
   },
   {
     "id": "20260326_general_0016",
@@ -501,7 +679,7 @@
     "raw_weight": 0.2353,
     "rank": 17,
     "total_count": 70,
-    "rank_score": 77.14,
+    "rank_score": 7.43,
     "timestamp": "2026-03-26 16:22:09",
     "words": [
       "生命科学",
@@ -510,60 +688,25 @@
     ],
     "word_count": 3,
     "length": 11,
-    "global_rank": 21
-  },
-  {
-    "id": "20260326_tech_0004",
-    "title": "最便宜的 Mac 笔记本：MacBook Neo 首发体验",
-    "url": "https://sspai.com/post/107031",
-    "source_file": "科技热榜_20260325_11.txt",
-    "source_type": "tech",
-    "raw_weight": 0.25,
-    "rank": 5,
-    "total_count": 25,
-    "rank_score": 84.0,
-    "timestamp": "2026-03-26 16:22:09",
-    "words": [
-      "便宜",
-      "Mac",
-      "笔记本",
-      "MacBook",
-      "Neo",
-      "首发",
-      "体验"
+    "global_rank": 21,
+    "rank_global": 17,
+    "heat_score": 78.03,
+    "comprehensive_score": 28.61,
+    "global_rank_final": 17,
+    "sentiment_score": 0.5576,
+    "sentiment_label": "neutral",
+    "sentiment_icon": "😐",
+    "sentiment_keywords": [
+      "大起底",
+      "科学",
+      "骗局",
+      "生命"
     ],
-    "word_count": 7,
-    "length": 29,
-    "global_rank": 22
-  },
-  {
-    "id": "20260326_tech_0005",
-    "title": "一加 15T 小屏旗舰机发布：第五代骁龙 8 至尊版、7500mAh 冰川电池，4299 元起",
-    "url": "https://m.ithome.com/html/932254.htm",
-    "source_file": "科技热榜_20260325_11.txt",
-    "source_type": "tech",
-    "raw_weight": 0.25,
-    "rank": 6,
-    "total_count": 25,
-    "rank_score": 80.0,
-    "timestamp": "2026-03-26 16:22:09",
-    "words": [
-      "一加",
-      "15T",
-      "小屏",
-      "旗舰机",
-      "发布",
-      "第五代",
-      "骁龙",
-      "至尊版",
-      "7500mAh",
-      "冰川",
-      "电池",
-      "元起"
-    ],
-    "word_count": 12,
-    "length": 47,
-    "global_rank": 23
+    "snow_score": 0.9293,
+    "positive_words": [],
+    "negative_words": [
+      "骗局"
+    ]
   },
   {
     "id": "20260326_general_0017",
@@ -574,7 +717,7 @@
     "raw_weight": 0.26,
     "rank": 18,
     "total_count": 70,
-    "rank_score": 75.71,
+    "rank_score": 6.31,
     "timestamp": "2026-03-26 16:22:09",
     "words": [
       "颜如晶",
@@ -585,7 +728,24 @@
     ],
     "word_count": 5,
     "length": 11,
-    "global_rank": 24
+    "global_rank": 24,
+    "rank_global": 18,
+    "heat_score": 75.51,
+    "comprehensive_score": 27.07,
+    "global_rank_final": 18,
+    "sentiment_score": 0.2366,
+    "sentiment_label": "negative",
+    "sentiment_icon": "😞",
+    "sentiment_keywords": [
+      "年",
+      "减",
+      "重",
+      "2.9",
+      "晶"
+    ],
+    "snow_score": 0.2366,
+    "positive_words": [],
+    "negative_words": []
   },
   {
     "id": "20260326_general_0018",
@@ -596,7 +756,7 @@
     "raw_weight": 0.28,
     "rank": 19,
     "total_count": 70,
-    "rank_score": 74.29,
+    "rank_score": 5.36,
     "timestamp": "2026-03-26 16:22:09",
     "words": [
       "OpenAI",
@@ -615,7 +775,24 @@
     ],
     "word_count": 13,
     "length": 41,
-    "global_rank": 25
+    "global_rank": 25,
+    "rank_global": 19,
+    "heat_score": 73.47,
+    "comprehensive_score": 25.79,
+    "global_rank_final": 19,
+    "sentiment_score": 0.9707,
+    "sentiment_label": "positive",
+    "sentiment_icon": "😊",
+    "sentiment_keywords": [
+      "Sora",
+      "生",
+      "视频",
+      "出",
+      "行业"
+    ],
+    "snow_score": 0.9707,
+    "positive_words": [],
+    "negative_words": []
   },
   {
     "id": "20260326_general_0019",
@@ -626,7 +803,7 @@
     "raw_weight": 0.2941,
     "rank": 20,
     "total_count": 70,
-    "rank_score": 72.86,
+    "rank_score": 4.56,
     "timestamp": "2026-03-26 16:22:09",
     "words": [
       "原来",
@@ -636,29 +813,24 @@
     ],
     "word_count": 4,
     "length": 11,
-    "global_rank": 26
-  },
-  {
-    "id": "20260326_tech_0006",
-    "title": "为什么资深前端都在悄悄学 WebAssembly？",
-    "url": "https://juejin.cn/post/7617879883323686962",
-    "source_file": "科技热榜_20260325_11.txt",
-    "source_type": "tech",
-    "raw_weight": 0.3,
-    "rank": 7,
-    "total_count": 25,
-    "rank_score": 76.0,
-    "timestamp": "2026-03-26 16:22:09",
-    "words": [
-      "资深",
-      "前端",
-      "悄悄",
-      "学",
-      "WebAssembly"
+    "global_rank": 26,
+    "rank_global": 20,
+    "heat_score": 72.03,
+    "comprehensive_score": 24.8,
+    "global_rank_final": 20,
+    "sentiment_score": 0.8578,
+    "sentiment_label": "positive",
+    "sentiment_icon": "😊",
+    "sentiment_keywords": [
+      "年龄",
+      "烟真",
+      "最佳",
+      "的有",
+      "戒"
     ],
-    "word_count": 5,
-    "length": 25,
-    "global_rank": 27
+    "snow_score": 0.8578,
+    "positive_words": [],
+    "negative_words": []
   },
   {
     "id": "20260326_general_0020",
@@ -669,7 +841,7 @@
     "raw_weight": 0.3,
     "rank": 21,
     "total_count": 70,
-    "rank_score": 71.43,
+    "rank_score": 3.88,
     "timestamp": "2026-03-26 16:22:09",
     "words": [
       "博士生",
@@ -691,7 +863,24 @@
     ],
     "word_count": 16,
     "length": 64,
-    "global_rank": 28
+    "global_rank": 28,
+    "rank_global": 21,
+    "heat_score": 71.43,
+    "comprehensive_score": 24.14,
+    "global_rank_final": 21,
+    "sentiment_score": 1.0,
+    "sentiment_label": "positive",
+    "sentiment_icon": "😊",
+    "sentiment_keywords": [
+      "导师",
+      "儿子",
+      "男",
+      "朋友",
+      "老师"
+    ],
+    "snow_score": 1.0,
+    "positive_words": [],
+    "negative_words": []
   },
   {
     "id": "20260326_general_0021",
@@ -702,7 +891,7 @@
     "raw_weight": 0.32,
     "rank": 22,
     "total_count": 70,
-    "rank_score": 70.0,
+    "rank_score": 3.29,
     "timestamp": "2026-03-26 16:22:09",
     "words": [
       "朱伟",
@@ -712,7 +901,24 @@
     ],
     "word_count": 4,
     "length": 9,
-    "global_rank": 29
+    "global_rank": 29,
+    "rank_global": 22,
+    "heat_score": 69.39,
+    "comprehensive_score": 23.12,
+    "global_rank_final": 22,
+    "sentiment_score": 0.8598,
+    "sentiment_label": "positive",
+    "sentiment_icon": "😊",
+    "sentiment_keywords": [
+      "张",
+      "文悼",
+      "伟长",
+      "念",
+      "雪峰"
+    ],
+    "snow_score": 0.8598,
+    "positive_words": [],
+    "negative_words": []
   },
   {
     "id": "20260326_general_0022",
@@ -723,7 +929,7 @@
     "raw_weight": 0.3333,
     "rank": 23,
     "total_count": 70,
-    "rank_score": 68.57,
+    "rank_score": 2.8,
     "timestamp": "2026-03-26 16:22:09",
     "words": [
       "IG",
@@ -734,7 +940,26 @@
     ],
     "word_count": 5,
     "length": 13,
-    "global_rank": 30
+    "global_rank": 30,
+    "rank_global": 23,
+    "heat_score": 68.03,
+    "comprehensive_score": 22.37,
+    "global_rank_final": 23,
+    "sentiment_score": 0.3653,
+    "sentiment_label": "negative",
+    "sentiment_icon": "😞",
+    "sentiment_keywords": [
+      "降薪",
+      "没",
+      "呼吸",
+      "指望",
+      "IG"
+    ],
+    "snow_score": 0.6088,
+    "positive_words": [],
+    "negative_words": [
+      "降薪"
+    ]
   },
   {
     "id": "20260326_general_0023",
@@ -745,7 +970,7 @@
     "raw_weight": 0.34,
     "rank": 24,
     "total_count": 70,
-    "rank_score": 67.14,
+    "rank_score": 2.38,
     "timestamp": "2026-03-26 16:22:09",
     "words": [
       "吕不韦",
@@ -766,7 +991,24 @@
     ],
     "word_count": 15,
     "length": 33,
-    "global_rank": 31
+    "global_rank": 31,
+    "rank_global": 24,
+    "heat_score": 67.35,
+    "comprehensive_score": 21.87,
+    "global_rank_final": 24,
+    "sentiment_score": 0.9852,
+    "sentiment_label": "positive",
+    "sentiment_icon": "😊",
+    "sentiment_keywords": [
+      "国",
+      "缓慢",
+      "蚕食",
+      "韦",
+      "他俩"
+    ],
+    "snow_score": 0.9852,
+    "positive_words": [],
+    "negative_words": []
   },
   {
     "id": "20260326_general_0024",
@@ -777,7 +1019,7 @@
     "raw_weight": 0.3529,
     "rank": 25,
     "total_count": 70,
-    "rank_score": 65.71,
+    "rank_score": 2.02,
     "timestamp": "2026-03-26 16:22:09",
     "words": [
       "猝死",
@@ -790,7 +1032,26 @@
     ],
     "word_count": 7,
     "length": 13,
-    "global_rank": 32
+    "global_rank": 32,
+    "rank_global": 25,
+    "heat_score": 66.03,
+    "comprehensive_score": 21.22,
+    "global_rank_final": 25,
+    "sentiment_score": 0.0327,
+    "sentiment_label": "negative",
+    "sentiment_icon": "😞",
+    "sentiment_keywords": [
+      "扛",
+      "硬",
+      "时",
+      "疲惫",
+      "死"
+    ],
+    "snow_score": 0.0545,
+    "positive_words": [],
+    "negative_words": [
+      "猝死"
+    ]
   },
   {
     "id": "20260326_general_0025",
@@ -801,7 +1062,7 @@
     "raw_weight": 0.38,
     "rank": 26,
     "total_count": 70,
-    "rank_score": 64.29,
+    "rank_score": 1.72,
     "timestamp": "2026-03-26 16:22:09",
     "words": [
       "郝蕾",
@@ -812,52 +1073,24 @@
     ],
     "word_count": 5,
     "length": 11,
-    "global_rank": 33
-  },
-  {
-    "id": "20260326_tech_0007",
-    "title": "派评｜近期值得关注的 App",
-    "url": "https://sspai.com/post/106974",
-    "source_file": "科技热榜_20260325_11.txt",
-    "source_type": "tech",
-    "raw_weight": 0.4,
-    "rank": 8,
-    "total_count": 25,
-    "rank_score": 72.0,
-    "timestamp": "2026-03-26 16:22:09",
-    "words": [
-      "派评",
-      "近期",
-      "值得",
-      "关注",
-      "App"
+    "global_rank": 33,
+    "rank_global": 26,
+    "heat_score": 63.27,
+    "comprehensive_score": 20.18,
+    "global_rank_final": 26,
+    "sentiment_score": 0.3441,
+    "sentiment_label": "negative",
+    "sentiment_icon": "😞",
+    "sentiment_keywords": [
+      "不",
+      "想",
+      "再见",
+      "纪",
+      "说"
     ],
-    "word_count": 5,
-    "length": 14,
-    "global_rank": 34
-  },
-  {
-    "id": "20260326_tech_0008",
-    "title": "上海开始鼓励老年人就业了，这意味着什么",
-    "url": "https://www.huxiu.com/article/4844161.html",
-    "source_file": "科技热榜_20260325_11.txt",
-    "source_type": "tech",
-    "raw_weight": 0.4,
-    "rank": 9,
-    "total_count": 25,
-    "rank_score": 68.0,
-    "timestamp": "2026-03-26 16:22:09",
-    "words": [
-      "上海",
-      "开始",
-      "鼓励",
-      "老年人",
-      "就业",
-      "意味着"
-    ],
-    "word_count": 6,
-    "length": 19,
-    "global_rank": 35
+    "snow_score": 0.3441,
+    "positive_words": [],
+    "negative_words": []
   },
   {
     "id": "20260326_general_0026",
@@ -868,7 +1101,7 @@
     "raw_weight": 0.4,
     "rank": 27,
     "total_count": 70,
-    "rank_score": 62.86,
+    "rank_score": 1.46,
     "timestamp": "2026-03-26 16:22:09",
     "words": [
       "美伊",
@@ -891,7 +1124,24 @@
     ],
     "word_count": 17,
     "length": 44,
-    "global_rank": 36
+    "global_rank": 36,
+    "rank_global": 27,
+    "heat_score": 61.22,
+    "comprehensive_score": 19.39,
+    "global_rank_final": 27,
+    "sentiment_score": 0.97,
+    "sentiment_label": "positive",
+    "sentiment_icon": "😊",
+    "sentiment_keywords": [
+      "央",
+      "估",
+      "「",
+      "全球",
+      "行购"
+    ],
+    "snow_score": 0.97,
+    "positive_words": [],
+    "negative_words": []
   },
   {
     "id": "20260326_general_0027",
@@ -902,7 +1152,7 @@
     "raw_weight": 0.4,
     "rank": 28,
     "total_count": 70,
-    "rank_score": 61.43,
+    "rank_score": 1.46,
     "timestamp": "2026-03-26 16:22:09",
     "words": [
       "北京",
@@ -935,7 +1185,24 @@
     ],
     "word_count": 27,
     "length": 62,
-    "global_rank": 37
+    "global_rank": 37,
+    "rank_global": 27,
+    "heat_score": 61.22,
+    "comprehensive_score": 19.39,
+    "global_rank_final": 28,
+    "sentiment_score": 0.0007,
+    "sentiment_label": "negative",
+    "sentiment_icon": "😞",
+    "sentiment_keywords": [
+      "宿",
+      "旅行",
+      "快手",
+      "音",
+      "谈"
+    ],
+    "snow_score": 0.0007,
+    "positive_words": [],
+    "negative_words": []
   },
   {
     "id": "20260326_general_0028",
@@ -946,7 +1213,7 @@
     "raw_weight": 0.4118,
     "rank": 29,
     "total_count": 70,
-    "rank_score": 60.0,
+    "rank_score": 1.06,
     "timestamp": "2026-03-26 16:22:09",
     "words": [
       "多家",
@@ -957,7 +1224,26 @@
     ],
     "word_count": 5,
     "length": 10,
-    "global_rank": 38
+    "global_rank": 38,
+    "rank_global": 29,
+    "heat_score": 60.02,
+    "comprehensive_score": 18.75,
+    "global_rank_final": 29,
+    "sentiment_score": 0.1247,
+    "sentiment_label": "negative",
+    "sentiment_icon": "😞",
+    "sentiment_keywords": [
+      "提示",
+      "风险",
+      "银行",
+      "发布",
+      "家"
+    ],
+    "snow_score": 0.2079,
+    "positive_words": [],
+    "negative_words": [
+      "风险"
+    ]
   },
   {
     "id": "20260326_general_0029",
@@ -968,7 +1254,7 @@
     "raw_weight": 0.4333,
     "rank": 30,
     "total_count": 70,
-    "rank_score": 58.57,
+    "rank_score": 0.9,
     "timestamp": "2026-03-26 16:22:09",
     "words": [
       "万全",
@@ -979,7 +1265,24 @@
     ],
     "word_count": 5,
     "length": 13,
-    "global_rank": 39
+    "global_rank": 39,
+    "rank_global": 30,
+    "heat_score": 57.83,
+    "comprehensive_score": 17.98,
+    "global_rank_final": 30,
+    "sentiment_score": 0.2376,
+    "sentiment_label": "negative",
+    "sentiment_icon": "😞",
+    "sentiment_keywords": [
+      "保安",
+      "打赏",
+      "半年",
+      "返",
+      "万全"
+    ],
+    "snow_score": 0.2376,
+    "positive_words": [],
+    "negative_words": []
   },
   {
     "id": "20260326_general_0030",
@@ -990,7 +1293,7 @@
     "raw_weight": 0.44,
     "rank": 31,
     "total_count": 70,
-    "rank_score": 57.14,
+    "rank_score": 0.76,
     "timestamp": "2026-03-26 16:22:09",
     "words": [
       "日本",
@@ -1004,31 +1307,24 @@
     ],
     "word_count": 8,
     "length": 16,
-    "global_rank": 40
-  },
-  {
-    "id": "20260326_tech_0009",
-    "title": "为什么很多工作 5 年的前端，身价反而卡住了?🤷‍♂️",
-    "url": "https://juejin.cn/post/7619754867243843636",
-    "source_file": "科技热榜_20260325_11.txt",
-    "source_type": "tech",
-    "raw_weight": 0.45,
-    "rank": 10,
-    "total_count": 25,
-    "rank_score": 64.0,
-    "timestamp": "2026-03-26 16:22:09",
-    "words": [
-      "很多",
-      "工作",
-      "年",
-      "前端",
-      "身价",
-      "反而",
-      "卡住"
+    "global_rank": 40,
+    "rank_global": 31,
+    "heat_score": 57.14,
+    "comprehensive_score": 17.67,
+    "global_rank_final": 31,
+    "sentiment_score": 0.9968,
+    "sentiment_label": "positive",
+    "sentiment_icon": "😊",
+    "sentiment_keywords": [
+      "男子",
+      "擅",
+      "回应",
+      "自卫队",
+      "闯"
     ],
-    "word_count": 7,
-    "length": 27,
-    "global_rank": 41
+    "snow_score": 0.9968,
+    "positive_words": [],
+    "negative_words": []
   },
   {
     "id": "20260326_general_0031",
@@ -1039,7 +1335,7 @@
     "raw_weight": 0.46,
     "rank": 32,
     "total_count": 70,
-    "rank_score": 55.71,
+    "rank_score": 0.65,
     "timestamp": "2026-03-26 16:22:09",
     "words": [
       "练拳",
@@ -1051,7 +1347,24 @@
     ],
     "word_count": 6,
     "length": 20,
-    "global_rank": 42
+    "global_rank": 42,
+    "rank_global": 32,
+    "heat_score": 55.1,
+    "comprehensive_score": 16.99,
+    "global_rank_final": 32,
+    "sentiment_score": 0.9062,
+    "sentiment_label": "positive",
+    "sentiment_icon": "😊",
+    "sentiment_keywords": [
+      "人",
+      "一个",
+      "改变",
+      "懦",
+      "拳真"
+    ],
+    "snow_score": 0.9062,
+    "positive_words": [],
+    "negative_words": []
   },
   {
     "id": "20260326_general_0032",
@@ -1062,7 +1375,7 @@
     "raw_weight": 0.4706,
     "rank": 33,
     "total_count": 70,
-    "rank_score": 54.29,
+    "rank_score": 0.55,
     "timestamp": "2026-03-26 16:22:09",
     "words": [
       "黄金",
@@ -1072,75 +1385,25 @@
     ],
     "word_count": 4,
     "length": 13,
-    "global_rank": 43
-  },
-  {
-    "id": "20260326_tech_0010",
-    "title": "8点1氪丨美国提出15点结束冲突方案，拟停火1个月；张雪峰因心源性猝死抢救无效去世；Token中文名定了：词元",
-    "url": "https://www.36kr.com/p/3737612384043270",
-    "source_file": "科技热榜_20260325_11.txt",
-    "source_type": "tech",
-    "raw_weight": 0.5,
-    "rank": 11,
-    "total_count": 25,
-    "rank_score": 60.0,
-    "timestamp": "2026-03-26 16:22:09",
-    "words": [
-      "点",
-      "氪",
-      "丨",
-      "美国",
-      "提出",
-      "点",
-      "结束",
-      "冲突",
-      "方案",
-      "拟",
-      "停火",
-      "月",
-      "张雪峰",
-      "心源性猝死",
-      "抢救无效",
-      "去世",
-      "Token",
-      "中文名",
-      "定",
-      "词元"
+    "global_rank": 43,
+    "rank_global": 33,
+    "heat_score": 54.02,
+    "comprehensive_score": 16.59,
+    "global_rank_final": 33,
+    "sentiment_score": 0.5865,
+    "sentiment_label": "neutral",
+    "sentiment_icon": "😐",
+    "sentiment_keywords": [
+      "暴跌",
+      "时机",
+      "入手",
+      "黄金"
     ],
-    "word_count": 20,
-    "length": 55,
-    "global_rank": 44
-  },
-  {
-    "id": "20260326_tech_0011",
-    "title": "8GB 内存极限测试：苹果 MacBook Neo 同时打开 60 个应用仍能流畅播放视频",
-    "url": "https://m.ithome.com/html/932045.htm",
-    "source_file": "科技热榜_20260325_11.txt",
-    "source_type": "tech",
-    "raw_weight": 0.5,
-    "rank": 12,
-    "total_count": 25,
-    "rank_score": 56.0,
-    "timestamp": "2026-03-26 16:22:09",
-    "words": [
-      "8GB",
-      "内存",
-      "极限",
-      "测试",
-      "苹果",
-      "MacBook",
-      "Neo",
-      "同时",
-      "打开",
-      "应用",
-      "仍",
-      "能流畅",
-      "播放",
-      "视频"
-    ],
-    "word_count": 14,
-    "length": 45,
-    "global_rank": 45
+    "snow_score": 0.9774,
+    "positive_words": [],
+    "negative_words": [
+      "暴跌"
+    ]
   },
   {
     "id": "20260326_general_0033",
@@ -1151,7 +1414,7 @@
     "raw_weight": 0.5,
     "rank": 34,
     "total_count": 70,
-    "rank_score": 52.86,
+    "rank_score": 0.47,
     "timestamp": "2026-03-26 16:22:09",
     "words": [
       "跑步",
@@ -1163,7 +1426,26 @@
     ],
     "word_count": 6,
     "length": 14,
-    "global_rank": 46
+    "global_rank": 46,
+    "rank_global": 34,
+    "heat_score": 51.02,
+    "comprehensive_score": 15.64,
+    "global_rank_final": 34,
+    "sentiment_score": 0.2,
+    "sentiment_label": "negative",
+    "sentiment_icon": "😞",
+    "sentiment_keywords": [
+      "预防",
+      "心",
+      "梗",
+      "还",
+      "究竟"
+    ],
+    "snow_score": 0.9949,
+    "positive_words": [],
+    "negative_words": [
+      "心梗"
+    ]
   },
   {
     "id": "20260326_general_0034",
@@ -1174,7 +1456,7 @@
     "raw_weight": 0.5,
     "rank": 35,
     "total_count": 70,
-    "rank_score": 51.43,
+    "rank_score": 0.47,
     "timestamp": "2026-03-26 16:22:09",
     "words": [
       "关于",
@@ -1185,7 +1467,23 @@
     ],
     "word_count": 5,
     "length": 11,
-    "global_rank": 47
+    "global_rank": 47,
+    "rank_global": 34,
+    "heat_score": 51.02,
+    "comprehensive_score": 15.64,
+    "global_rank_final": 35,
+    "sentiment_score": 0.5754,
+    "sentiment_label": "neutral",
+    "sentiment_icon": "😐",
+    "sentiment_keywords": [
+      "访华",
+      "普京",
+      "回应",
+      "俄方"
+    ],
+    "snow_score": 0.5754,
+    "positive_words": [],
+    "negative_words": []
   },
   {
     "id": "20260326_general_0035",
@@ -1196,7 +1494,7 @@
     "raw_weight": 0.52,
     "rank": 36,
     "total_count": 70,
-    "rank_score": 50.0,
+    "rank_score": 0.34,
     "timestamp": "2026-03-26 16:22:09",
     "words": [
       "看待",
@@ -1211,7 +1509,24 @@
     ],
     "word_count": 9,
     "length": 23,
-    "global_rank": 48
+    "global_rank": 48,
+    "rank_global": 36,
+    "heat_score": 48.98,
+    "comprehensive_score": 14.93,
+    "global_rank_final": 36,
+    "sentiment_score": 0.9809,
+    "sentiment_label": "positive",
+    "sentiment_icon": "😊",
+    "sentiment_keywords": [
+      "抽出",
+      "角色",
+      "不",
+      "原神",
+      "解"
+    ],
+    "snow_score": 0.9809,
+    "positive_words": [],
+    "negative_words": []
   },
   {
     "id": "20260326_general_0036",
@@ -1222,7 +1537,7 @@
     "raw_weight": 0.5294,
     "rank": 37,
     "total_count": 70,
-    "rank_score": 48.57,
+    "rank_score": 0.29,
     "timestamp": "2026-03-26 16:22:09",
     "words": [
       "伊朗",
@@ -1235,7 +1550,24 @@
     ],
     "word_count": 7,
     "length": 17,
-    "global_rank": 49
+    "global_rank": 49,
+    "rank_global": 37,
+    "heat_score": 48.02,
+    "comprehensive_score": 14.61,
+    "global_rank_final": 37,
+    "sentiment_score": 0.489,
+    "sentiment_label": "neutral",
+    "sentiment_icon": "😐",
+    "sentiment_keywords": [
+      "真实",
+      "4”",
+      "承诺",
+      "发动",
+      "80"
+    ],
+    "snow_score": 0.489,
+    "positive_words": [],
+    "negative_words": []
   },
   {
     "id": "20260326_general_0037",
@@ -1246,7 +1578,7 @@
     "raw_weight": 0.5333,
     "rank": 38,
     "total_count": 70,
-    "rank_score": 47.14,
+    "rank_score": 0.24,
     "timestamp": "2026-03-26 16:22:09",
     "words": [
       "中方",
@@ -1258,32 +1590,24 @@
     ],
     "word_count": 6,
     "length": 14,
-    "global_rank": 50
-  },
-  {
-    "id": "20260326_tech_0012",
-    "title": "新玩意 237｜少数派的编辑们最近买了啥？",
-    "url": "https://sspai.com/post/106868",
-    "source_file": "科技热榜_20260325_11.txt",
-    "source_type": "tech",
-    "raw_weight": 0.55,
-    "rank": 13,
-    "total_count": 25,
-    "rank_score": 52.0,
-    "timestamp": "2026-03-26 16:22:09",
-    "words": [
-      "新",
-      "玩意",
-      "少数派",
-      "编辑",
-      "们",
-      "最近",
-      "买",
-      "啥"
+    "global_rank": 50,
+    "rank_global": 38,
+    "heat_score": 47.62,
+    "comprehensive_score": 14.45,
+    "global_rank_final": 38,
+    "sentiment_score": 0.807,
+    "sentiment_label": "positive",
+    "sentiment_icon": "😊",
+    "sentiment_keywords": [
+      "闯",
+      "自卫队",
+      "驻",
+      "日本",
+      "日"
     ],
-    "word_count": 8,
-    "length": 21,
-    "global_rank": 51
+    "snow_score": 0.807,
+    "positive_words": [],
+    "negative_words": []
   },
   {
     "id": "20260326_general_0038",
@@ -1294,7 +1618,7 @@
     "raw_weight": 0.56,
     "rank": 39,
     "total_count": 70,
-    "rank_score": 45.71,
+    "rank_score": 0.21,
     "timestamp": "2026-03-26 16:22:09",
     "words": [
       "闯",
@@ -1306,7 +1630,26 @@
     ],
     "word_count": 6,
     "length": 16,
-    "global_rank": 52
+    "global_rank": 52,
+    "rank_global": 39,
+    "heat_score": 44.9,
+    "comprehensive_score": 13.62,
+    "global_rank_final": 39,
+    "sentiment_score": 0.566,
+    "sentiment_label": "neutral",
+    "sentiment_icon": "😐",
+    "sentiment_keywords": [
+      "之徒",
+      "日本",
+      "不法",
+      "身份",
+      "大使馆"
+    ],
+    "snow_score": 0.9434,
+    "positive_words": [],
+    "negative_words": [
+      "曝光"
+    ]
   },
   {
     "id": "20260326_general_0039",
@@ -1317,7 +1660,7 @@
     "raw_weight": 0.58,
     "rank": 40,
     "total_count": 70,
-    "rank_score": 44.29,
+    "rank_score": 0.18,
     "timestamp": "2026-03-26 16:22:09",
     "words": [
       "上海",
@@ -1326,7 +1669,22 @@
     ],
     "word_count": 3,
     "length": 13,
-    "global_rank": 53
+    "global_rank": 53,
+    "rank_global": 40,
+    "heat_score": 42.86,
+    "comprehensive_score": 12.98,
+    "global_rank_final": 40,
+    "sentiment_score": 0.9469,
+    "sentiment_label": "positive",
+    "sentiment_icon": "😊",
+    "sentiment_keywords": [
+      "鲜为人知",
+      "美食",
+      "上海"
+    ],
+    "snow_score": 0.9469,
+    "positive_words": [],
+    "negative_words": []
   },
   {
     "id": "20260326_general_0040",
@@ -1337,7 +1695,7 @@
     "raw_weight": 0.5882,
     "rank": 41,
     "total_count": 70,
-    "rank_score": 42.86,
+    "rank_score": 0.15,
     "timestamp": "2026-03-26 16:22:09",
     "words": [
       "学习",
@@ -1348,53 +1706,24 @@
     ],
     "word_count": 5,
     "length": 16,
-    "global_rank": 54
-  },
-  {
-    "id": "20260326_tech_0013",
-    "title": "雷军，只给笔记本留了十多分钟",
-    "url": "https://www.huxiu.com/article/4843789.html",
-    "source_file": "科技热榜_20260325_11.txt",
-    "source_type": "tech",
-    "raw_weight": 0.6,
-    "rank": 14,
-    "total_count": 25,
-    "rank_score": 48.0,
-    "timestamp": "2026-03-26 16:22:09",
-    "words": [
-      "雷军",
-      "笔记本",
-      "留",
-      "十多分钟"
+    "global_rank": 54,
+    "rank_global": 41,
+    "heat_score": 42.02,
+    "comprehensive_score": 12.71,
+    "global_rank_final": 41,
+    "sentiment_score": 0.9379,
+    "sentiment_label": "positive",
+    "sentiment_icon": "😊",
+    "sentiment_keywords": [
+      "简单",
+      "一辈子",
+      "事",
+      "最",
+      "学习"
     ],
-    "word_count": 4,
-    "length": 14,
-    "global_rank": 55
-  },
-  {
-    "id": "20260326_tech_0014",
-    "title": "深入理解 ES 空值合并运算符??与可选链?.",
-    "url": "https://juejin.cn/post/7618119486494883892",
-    "source_file": "科技热榜_20260325_11.txt",
-    "source_type": "tech",
-    "raw_weight": 0.6,
-    "rank": 15,
-    "total_count": 25,
-    "rank_score": 44.0,
-    "timestamp": "2026-03-26 16:22:09",
-    "words": [
-      "深入",
-      "理解",
-      "ES",
-      "空值",
-      "合并",
-      "运算符",
-      "可",
-      "选链"
-    ],
-    "word_count": 8,
-    "length": 23,
-    "global_rank": 56
+    "snow_score": 0.9379,
+    "positive_words": [],
+    "negative_words": []
   },
   {
     "id": "20260326_general_0041",
@@ -1405,7 +1734,7 @@
     "raw_weight": 0.6,
     "rank": 42,
     "total_count": 70,
-    "rank_score": 41.43,
+    "rank_score": 0.13,
     "timestamp": "2026-03-26 16:22:09",
     "words": [
       "今晚",
@@ -1416,7 +1745,24 @@
     ],
     "word_count": 5,
     "length": 12,
-    "global_rank": 57
+    "global_rank": 57,
+    "rank_global": 42,
+    "heat_score": 40.82,
+    "comprehensive_score": 12.34,
+    "global_rank_final": 42,
+    "sentiment_score": 0.4147,
+    "sentiment_label": "neutral",
+    "sentiment_icon": "😐",
+    "sentiment_keywords": [
+      "24",
+      "时",
+      "今晚",
+      "调整",
+      "油价"
+    ],
+    "snow_score": 0.4147,
+    "positive_words": [],
+    "negative_words": []
   },
   {
     "id": "20260326_general_0042",
@@ -1427,7 +1773,7 @@
     "raw_weight": 0.62,
     "rank": 43,
     "total_count": 70,
-    "rank_score": 40.0,
+    "rank_score": 0.11,
     "timestamp": "2026-03-26 16:22:09",
     "words": [
       "逐玉",
@@ -1439,7 +1785,24 @@
     ],
     "word_count": 6,
     "length": 11,
-    "global_rank": 58
+    "global_rank": 58,
+    "rank_global": 43,
+    "heat_score": 38.78,
+    "comprehensive_score": 11.71,
+    "global_rank_final": 43,
+    "sentiment_score": 0.9964,
+    "sentiment_label": "positive",
+    "sentiment_icon": "😊",
+    "sentiment_keywords": [
+      "国产",
+      "飞",
+      "剧",
+      "创网",
+      "新"
+    ],
+    "snow_score": 0.9964,
+    "positive_words": [],
+    "negative_words": []
   },
   {
     "id": "20260326_general_0043",
@@ -1450,7 +1813,7 @@
     "raw_weight": 0.6333,
     "rank": 44,
     "total_count": 70,
-    "rank_score": 38.57,
+    "rank_score": 0.09,
     "timestamp": "2026-03-26 16:22:09",
     "words": [
       "韩",
@@ -1463,7 +1826,24 @@
     ],
     "word_count": 7,
     "length": 14,
-    "global_rank": 59
+    "global_rank": 59,
+    "rank_global": 44,
+    "heat_score": 37.42,
+    "comprehensive_score": 11.29,
+    "global_rank_final": 44,
+    "sentiment_score": 0.7972,
+    "sentiment_label": "positive",
+    "sentiment_icon": "😊",
+    "sentiment_keywords": [
+      ",BLG",
+      "秒",
+      "偷",
+      "开",
+      "变"
+    ],
+    "snow_score": 0.7972,
+    "positive_words": [],
+    "negative_words": []
   },
   {
     "id": "20260326_general_0044",
@@ -1474,7 +1854,7 @@
     "raw_weight": 0.64,
     "rank": 45,
     "total_count": 70,
-    "rank_score": 37.14,
+    "rank_score": 0.08,
     "timestamp": "2026-03-26 16:22:09",
     "words": [
       "有人",
@@ -1487,7 +1867,24 @@
     ],
     "word_count": 7,
     "length": 18,
-    "global_rank": 60
+    "global_rank": 60,
+    "rank_global": 45,
+    "heat_score": 36.73,
+    "comprehensive_score": 11.08,
+    "global_rank_final": 45,
+    "sentiment_score": 0.2665,
+    "sentiment_label": "negative",
+    "sentiment_icon": "😞",
+    "sentiment_keywords": [
+      "铁",
+      "上",
+      "反而",
+      "高",
+      "睡"
+    ],
+    "snow_score": 0.2665,
+    "positive_words": [],
+    "negative_words": []
   },
   {
     "id": "20260326_general_0045",
@@ -1498,7 +1895,7 @@
     "raw_weight": 0.6471,
     "rank": 46,
     "total_count": 70,
-    "rank_score": 35.71,
+    "rank_score": 0.07,
     "timestamp": "2026-03-26 16:22:09",
     "words": [
       "大理",
@@ -1511,7 +1908,26 @@
     ],
     "word_count": 7,
     "length": 17,
-    "global_rank": 61
+    "global_rank": 61,
+    "rank_global": 46,
+    "heat_score": 36.01,
+    "comprehensive_score": 10.85,
+    "global_rank_final": 46,
+    "sentiment_score": 0.0082,
+    "sentiment_label": "negative",
+    "sentiment_icon": "😞",
+    "sentiment_keywords": [
+      "殴打",
+      "事件",
+      "调查",
+      "女生",
+      "通报"
+    ],
+    "snow_score": 0.0137,
+    "positive_words": [],
+    "negative_words": [
+      "调查"
+    ]
   },
   {
     "id": "20260326_general_0046",
@@ -1522,7 +1938,7 @@
     "raw_weight": 0.68,
     "rank": 47,
     "total_count": 70,
-    "rank_score": 34.29,
+    "rank_score": 0.06,
     "timestamp": "2026-03-26 16:22:09",
     "words": [
       "剧版",
@@ -1531,29 +1947,24 @@
     ],
     "word_count": 3,
     "length": 9,
-    "global_rank": 62
-  },
-  {
-    "id": "20260326_tech_0015",
-    "title": "派评 | 近期值得关注的 App",
-    "url": "https://sspai.com/post/106749",
-    "source_file": "科技热榜_20260325_11.txt",
-    "source_type": "tech",
-    "raw_weight": 0.7,
-    "rank": 16,
-    "total_count": 25,
-    "rank_score": 40.0,
-    "timestamp": "2026-03-26 16:22:09",
-    "words": [
-      "派评",
-      "近期",
-      "值得",
-      "关注",
-      "App"
+    "global_rank": 62,
+    "rank_global": 47,
+    "heat_score": 32.65,
+    "comprehensive_score": 9.84,
+    "global_rank_final": 47,
+    "sentiment_score": 0.9963,
+    "sentiment_label": "positive",
+    "sentiment_icon": "😊",
+    "sentiment_keywords": [
+      "片",
+      "哈利",
+      "预告",
+      "波特",
+      "剧版"
     ],
-    "word_count": 5,
-    "length": 16,
-    "global_rank": 63
+    "snow_score": 0.9963,
+    "positive_words": [],
+    "negative_words": []
   },
   {
     "id": "20260326_general_0047",
@@ -1564,7 +1975,7 @@
     "raw_weight": 0.7,
     "rank": 48,
     "total_count": 70,
-    "rank_score": 32.86,
+    "rank_score": 0.05,
     "timestamp": "2026-03-26 16:22:09",
     "words": [
       "看待",
@@ -1584,7 +1995,24 @@
     ],
     "word_count": 14,
     "length": 47,
-    "global_rank": 64
+    "global_rank": 64,
+    "rank_global": 48,
+    "heat_score": 30.61,
+    "comprehensive_score": 9.22,
+    "global_rank_final": 48,
+    "sentiment_score": 0.8763,
+    "sentiment_label": "positive",
+    "sentiment_icon": "😊",
+    "sentiment_keywords": [
+      "路",
+      "万",
+      "问界",
+      "双光",
+      "M6"
+    ],
+    "snow_score": 0.8763,
+    "positive_words": [],
+    "negative_words": []
   },
   {
     "id": "20260326_general_0048",
@@ -1595,7 +2023,7 @@
     "raw_weight": 0.7,
     "rank": 49,
     "total_count": 70,
-    "rank_score": 31.43,
+    "rank_score": 0.05,
     "timestamp": "2026-03-26 16:22:09",
     "words": [
       "突发",
@@ -1605,7 +2033,22 @@
     ],
     "word_count": 4,
     "length": 11,
-    "global_rank": 65
+    "global_rank": 65,
+    "rank_global": 48,
+    "heat_score": 30.61,
+    "comprehensive_score": 9.22,
+    "global_rank_final": 49,
+    "sentiment_score": 0.8389,
+    "sentiment_label": "positive",
+    "sentiment_icon": "😊",
+    "sentiment_keywords": [
+      "安排",
+      "全市",
+      "春假"
+    ],
+    "snow_score": 0.8389,
+    "positive_words": [],
+    "negative_words": []
   },
   {
     "id": "20260326_general_0049",
@@ -1616,7 +2059,7 @@
     "raw_weight": 0.7059,
     "rank": 50,
     "total_count": 70,
-    "rank_score": 30.0,
+    "rank_score": 0.03,
     "timestamp": "2026-03-26 16:22:09",
     "words": [
       "救命",
@@ -1625,7 +2068,21 @@
     ],
     "word_count": 3,
     "length": 10,
-    "global_rank": 66
+    "global_rank": 66,
+    "rank_global": 50,
+    "heat_score": 30.01,
+    "comprehensive_score": 9.02,
+    "global_rank_final": 50,
+    "sentiment_score": 0.7827,
+    "sentiment_label": "positive",
+    "sentiment_icon": "😊",
+    "sentiment_keywords": [
+      "AED",
+      "救命"
+    ],
+    "snow_score": 0.7827,
+    "positive_words": [],
+    "negative_words": []
   },
   {
     "id": "20260326_general_0050",
@@ -1636,7 +2093,7 @@
     "raw_weight": 0.7333,
     "rank": 51,
     "total_count": 70,
-    "rank_score": 28.57,
+    "rank_score": 0.03,
     "timestamp": "2026-03-26 16:22:09",
     "words": [
       "养宠卷",
@@ -1648,7 +2105,24 @@
     ],
     "word_count": 6,
     "length": 13,
-    "global_rank": 67
+    "global_rank": 67,
+    "rank_global": 51,
+    "heat_score": 27.21,
+    "comprehensive_score": 8.19,
+    "global_rank_final": 51,
+    "sentiment_score": 0.7111,
+    "sentiment_label": "positive",
+    "sentiment_icon": "😊",
+    "sentiment_keywords": [
+      "幼师",
+      "改行",
+      "天",
+      "上",
+      "带"
+    ],
+    "snow_score": 0.7111,
+    "positive_words": [],
+    "negative_words": []
   },
   {
     "id": "20260326_general_0051",
@@ -1659,7 +2133,7 @@
     "raw_weight": 0.74,
     "rank": 52,
     "total_count": 70,
-    "rank_score": 27.14,
+    "rank_score": 0.03,
     "timestamp": "2026-03-26 16:22:09",
     "words": [
       "刘亦菲",
@@ -1668,62 +2142,24 @@
     ],
     "word_count": 3,
     "length": 9,
-    "global_rank": 68
-  },
-  {
-    "id": "20260326_tech_0016",
-    "title": "小米集团 2025 年全年营收 4572.9 亿元创新高，同比增长 25%",
-    "url": "https://m.ithome.com/html/932220.htm",
-    "source_file": "科技热榜_20260325_11.txt",
-    "source_type": "tech",
-    "raw_weight": 0.75,
-    "rank": 17,
-    "total_count": 25,
-    "rank_score": 36.0,
-    "timestamp": "2026-03-26 16:22:09",
-    "words": [
-      "小米",
-      "集团",
-      "年",
-      "全年",
-      "营收",
-      "4572.9",
-      "亿元",
-      "创新",
-      "高",
-      "同比",
-      "增长",
-      "25%"
+    "global_rank": 68,
+    "rank_global": 52,
+    "heat_score": 26.53,
+    "comprehensive_score": 7.98,
+    "global_rank_final": 52,
+    "sentiment_score": 0.9962,
+    "sentiment_label": "positive",
+    "sentiment_icon": "😊",
+    "sentiment_keywords": [
+      "丽",
+      "亦",
+      "菲",
+      "宝格",
+      "女王"
     ],
-    "word_count": 12,
-    "length": 37,
-    "global_rank": 69
-  },
-  {
-    "id": "20260326_tech_0017",
-    "title": "设计师慌了：Google Stitch 一出，Figma 两天跌了 12%",
-    "url": "https://juejin.cn/post/7619214301321527359",
-    "source_file": "科技热榜_20260325_11.txt",
-    "source_type": "tech",
-    "raw_weight": 0.75,
-    "rank": 18,
-    "total_count": 25,
-    "rank_score": 32.0,
-    "timestamp": "2026-03-26 16:22:09",
-    "words": [
-      "设计师",
-      "慌",
-      "Google",
-      "Stitch",
-      "一出",
-      "Figma",
-      "两天",
-      "跌",
-      "12%"
-    ],
-    "word_count": 9,
-    "length": 37,
-    "global_rank": 70
+    "snow_score": 0.9962,
+    "positive_words": [],
+    "negative_words": []
   },
   {
     "id": "20260326_general_0052",
@@ -1734,7 +2170,7 @@
     "raw_weight": 0.76,
     "rank": 53,
     "total_count": 70,
-    "rank_score": 25.71,
+    "rank_score": 0.02,
     "timestamp": "2026-03-26 16:22:09",
     "words": [
       "号",
@@ -1748,7 +2184,24 @@
     ],
     "word_count": 8,
     "length": 27,
-    "global_rank": 71
+    "global_rank": 71,
+    "rank_global": 53,
+    "heat_score": 24.49,
+    "comprehensive_score": 7.36,
+    "global_rank_final": 53,
+    "sentiment_score": 0.8457,
+    "sentiment_label": "positive",
+    "sentiment_icon": "😊",
+    "sentiment_keywords": [
+      "汽油",
+      "9",
+      "迈入",
+      "电车",
+      "钱"
+    ],
+    "snow_score": 0.8457,
+    "positive_words": [],
+    "negative_words": []
   },
   {
     "id": "20260326_general_0053",
@@ -1759,7 +2212,7 @@
     "raw_weight": 0.7647,
     "rank": 54,
     "total_count": 70,
-    "rank_score": 24.29,
+    "rank_score": 0.02,
     "timestamp": "2026-03-26 16:22:09",
     "words": [
       "北京大学",
@@ -1771,31 +2224,24 @@
     ],
     "word_count": 6,
     "length": 14,
-    "global_rank": 72
-  },
-  {
-    "id": "20260326_tech_0018",
-    "title": "加油站排队100多米，再打钱包就撑不住了",
-    "url": "https://www.huxiu.com/article/4844326.html",
-    "source_file": "科技热榜_20260325_11.txt",
-    "source_type": "tech",
-    "raw_weight": 0.8,
-    "rank": 19,
-    "total_count": 25,
-    "rank_score": 28.0,
-    "timestamp": "2026-03-26 16:22:09",
-    "words": [
-      "加油站",
-      "排队",
-      "多米",
-      "再",
-      "打",
-      "钱包",
-      "撑不住"
+    "global_rank": 72,
+    "rank_global": 54,
+    "heat_score": 24.01,
+    "comprehensive_score": 7.22,
+    "global_rank_final": 54,
+    "sentiment_score": 0.9944,
+    "sentiment_label": "positive",
+    "sentiment_icon": "😊",
+    "sentiment_keywords": [
+      "副",
+      "羽",
+      "校长",
+      "原",
+      "中"
     ],
-    "word_count": 7,
-    "length": 20,
-    "global_rank": 73
+    "snow_score": 0.9944,
+    "positive_words": [],
+    "negative_words": []
   },
   {
     "id": "20260326_general_0054",
@@ -1806,7 +2252,7 @@
     "raw_weight": 0.8,
     "rank": 55,
     "total_count": 70,
-    "rank_score": 22.86,
+    "rank_score": 0.02,
     "timestamp": "2026-03-26 16:22:09",
     "words": [
       "姆巴佩",
@@ -1817,7 +2263,24 @@
     ],
     "word_count": 5,
     "length": 10,
-    "global_rank": 74
+    "global_rank": 74,
+    "rank_global": 55,
+    "heat_score": 20.41,
+    "comprehensive_score": 6.14,
+    "global_rank_final": 55,
+    "sentiment_score": 0.9996,
+    "sentiment_label": "positive",
+    "sentiment_icon": "😊",
+    "sentiment_keywords": [
+      "伤",
+      "遭",
+      "膝",
+      "皇",
+      "佩"
+    ],
+    "snow_score": 0.9996,
+    "positive_words": [],
+    "negative_words": []
   },
   {
     "id": "20260326_general_0055",
@@ -1828,7 +2291,7 @@
     "raw_weight": 0.8,
     "rank": 56,
     "total_count": 70,
-    "rank_score": 21.43,
+    "rank_score": 0.02,
     "timestamp": "2026-03-26 16:22:09",
     "words": [
       "张雪峰",
@@ -1847,7 +2310,24 @@
     ],
     "word_count": 13,
     "length": 40,
-    "global_rank": 75
+    "global_rank": 75,
+    "rank_global": 55,
+    "heat_score": 20.41,
+    "comprehensive_score": 6.14,
+    "global_rank_final": 56,
+    "sentiment_score": 0.2,
+    "sentiment_label": "negative",
+    "sentiment_icon": "😞",
+    "sentiment_keywords": [
+      "狠狠",
+      "后",
+      "课",
+      "上",
+      "张"
+    ],
+    "snow_score": 0.6872,
+    "positive_words": [],
+    "negative_words": []
   },
   {
     "id": "20260326_general_0056",
@@ -1858,7 +2338,7 @@
     "raw_weight": 0.82,
     "rank": 57,
     "total_count": 70,
-    "rank_score": 20.0,
+    "rank_score": 0.01,
     "timestamp": "2026-03-26 16:22:09",
     "words": [
       "同样",
@@ -1873,7 +2353,26 @@
     ],
     "word_count": 9,
     "length": 36,
-    "global_rank": 76
+    "global_rank": 76,
+    "rank_global": 57,
+    "heat_score": 18.37,
+    "comprehensive_score": 5.52,
+    "global_rank_final": 57,
+    "sentiment_score": 0.5513,
+    "sentiment_label": "neutral",
+    "sentiment_icon": "😐",
+    "sentiment_keywords": [
+      "级",
+      "系统",
+      "用于",
+      "编程",
+      "Pascal"
+    ],
+    "snow_score": 0.9188,
+    "positive_words": [],
+    "negative_words": [
+      "失败"
+    ]
   },
   {
     "id": "20260326_general_0057",
@@ -1884,7 +2383,7 @@
     "raw_weight": 0.8235,
     "rank": 58,
     "total_count": 70,
-    "rank_score": 18.57,
+    "rank_score": 0.01,
     "timestamp": "2026-03-26 16:22:09",
     "words": [
       "工人",
@@ -1897,7 +2396,24 @@
     ],
     "word_count": 7,
     "length": 17,
-    "global_rank": 77
+    "global_rank": 77,
+    "rank_global": 58,
+    "heat_score": 18.01,
+    "comprehensive_score": 5.41,
+    "global_rank_final": 58,
+    "sentiment_score": 0.0249,
+    "sentiment_label": "negative",
+    "sentiment_icon": "😞",
+    "sentiment_keywords": [
+      "自制",
+      "垃圾",
+      "桶",
+      "下",
+      "楼"
+    ],
+    "snow_score": 0.0249,
+    "positive_words": [],
+    "negative_words": []
   },
   {
     "id": "20260326_general_0058",
@@ -1908,7 +2424,7 @@
     "raw_weight": 0.8333,
     "rank": 59,
     "total_count": 70,
-    "rank_score": 17.14,
+    "rank_score": 0.01,
     "timestamp": "2026-03-26 16:22:09",
     "words": [
       "知名",
@@ -1920,30 +2436,26 @@
     ],
     "word_count": 6,
     "length": 14,
-    "global_rank": 78
-  },
-  {
-    "id": "20260326_tech_0019",
-    "title": "本周看什么 | 最近值得一看的 10 部作品",
-    "url": "https://sspai.com/post/106661",
-    "source_file": "科技热榜_20260325_11.txt",
-    "source_type": "tech",
-    "raw_weight": 0.85,
-    "rank": 20,
-    "total_count": 25,
-    "rank_score": 24.0,
-    "timestamp": "2026-03-26 16:22:09",
-    "words": [
-      "本周",
-      "看",
-      "最近",
-      "值得一看",
-      "部",
-      "作品"
+    "global_rank": 78,
+    "rank_global": 59,
+    "heat_score": 17.01,
+    "comprehensive_score": 5.11,
+    "global_rank_final": 59,
+    "sentiment_score": 0.1369,
+    "sentiment_label": "negative",
+    "sentiment_icon": "😞",
+    "sentiment_keywords": [
+      "打假",
+      "庞氏",
+      ":AI",
+      "编剧",
+      "知名"
     ],
-    "word_count": 6,
-    "length": 22,
-    "global_rank": 79
+    "snow_score": 0.2282,
+    "positive_words": [],
+    "negative_words": [
+      "骗局"
+    ]
   },
   {
     "id": "20260326_general_0059",
@@ -1954,7 +2466,7 @@
     "raw_weight": 0.86,
     "rank": 60,
     "total_count": 70,
-    "rank_score": 15.71,
+    "rank_score": 0.01,
     "timestamp": "2026-03-26 16:22:09",
     "words": [
       "家里",
@@ -1968,37 +2480,24 @@
     ],
     "word_count": 8,
     "length": 15,
-    "global_rank": 80
-  },
-  {
-    "id": "20260326_tech_0020",
-    "title": "腾讯挖来多位字节Seed骨干，向姚顺雨汇报丨智能涌现独家",
-    "url": "https://www.36kr.com/p/3736935323254785",
-    "source_file": "科技热榜_20260325_11.txt",
-    "source_type": "tech",
-    "raw_weight": 0.875,
-    "rank": 21,
-    "total_count": 25,
-    "rank_score": 20.0,
-    "timestamp": "2026-03-26 16:22:09",
-    "words": [
-      "腾讯",
-      "挖",
-      "来",
-      "多位",
-      "字节",
-      "Seed",
-      "骨干",
-      "姚顺雨",
-      "汇报",
-      "丨",
-      "智能",
-      "涌现",
-      "独家"
+    "global_rank": 80,
+    "rank_global": 60,
+    "heat_score": 14.29,
+    "comprehensive_score": 4.29,
+    "global_rank_final": 60,
+    "sentiment_score": 0.6205,
+    "sentiment_label": "positive",
+    "sentiment_icon": "😊",
+    "sentiment_keywords": [
+      "旧",
+      "成",
+      "手机",
+      "吃灰",
+      "香"
     ],
-    "word_count": 13,
-    "length": 28,
-    "global_rank": 81
+    "snow_score": 0.6205,
+    "positive_words": [],
+    "negative_words": []
   },
   {
     "id": "20260326_general_0060",
@@ -2009,7 +2508,7 @@
     "raw_weight": 0.88,
     "rank": 61,
     "total_count": 70,
-    "rank_score": 14.29,
+    "rank_score": 0.01,
     "timestamp": "2026-03-26 16:22:09",
     "words": [
       "小时候",
@@ -2022,31 +2521,24 @@
     ],
     "word_count": 7,
     "length": 26,
-    "global_rank": 82
-  },
-  {
-    "id": "20260326_tech_0021",
-    "title": "🚀AI 写代码越来越快，但我开始不敢上线了",
-    "url": "https://juejin.cn/post/7618896648212725800",
-    "source_file": "科技热榜_20260325_11.txt",
-    "source_type": "tech",
-    "raw_weight": 0.9,
-    "rank": 22,
-    "total_count": 25,
-    "rank_score": 16.0,
-    "timestamp": "2026-03-26 16:22:09",
-    "words": [
-      "AI",
-      "写",
-      "代码",
-      "越来越快",
-      "开始",
-      "不敢",
-      "上线"
+    "global_rank": 82,
+    "rank_global": 61,
+    "heat_score": 12.24,
+    "comprehensive_score": 3.68,
+    "global_rank_final": 61,
+    "sentiment_score": 0.5507,
+    "sentiment_label": "neutral",
+    "sentiment_icon": "😐",
+    "sentiment_keywords": [
+      "思",
+      "恐极",
+      "」",
+      "细",
+      "「"
     ],
-    "word_count": 7,
-    "length": 21,
-    "global_rank": 83
+    "snow_score": 0.5507,
+    "positive_words": [],
+    "negative_words": []
   },
   {
     "id": "20260326_general_0061",
@@ -2057,7 +2549,7 @@
     "raw_weight": 0.9,
     "rank": 62,
     "total_count": 70,
-    "rank_score": 12.86,
+    "rank_score": 0,
     "timestamp": "2026-03-26 16:22:09",
     "words": [
       "逐玉",
@@ -2083,7 +2575,24 @@
     ],
     "word_count": 20,
     "length": 55,
-    "global_rank": 84
+    "global_rank": 84,
+    "rank_global": 62,
+    "heat_score": 10.2,
+    "comprehensive_score": 3.06,
+    "global_rank_final": 62,
+    "sentiment_score": 1.0,
+    "sentiment_label": "positive",
+    "sentiment_icon": "😊",
+    "sentiment_keywords": [
+      "不",
+      "大",
+      "全",
+      "夫人",
+      "和怀"
+    ],
+    "snow_score": 1.0,
+    "positive_words": [],
+    "negative_words": []
   },
   {
     "id": "20260326_general_0062",
@@ -2094,7 +2603,7 @@
     "raw_weight": 0.902,
     "rank": 63,
     "total_count": 70,
-    "rank_score": 11.43,
+    "rank_score": 0,
     "timestamp": "2026-03-26 16:22:09",
     "words": [
       "席琳",
@@ -2107,7 +2616,24 @@
     ],
     "word_count": 7,
     "length": 14,
-    "global_rank": 85
+    "global_rank": 85,
+    "rank_global": 63,
+    "heat_score": 10.0,
+    "comprehensive_score": 3.0,
+    "global_rank_final": 63,
+    "sentiment_score": 0.9844,
+    "sentiment_label": "positive",
+    "sentiment_icon": "😊",
+    "sentiment_keywords": [
+      "将复",
+      "出",
+      "曾",
+      "迪翁",
+      "·"
+    ],
+    "snow_score": 0.9844,
+    "positive_words": [],
+    "negative_words": []
   },
   {
     "id": "20260326_general_0063",
@@ -2118,7 +2644,7 @@
     "raw_weight": 0.92,
     "rank": 64,
     "total_count": 70,
-    "rank_score": 10.0,
+    "rank_score": 0,
     "timestamp": "2026-03-26 16:22:09",
     "words": [
       "宁艺卓",
@@ -2126,7 +2652,22 @@
     ],
     "word_count": 2,
     "length": 7,
-    "global_rank": 86
+    "global_rank": 86,
+    "rank_global": 64,
+    "heat_score": 8.16,
+    "comprehensive_score": 2.45,
+    "global_rank_final": 64,
+    "sentiment_score": 0.9044,
+    "sentiment_label": "positive",
+    "sentiment_icon": "😊",
+    "sentiment_keywords": [
+      "敏感度",
+      "卓",
+      "艺"
+    ],
+    "snow_score": 0.9044,
+    "positive_words": [],
+    "negative_words": []
   },
   {
     "id": "20260326_general_0064",
@@ -2137,7 +2678,7 @@
     "raw_weight": 0.9333,
     "rank": 65,
     "total_count": 70,
-    "rank_score": 8.57,
+    "rank_score": 0,
     "timestamp": "2026-03-26 16:22:09",
     "words": [
       "史诗",
@@ -2150,7 +2691,24 @@
     ],
     "word_count": 7,
     "length": 15,
-    "global_rank": 87
+    "global_rank": 87,
+    "rank_global": 65,
+    "heat_score": 6.81,
+    "comprehensive_score": 2.04,
+    "global_rank_final": 65,
+    "sentiment_score": 0.5962,
+    "sentiment_label": "neutral",
+    "sentiment_icon": "😐",
+    "sentiment_keywords": [
+      "物",
+      "载",
+      "AK",
+      "1v5,",
+      "级"
+    ],
+    "snow_score": 0.5962,
+    "positive_words": [],
+    "negative_words": []
   },
   {
     "id": "20260326_general_0065",
@@ -2161,7 +2719,7 @@
     "raw_weight": 0.94,
     "rank": 66,
     "total_count": 70,
-    "rank_score": 7.14,
+    "rank_score": 0,
     "timestamp": "2026-03-26 16:22:09",
     "words": [
       "BBA",
@@ -2174,7 +2732,24 @@
     ],
     "word_count": 7,
     "length": 31,
-    "global_rank": 88
+    "global_rank": 88,
+    "rank_global": 66,
+    "heat_score": 6.12,
+    "comprehensive_score": 1.84,
+    "global_rank_final": 66,
+    "sentiment_score": 0.7363,
+    "sentiment_label": "positive",
+    "sentiment_icon": "😊",
+    "sentiment_keywords": [
+      "出租车",
+      "外国",
+      "当做",
+      "都",
+      "BBA"
+    ],
+    "snow_score": 0.7363,
+    "positive_words": [],
+    "negative_words": []
   },
   {
     "id": "20260326_general_0066",
@@ -2185,7 +2760,7 @@
     "raw_weight": 0.9608,
     "rank": 67,
     "total_count": 70,
-    "rank_score": 5.71,
+    "rank_score": 0,
     "timestamp": "2026-03-26 16:22:09",
     "words": [
       "周杰伦",
@@ -2195,7 +2770,24 @@
     ],
     "word_count": 4,
     "length": 11,
-    "global_rank": 89
+    "global_rank": 89,
+    "rank_global": 67,
+    "heat_score": 4.0,
+    "comprehensive_score": 1.2,
+    "global_rank_final": 67,
+    "sentiment_score": 0.7015,
+    "sentiment_label": "positive",
+    "sentiment_icon": "😊",
+    "sentiment_keywords": [
+      "情怀",
+      "专辑",
+      "伦",
+      "新",
+      "周杰"
+    ],
+    "snow_score": 0.7015,
+    "positive_words": [],
+    "negative_words": []
   },
   {
     "id": "20260326_general_0067",
@@ -2206,7 +2798,7 @@
     "raw_weight": 0.98,
     "rank": 68,
     "total_count": 70,
-    "rank_score": 4.29,
+    "rank_score": 0,
     "timestamp": "2026-03-26 16:22:09",
     "words": [
       "上班",
@@ -2216,95 +2808,24 @@
     ],
     "word_count": 4,
     "length": 8,
-    "global_rank": 90
-  },
-  {
-    "id": "20260326_tech_0022",
-    "title": "年度征文｜AI 十字路口：当机器学会「思考」，我们应该知道什么？",
-    "url": "https://sspai.com/post/106285",
-    "source_file": "科技热榜_20260325_11.txt",
-    "source_type": "tech",
-    "raw_weight": 1.0,
-    "rank": 23,
-    "total_count": 25,
-    "rank_score": 12.0,
-    "timestamp": "2026-03-26 16:22:09",
-    "words": [
-      "年度",
-      "征文",
-      "AI",
-      "十字路口",
-      "当",
-      "机器",
-      "学会",
-      "思考",
-      "应该",
-      "知道"
+    "global_rank": 90,
+    "rank_global": 68,
+    "heat_score": 2.04,
+    "comprehensive_score": 0.61,
+    "global_rank_final": 68,
+    "sentiment_score": 0.7858,
+    "sentiment_label": "positive",
+    "sentiment_icon": "😊",
+    "sentiment_keywords": [
+      "身",
+      "高于",
+      "心",
+      "累",
+      "上班"
     ],
-    "word_count": 10,
-    "length": 32,
-    "global_rank": 91
-  },
-  {
-    "id": "20260326_tech_0023",
-    "title": "马斯克转发的AI失业名单：这些是高危职业，30岁以下首当其冲……",
-    "url": "https://www.huxiu.com/article/4844372.html",
-    "source_file": "科技热榜_20260325_11.txt",
-    "source_type": "tech",
-    "raw_weight": 1.0,
-    "rank": 24,
-    "total_count": 25,
-    "rank_score": 8.0,
-    "timestamp": "2026-03-26 16:22:09",
-    "words": [
-      "马斯克",
-      "转发",
-      "AI",
-      "失业",
-      "名单",
-      "高危",
-      "职业",
-      "岁",
-      "以下",
-      "首当其冲"
-    ],
-    "word_count": 10,
-    "length": 32,
-    "global_rank": 92
-  },
-  {
-    "id": "20260326_tech_0024",
-    "title": "苹果 iOS / iPadOS 26.4 正式版更新汇总：新增 8 个表情、增强 Apple Music、未实装 AI 版 Siri",
-    "url": "https://m.ithome.com/html/932312.htm",
-    "source_file": "科技热榜_20260325_11.txt",
-    "source_type": "tech",
-    "raw_weight": 1.0,
-    "rank": 25,
-    "total_count": 25,
-    "rank_score": 4.0,
-    "timestamp": "2026-03-26 16:22:09",
-    "words": [
-      "苹果",
-      "iOS",
-      "iPadOS",
-      "26.4",
-      "正式版",
-      "更新",
-      "汇总",
-      "新增",
-      "表情",
-      "增强",
-      "Apple",
-      "Music",
-      "未",
-      "实装",
-      "AI",
-      "版",
-      "Siri"
-    ],
-    "word_count": 17,
-    "length": 66,
-    "global_rank": 93
+    "snow_score": 0.7858,
+    "positive_words": [],
+    "negative_words": []
   },
   {
     "id": "20260326_general_0068",
@@ -2315,7 +2836,7 @@
     "raw_weight": 1.0,
     "rank": 69,
     "total_count": 70,
-    "rank_score": 2.86,
+    "rank_score": 0,
     "timestamp": "2026-03-26 16:22:09",
     "words": [
       "评价",
@@ -2333,7 +2854,24 @@
     ],
     "word_count": 12,
     "length": 38,
-    "global_rank": 94
+    "global_rank": 94,
+    "rank_global": 69,
+    "heat_score": 0.0,
+    "comprehensive_score": 0.0,
+    "global_rank_final": 69,
+    "sentiment_score": 0.5151,
+    "sentiment_label": "neutral",
+    "sentiment_icon": "😐",
+    "sentiment_keywords": [
+      "新锐",
+      "分区",
+      "期刊",
+      "年",
+      "表"
+    ],
+    "snow_score": 0.5151,
+    "positive_words": [],
+    "negative_words": []
   },
   {
     "id": "20260326_general_0069",
@@ -2344,7 +2882,7 @@
     "raw_weight": 1.0,
     "rank": 70,
     "total_count": 70,
-    "rank_score": 1.43,
+    "rank_score": 0,
     "timestamp": "2026-03-26 16:22:09",
     "words": [
       "二湘",
@@ -2357,6 +2895,25 @@
     ],
     "word_count": 7,
     "length": 18,
-    "global_rank": 95
+    "global_rank": 95,
+    "rank_global": 69,
+    "heat_score": 0.0,
+    "comprehensive_score": 0.0,
+    "global_rank_final": 70,
+    "sentiment_score": 0.4582,
+    "sentiment_label": "neutral",
+    "sentiment_icon": "😐",
+    "sentiment_keywords": [
+      "极",
+      "具",
+      "人物",
+      "争议",
+      "雪峰"
+    ],
+    "snow_score": 0.7636,
+    "positive_words": [],
+    "negative_words": [
+      "争议"
+    ]
   }
 ]
