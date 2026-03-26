@@ -14,7 +14,7 @@ Flask 后端服务
 import os
 import json
 from datetime import datetime
-from flask import Flask, render_template, jsonify, send_file
+from flask import Flask, render_template, jsonify, send_file, request
 from flask_cors import CORS
 
 # 创建 Flask 应用
@@ -237,10 +237,15 @@ def get_hotword_detail(rank):
     Args:
         rank: 排名（1-based）
     """
-    # 优先使用综合热榜数据
-    ranking_file = get_latest_file(RANKINGS_DIR, 'ranking_general_')
-    if not ranking_file:
-        ranking_file = get_latest_file(RANKINGS_DIR, 'ranking_all_')
+    # 从请求参数中获取类型，默认为 general
+    hot_type = request.args.get('type', 'general')
+    
+    if hot_type == 'tech':
+        ranking_file = get_latest_file(RANKINGS_DIR, 'ranking_tech_')
+    else:
+        ranking_file = get_latest_file(RANKINGS_DIR, 'ranking_general_')
+        if not ranking_file:
+            ranking_file = get_latest_file(RANKINGS_DIR, 'ranking_all_')
     
     if not ranking_file:
         return jsonify({'error': '未找到排行数据'}), 404
@@ -285,7 +290,7 @@ if __name__ == '__main__':
 ║  科技词云: /api/tech_wordcloud                               ║
 ║  综合情感: /api/general_sentiment                            ║
 ║  科技情感: /api/tech_sentiment                               ║
-║  热点详情: /api/hotword_detail/<rank>                        ║
+║  热点详情: /api/hotword_detail/<rank>?type=general/tech      ║
 ╠══════════════════════════════════════════════════════════════╣
 ║  按 Ctrl+C 停止服务                                           ║
 ╚══════════════════════════════════════════════════════════════╝

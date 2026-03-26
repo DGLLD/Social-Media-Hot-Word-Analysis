@@ -532,13 +532,14 @@
             });
         }
 
-        // 加载热点详情
+        // 加载热点详情（根据当前标签页类型）
         async function loadHotwordDetail(rank) {
             const detailPanel = document.getElementById('detail-panel');
             detailPanel.innerHTML = '<div class="loading"><i class="fas fa-spinner fa-pulse"></i> 加载详情...</div>';
             
             try {
-                const response = await fetch(`${API_BASE}/hotword_detail/${rank}`);
+                // 根据当前标签页传递 type 参数
+                const response = await fetch(`${API_BASE}/hotword_detail/${rank}?type=${currentTab}`);
                 const result = await response.json();
                 
                 if (!result.success) {
