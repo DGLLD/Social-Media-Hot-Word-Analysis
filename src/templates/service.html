@@ -181,6 +181,7 @@
         .rank-meta {
             display: flex;
             gap: 1rem;
+            flex-wrap: wrap;
             font-size: 0.7rem;
             color: #6c86a3;
         }
@@ -216,6 +217,12 @@
         .wordcloud-container img {
             max-width: 100%;
             border-radius: 0.75rem;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .wordcloud-container img:hover {
+            transform: scale(1.02);
         }
 
         /* 情感分析区域 */
@@ -267,6 +274,7 @@
             font-size: 1.1rem;
             font-weight: 600;
             margin-bottom: 0.5rem;
+            color: #1e293b;
         }
 
         .detail-meta {
@@ -276,6 +284,12 @@
             margin-bottom: 1rem;
             font-size: 0.8rem;
             color: #64748b;
+        }
+
+        .detail-score {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 0.5rem 0;
         }
 
         .keywords {
@@ -290,6 +304,15 @@
             padding: 0.2rem 0.8rem;
             border-radius: 1rem;
             font-size: 0.7rem;
+            color: #3b82f6;
+        }
+
+        .sentiment-words {
+            margin-top: 0.5rem;
+            padding: 0.5rem;
+            background: #f8fafc;
+            border-radius: 0.5rem;
+            font-size: 0.75rem;
         }
 
         /* 加载状态 */
@@ -318,6 +341,17 @@
             background: #cbd5e1;
             border-radius: 5px;
         }
+
+        /* 链接样式 */
+        .detail-link {
+            color: #3b82f6;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .detail-link:hover {
+            color: #1d4ed8;
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -328,8 +362,8 @@
                 <p>社交媒体热点词分析平台</p>
             </div>
             <div class="nav-tabs">
-                <button class="tab-btn active" data-tab="general">综合热榜</button>
-                <button class="tab-btn" data-tab="tech">科技热榜</button>
+                <button class="tab-btn active" data-tab="general">🔥 综合热榜</button>
+                <button class="tab-btn" data-tab="tech">💻 科技热榜</button>
             </div>
             <div class="timestamp" id="timestamp">加载中...</div>
         </div>
@@ -352,7 +386,7 @@
                 <div class="card" style="margin-top: 1.5rem;">
                     <div class="card-header">
                         <span><i class="fas fa-cloud"></i> 热点词云</span>
-                        <span id="wordcloud-hint" style="font-size: 0.7rem; color: #6c86a3;">点击词云可放大</span>
+                        <span id="wordcloud-hint" style="font-size: 0.7rem; color: #6c86a3;">点击词云可放大查看</span>
                     </div>
                     <div class="wordcloud-container" id="wordcloud-container">
                         <div class="loading"><i class="fas fa-spinner fa-pulse"></i> 加载词云中...</div>
@@ -398,11 +432,15 @@
         // API 基础路径
         const API_BASE = '/api';
 
-        // 获取情感标签样式
-        function getSentimentLabel(score) {
-            if (score >= 0.6) return { label: '正面', class: 'sentiment-positive' };
-            if (score <= 0.4) return { label: '负面', class: 'sentiment-negative' };
-            return { label: '中性', class: 'sentiment-neutral' };
+        // 情感标签样式映射
+        function getSentimentStyle(score, label) {
+            if (label === 'positive') {
+                return { label: '正面', class: 'sentiment-positive', icon: '😊' };
+            } else if (label === 'negative') {
+                return { label: '负面', class: 'sentiment-negative', icon: '😞' };
+            } else {
+                return { label: '中性', class: 'sentiment-neutral', icon: '😐' };
+            }
         }
 
         // 格式化时间戳
@@ -454,7 +492,8 @@
             
             rankingList.innerHTML = data.map((item, idx) => {
                 const rankClass = idx === 0 ? 'rank-1' : (idx === 1 ? 'rank-2' : (idx === 2 ? 'rank-3' : ''));
-                const sentiment = getSentimentLabel(item.sentiment_score || 0.5);
+                const sentimentStyle = getSentimentStyle(item.sentiment_score, item.sentiment_label);
+                const heatScore = item.comprehensive_score || item.rank_score || 0;
                 
                 return `
                     <div class="ranking-item" data-index="${idx}" data-rank="${idx+1}">
@@ -462,8 +501,8 @@
                         <div class="rank-content">
                             <div class="rank-title">${escapeHtml(item.title)}</div>
                             <div class="rank-meta">
-                                <span class="heat-badge">🔥 ${item.comprehensive_score || item.rank_score || 0}</span>
-                                <span class="sentiment-badge ${sentiment.class}">${sentiment.label}</span>
+                                <span class="heat-badge">🔥 ${heatScore}</span>
+                                <span class="sentiment-badge ${sentimentStyle.class}">${sentimentStyle.icon} ${sentimentStyle.label}</span>
                                 <span>权重: ${item.raw_weight}</span>
                             </div>
                         </div>
@@ -508,27 +547,54 @@
                 }
                 
                 const item = result.data;
-                const sentiment = getSentimentLabel(item.sentiment_score || 0.5);
+                const sentimentStyle = getSentimentStyle(item.sentiment_score, item.sentiment_label);
                 const keywords = item.sentiment_keywords || item.words || [];
+                const positiveWords = item.positive_words || [];
+                const negativeWords = item.negative_words || [];
+                const heatScore = item.comprehensive_score || item.rank_score || 0;
+                const sentimentScore = item.sentiment_score || 0.5;
+                
+                // 构建情感分数颜色
+                let scoreColor = '#f59e0b';
+                if (sentimentScore >= 0.6) scoreColor = '#10b981';
+                if (sentimentScore <= 0.4) scoreColor = '#ef4444';
                 
                 detailPanel.innerHTML = `
                     <div class="detail-title">${escapeHtml(item.title)}</div>
                     <div class="detail-meta">
-                        <span class="heat-badge">🔥 热度分: ${item.comprehensive_score || item.rank_score || 0}</span>
-                        <span class="sentiment-badge ${sentiment.class}">情感: ${sentiment.label}</span>
+                        <span class="heat-badge">🔥 热度分: ${heatScore}</span>
+                        <span class="sentiment-badge ${sentimentStyle.class}">${sentimentStyle.icon} 情感: ${sentimentStyle.label}</span>
                         <span>权重: ${item.raw_weight}</span>
+                    </div>
+                    <div class="detail-score" style="color: ${scoreColor};">
+                        <i class="fas fa-chart-line"></i> 情感分数: ${sentimentScore.toFixed(4)}
+                        <span style="font-size: 0.7rem; color: #64748b;">(0-1, 越高越正面)</span>
                     </div>
                     <div class="detail-meta">
                         <span><i class="fas fa-calendar"></i> 时间: ${item.timestamp || '未知'}</span>
                         <span><i class="fas fa-hashtag"></i> 词数: ${item.word_count || 0}</span>
+                        <span><i class="fas fa-tag"></i> SnowNLP: ${(item.snow_score || 0.5).toFixed(4)}</span>
                     </div>
-                    <div><strong>情感分数:</strong> ${(item.sentiment_score || 0.5).toFixed(4)} (0-1, 越高越正面)</div>
-                    <div><strong>关键词:</strong></div>
+                    ${positiveWords.length > 0 ? `
+                    <div class="sentiment-words">
+                        <i class="fas fa-smile" style="color: #10b981;"></i> 正面词: ${positiveWords.map(w => `<span class="keyword-tag" style="background:#d1fae5;">${escapeHtml(w)}</span>`).join('')}
+                    </div>
+                    ` : ''}
+                    ${negativeWords.length > 0 ? `
+                    <div class="sentiment-words">
+                        <i class="fas fa-frown" style="color: #ef4444;"></i> 负面词: ${negativeWords.map(w => `<span class="keyword-tag" style="background:#fee2e2;">${escapeHtml(w)}</span>`).join('')}
+                    </div>
+                    ` : ''}
+                    <div><strong><i class="fas fa-key"></i> 关键词:</strong></div>
                     <div class="keywords">
                         ${keywords.slice(0, 8).map(k => `<span class="keyword-tag">${escapeHtml(k)}</span>`).join('')}
                     </div>
-                    <div style="margin-top: 0.8rem; font-size: 0.8rem; color: #64748b;">
-                        <i class="fas fa-link"></i> <a href="${item.url || '#'}" target="_blank">查看原文</a>
+                    <div style="margin-top: 1rem; padding-top: 0.8rem; border-top: 1px solid #eef2ff;">
+                        <i class="fas fa-search"></i> 
+                        <a href="${item.url || '#'}" target="_blank" class="detail-link">
+                            查看搜索结果
+                        </a>
+                        <span style="font-size: 0.7rem; color: #94a3b8;">（点击查看相关讨论）</span>
                     </div>
                 `;
             } catch (error) {
@@ -549,6 +615,10 @@
                 img.style.maxWidth = '100%';
                 img.style.borderRadius = '0.75rem';
                 img.style.cursor = 'pointer';
+                img.title = '点击放大查看';
+                img.onclick = () => {
+                    window.open(imgUrl, '_blank');
+                };
                 img.onload = () => {
                     container.innerHTML = '';
                     container.appendChild(img);
@@ -582,15 +652,15 @@
                 statsContainer.innerHTML = `
                     <div class="stat-card stat-positive">
                         <div class="stat-number">${stats.positive}</div>
-                        <div class="stat-label">正面 ${stats.positive_ratio}%</div>
+                        <div class="stat-label">😊 正面 ${stats.positive_ratio}%</div>
                     </div>
                     <div class="stat-card stat-neutral">
                         <div class="stat-number">${stats.neutral}</div>
-                        <div class="stat-label">中性 ${stats.neutral_ratio}%</div>
+                        <div class="stat-label">😐 中性 ${stats.neutral_ratio}%</div>
                     </div>
                     <div class="stat-card stat-negative">
                         <div class="stat-number">${stats.negative}</div>
-                        <div class="stat-label">负面 ${stats.negative_ratio}%</div>
+                        <div class="stat-label">😞 负面 ${stats.negative_ratio}%</div>
                     </div>
                 `;
                 
@@ -600,18 +670,20 @@
                 }
                 sentimentChart = echarts.init(document.getElementById('sentiment-chart'));
                 sentimentChart.setOption({
-                    tooltip: { trigger: 'item' },
-                    legend: { top: 'bottom' },
+                    tooltip: { trigger: 'item', formatter: '{b}: {d}% ({c}条)' },
+                    legend: { top: 'bottom', orient: 'horizontal' },
                     series: [{
                         name: '情感分布',
                         type: 'pie',
                         radius: '55%',
+                        center: ['50%', '50%'],
                         data: [
                             { name: '正面', value: stats.positive, itemStyle: { color: '#10b981' } },
                             { name: '中性', value: stats.neutral, itemStyle: { color: '#f59e0b' } },
                             { name: '负面', value: stats.negative, itemStyle: { color: '#ef4444' } }
                         ],
-                        label: { show: true, formatter: '{b}: {d}%' }
+                        label: { show: true, formatter: '{b}: {d}%', fontSize: 11 },
+                        emphasis: { scale: true }
                     }]
                 });
             } catch (error) {
