@@ -21,7 +21,7 @@
         .dashboard { display: grid; grid-template-columns: 1fr 0.9fr; gap: 1.5rem; }
         @media (max-width: 900px) { .dashboard { grid-template-columns: 1fr; } }
         .card { background: white; border-radius: 1.5rem; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05); overflow: hidden; }
-        .card-header { padding: 1rem 1.5rem; border-bottom: 1px solid #eef2ff; font-weight: 600; background: #fafcff; display: flex; justify-content: space-between; }
+        .card-header { padding: 1rem 1.5rem; border-bottom: 1px solid #eef2ff; font-weight: 600; background: #fafcff; display: flex; justify-content: space-between; align-items: center; }
         .card-header i { color: #3b82f6; margin-right: 0.5rem; }
         .ranking-list { max-height: 550px; overflow-y: auto; }
         .ranking-item { display: flex; align-items: center; padding: 0.8rem 1.2rem; border-bottom: 1px solid #f0f2f8; cursor: pointer; }
@@ -33,7 +33,7 @@
         .rank-3 { color: #b45309; }
         .rank-content { flex: 1; margin-left: 0.5rem; }
         .rank-title { font-weight: 500; margin-bottom: 0.2rem; }
-        .rank-meta { display: flex; gap: 1rem; flex-wrap: wrap; font-size: 0.7rem; color: #6c86a3; }
+        .rank-meta { display: flex; gap: 0.8rem; flex-wrap: wrap; font-size: 0.7rem; color: #6c86a3; }
         .heat-badge { background: #eef2ff; padding: 0.2rem 0.5rem; border-radius: 1rem; }
         .sentiment-badge { padding: 0.2rem 0.5rem; border-radius: 1rem; font-size: 0.7rem; }
         .sentiment-positive { background: #d1fae5; color: #059669; }
@@ -50,15 +50,13 @@
         .stat-neutral .stat-number { color: #f59e0b; }
         .stat-negative .stat-number { color: #ef4444; }
         .detail-panel { padding: 1rem; max-height: 300px; overflow-y: auto; }
-        .detail-title { font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem; }
+        .detail-title { font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem; line-height: 1.4; }
         .detail-meta { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 0.5rem; font-size: 0.75rem; color: #64748b; }
         .detail-score { font-size: 1rem; font-weight: 600; margin: 0.5rem 0; }
-        .keywords { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0.5rem 0; }
-        .keyword-tag { background: #eef2ff; padding: 0.2rem 0.6rem; border-radius: 1rem; font-size: 0.7rem; color: #3b82f6; }
-        .sentiment-words { margin-top: 0.5rem; padding: 0.5rem; background: #f8fafc; border-radius: 0.5rem; font-size: 0.75rem; }
         .loading { text-align: center; padding: 2rem; color: #94a3b8; }
         ::-webkit-scrollbar { width: 5px; }
         .detail-link { color: #3b82f6; text-decoration: none; }
+        .detail-link:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
@@ -87,10 +85,10 @@
                 </div>
             </div>
 
-            <!-- 右侧：情感分析 + 详情（都随点击变化）-->
+            <!-- 右侧：情感分析 + 详情 -->
             <div>
                 <div class="card">
-                    <div class="card-header"><span><i class="fas fa-chart-pie"></i> 情感分析（当前热词）</span><span id="current-hotword-name" class="heat-badge">未选择</span></div>
+                    <div class="card-header"><span><i class="fas fa-chart-pie"></i> 情感分析</span><span id="current-hotword-name" class="heat-badge">未选择</span></div>
                     <div class="sentiment-stats" id="sentiment-stats"><div class="loading">点击热词查看情感分析</div></div>
                     <div id="sentiment-chart" class="sentiment-chart"></div>
                     <div id="sentiment-words" style="margin: 0 1rem 1rem 1rem;"></div>
@@ -145,9 +143,8 @@
             return str.replace(/[&<>]/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[m] || m));
         }
 
-        // 更新情感分析面板（基于单个热词）
+        // 更新情感分析面板
         function updateSentimentPanel(item) {
-            const style = getSentimentStyle(item.sentiment_label);
             const score = item.sentiment_score || 0.5;
             const posWords = item.positive_words || [];
             const negWords = item.negative_words || [];
@@ -183,9 +180,9 @@
             // 更新情绪类型描述
             const wordsContainer = document.getElementById('sentiment-words');
             let emotionHtml = `
-                <div style="background: ${emotion.color}10; border-left: 4px solid ${emotion.color}; padding: 0.8rem; border-radius: 0.5rem; margin-bottom: 0.8rem;">
-                    <span style="font-size: 1.2rem; font-weight: 600; color: ${emotion.color};">${emotion.icon} ${emotion.type}</span>
-                    <span style="margin-left: 0.5rem; font-size: 0.8rem; color: #64748b;">${emotion.desc}</span>
+                <div style="background: ${emotion.color}10; border-left: 4px solid ${emotion.color}; padding: 0.8rem; border-radius: 0.5rem;">
+                    <span style="font-size: 1rem; font-weight: 600; color: ${emotion.color};">${emotion.icon} ${emotion.type}</span>
+                    <span style="margin-left: 0.5rem; font-size: 0.75rem; color: #64748b;">${emotion.desc}</span>
                 </div>
             `;
             
@@ -194,14 +191,14 @@
                 emotionHtml += `
                     <div style="margin-top: 0.5rem;">
                         <strong>情感关键词：</strong><br>
-                        ${posWords.length ? `<span style="color:#10b981;">😊 正面词: ${posWords.map(w => `<span class="keyword-tag" style="background:#d1fae5;">${escapeHtml(w)}</span>`).join('')}</span><br>` : ''}
-                        ${negWords.length ? `<span style="color:#ef4444;">😞 负面词: ${negWords.map(w => `<span class="keyword-tag" style="background:#fee2e2;">${escapeHtml(w)}</span>`).join('')}</span>` : ''}
+                        ${posWords.length ? `<span style="color:#10b981;">😊 正面词: ${posWords.map(w => `<span class="keyword-tag" style="background:#d1fae5; padding:0.2rem 0.5rem; border-radius:1rem; font-size:0.7rem; margin:0.2rem; display:inline-block;">${escapeHtml(w)}</span>`).join('')}</span><br>` : ''}
+                        ${negWords.length ? `<span style="color:#ef4444;">😞 负面词: ${negWords.map(w => `<span class="keyword-tag" style="background:#fee2e2; padding:0.2rem 0.5rem; border-radius:1rem; font-size:0.7rem; margin:0.2rem; display:inline-block;">${escapeHtml(w)}</span>`).join('')}</span>` : ''}
                     </div>
                 `;
             } else {
                 emotionHtml += `
-                    <div style="margin-top: 0.5rem; color: #94a3b8; font-size: 0.75rem;">
-                        <i class="fas fa-info-circle"></i> 无显著情感关键词，情绪判断基于整体语义
+                    <div style="margin-top: 0.5rem; color: #94a3b8; font-size: 0.7rem;">
+                        <i class="fas fa-info-circle"></i> 无显著情感关键词
                     </div>
                 `;
             }
@@ -220,7 +217,6 @@
                 const item = result.data;
                 const style = getSentimentStyle(item.sentiment_label);
                 const score = item.sentiment_score || 0.5;
-                const keywords = item.sentiment_keywords || item.words || [];
                 const heat = Math.round(item.comprehensive_score || item.rank_score || 0);
                 
                 panel.innerHTML = `
@@ -228,12 +224,9 @@
                     <div class="detail-meta">
                         <span class="heat-badge">🔥 热度: ${heat}</span>
                         <span class="sentiment-badge ${style.class}">${style.icon} ${style.label}</span>
-                        <span>权重: ${item.raw_weight}</span>
                     </div>
-                    <div class="detail-score">情感分数: ${score.toFixed(4)} (0-1, 越高越正面)</div>
-                    <div>关键词:</div>
-                    <div class="keywords">${keywords.slice(0,8).map(k => `<span class="keyword-tag">${escapeHtml(k)}</span>`).join('')}</div>
-                    <div style="margin-top:1rem;"><a href="${item.url || '#'}" target="_blank">查看搜索结果</a></div>
+                    <div class="detail-score">情感分数: ${score.toFixed(4)} <span style="font-size:0.7rem;">(0-1, 越高越正面)</span></div>
+                    <div style="margin-top:0.8rem;"><a href="${item.url || '#'}" target="_blank" class="detail-link">查看搜索结果</a></div>
                 `;
                 
                 updateSentimentPanel(item);
@@ -265,7 +258,6 @@
                                 <div class="rank-meta">
                                     <span class="heat-badge">🔥 ${heat}</span>
                                     <span class="sentiment-badge ${style.class}">${style.icon} ${style.label}</span>
-                                    <span>权重: ${item.raw_weight}</span>
                                 </div>
                             </div>
                         </div>
