@@ -1,0 +1,54 @@
+[
+  {
+    "id": "20260326_0005",
+    "title": "年度征文｜效率杂谈：告别纸笔拓荒，怎么用 AI 来辅助学习？",
+    "url": "https://sspai.com/post/106878",
+    "raw_weight": 0.1,
+    "rank": 6,
+    "total_count": 95,
+    "rank_score": 100,
+    "timestamp": "2026-03-26 09:56:19",
+    "words": [
+      "年度",
+      "征文",
+      "效率",
+      "杂谈",
+      "告别",
+      "纸笔",
+      "拓荒",
+      "用",
+      "AI",
+      "来",
+      "辅助",
+      "学习"
+    ],
+    "word_count": 12,
+    "length": 30,
+    "rank_global": 1,
+    "heat_score": 100.0,
+    "comprehensive_score": 100.0,
+    "global_rank_final": 1
+  },
+  {
+    "id": "20260326_0009",
+    "title": "Claude刚刚杀死了OpenClaw",
+    "url": "https://www.36kr.com/p/3736521034498311",
+    "raw_weight": 0.125,
+    "rank": 10,
+    "total_count": 95,
+    "rank_score": 85.0,
+    "timestamp": "2026-03-26 09:56:19",
+    "words": [
+      "Claude",
+      "刚刚",
+      "杀死",
+      "OpenClaw"
+    ],
+    "word_count": 4,
+    "length": 19,
+    "rank_global": 2,
+    "heat_score": 0.0,
+    "comprehensive_score": 59.5,
+    "global_rank_final": 2
+  }
+]
