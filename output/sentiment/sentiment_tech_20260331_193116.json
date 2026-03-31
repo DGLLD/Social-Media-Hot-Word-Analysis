@@ -1,0 +1,197 @@
+[
+  {
+    "title": "再见Openclaw，我找到了比Openclaw更好玩的了！（附赠工具）",
+    "url": "https://juejin.cn/post/7620822029282181129",
+    "raw_weight": 0.05,
+    "timestamp": "2026-03-31 19:00:00",
+    "sentiment_score": 0.9689,
+    "sentiment_label": "positive",
+    "sentiment_icon": "😊",
+    "analysis_reason": "lexicon",
+    "sentiment_keywords": [
+      "Openclaw",
+      "更",
+      "找到",
+      "好玩",
+      "附"
+    ],
+    "positive_words": [
+      "工具"
+    ],
+    "negative_words": []
+  },
+  {
+    "title": "新玩意 238｜少数派的编辑们最近买了啥？",
+    "url": "https://sspai.com/post/107863",
+    "raw_weight": 0.05,
+    "timestamp": "2026-03-31 19:00:00",
+    "sentiment_score": 0.5,
+    "sentiment_label": "neutral",
+    "sentiment_icon": "😐",
+    "analysis_reason": "question",
+    "sentiment_keywords": [
+      "编辑",
+      "238｜",
+      "少数派",
+      "玩意",
+      "买"
+    ],
+    "positive_words": [],
+    "negative_words": []
+  },
+  {
+    "title": "特朗普砍了拼多多一刀",
+    "url": "https://www.huxiu.com/article/4845742.html",
+    "raw_weight": 0.0667,
+    "timestamp": "2026-03-31 19:00:00",
+    "sentiment_score": 0.5469,
+    "sentiment_label": "neutral",
+    "sentiment_icon": "😐",
+    "analysis_reason": "lexicon",
+    "sentiment_keywords": [
+      "多多",
+      "拼",
+      "砍",
+      "普",
+      "特朗"
+    ],
+    "positive_words": [],
+    "negative_words": []
+  },
+  {
+    "title": "古尔曼：Apple Intelligence 在中国意外上线，苹果已将其下线",
+    "url": "https://m.ithome.com/html/934277.htm",
+    "raw_weight": 0.0833,
+    "timestamp": "2026-03-31 19:00:00",
+    "sentiment_score": 0.5,
+    "sentiment_label": "neutral",
+    "sentiment_icon": "😐",
+    "analysis_reason": "neutral_event",
+    "sentiment_keywords": [
+      "线",
+      "中国",
+      "意外",
+      "Intelligence",
+      "上"
+    ],
+    "positive_words": [
+      "上线"
+    ],
+    "negative_words": []
+  },
+  {
+    "title": "为什么全国人民都能秒开同一个视频？",
+    "url": "https://juejin.cn/post/7621753314950692870",
+    "raw_weight": 0.1,
+    "timestamp": "2026-03-31 19:00:00",
+    "sentiment_score": 0.5,
+    "sentiment_label": "neutral",
+    "sentiment_icon": "😐",
+    "analysis_reason": "question",
+    "sentiment_keywords": [
+      "秒",
+      "都",
+      "人民",
+      "开",
+      "视频"
+    ],
+    "positive_words": [],
+    "negative_words": []
+  },
+  {
+    "title": "iOS 26.4 值得关注的新特性",
+    "url": "https://sspai.com/post/107743",
+    "raw_weight": 0.1,
+    "timestamp": "2026-03-31 19:00:00",
+    "sentiment_score": 0.859,
+    "sentiment_label": "positive",
+    "sentiment_icon": "😊",
+    "analysis_reason": "lexicon",
+    "sentiment_keywords": [
+      "关注",
+      "26.4",
+      "新",
+      "值得",
+      "特性"
+    ],
+    "positive_words": [],
+    "negative_words": []
+  },
+  {
+    "title": "国行苹果 AI 一手实测：等了两年终于来了，好用吗？",
+    "url": "https://www.36kr.com/p/3746042163593729",
+    "raw_weight": 0.125,
+    "timestamp": "2026-03-31 19:00:00",
+    "sentiment_score": 0.5,
+    "sentiment_label": "neutral",
+    "sentiment_icon": "😐",
+    "analysis_reason": "question",
+    "sentiment_keywords": [
+      "一手",
+      "实测",
+      "AI",
+      "两",
+      "苹果"
+    ],
+    "positive_words": [
+      "实测"
+    ],
+    "negative_words": []
+  },
+  {
+    "title": "比亚迪，狼真的来了",
+    "url": "https://www.huxiu.com/article/4846357.html",
+    "raw_weight": 0.1333,
+    "timestamp": "2026-03-31 19:00:00",
+    "sentiment_score": 0.8441,
+    "sentiment_label": "positive",
+    "sentiment_icon": "😊",
+    "analysis_reason": "lexicon",
+    "sentiment_keywords": [
+      "迪",
+      "比亚",
+      "真的",
+      "狼"
+    ],
+    "positive_words": [],
+    "negative_words": []
+  },
+  {
+    "title": "JetBrains又一知名软件宣布倒下，五味杂陈",
+    "url": "https://juejin.cn/post/7622177349912952878",
+    "raw_weight": 0.15,
+    "timestamp": "2026-03-31 19:00:00",
+    "sentiment_score": 0.5,
+    "sentiment_label": "neutral",
+    "sentiment_icon": "😐",
+    "analysis_reason": "neutral_event",
+    "sentiment_keywords": [
+      "倒下",
+      "软件",
+      "知名",
+      "JetBrains",
+      "陈"
+    ],
+    "positive_words": [],
+    "negative_words": []
+  },
+  {
+    "title": "本周看什么 | 最近值得一看的 12 部作品",
+    "url": "https://sspai.com/post/107582",
+    "raw_weight": 0.15,
+    "timestamp": "2026-03-31 19:00:00",
+    "sentiment_score": 0.5,
+    "sentiment_label": "neutral",
+    "sentiment_icon": "😐",
+    "analysis_reason": "question",
+    "sentiment_keywords": [
+      "看",
+      "值得",
+      "|",
+      "12",
+      "部"
+    ],
+    "positive_words": [],
+    "negative_words": []
+  }
+]

@@ -2,7 +2,13 @@
 # -*- coding: utf-8 -*-
 """
 社交媒体热点词分析项目
-SnowNLP情感分析模块（高精度版）
+SnowNLP情感分析模块（词典分级+语境词优化版）
+
+优化内容：
+1. 情感词分级（强/中/弱），赋予不同权重
+2. 语境词增强（竟是、太厉害了、大神等）
+3. 正面/负面计数加权，提高正面识别准确率
+4. 保留原有规则（疑问句、中性事件、正则模式）
 """
 
 import os
@@ -43,75 +49,85 @@ class SentimentAnalyzer:
         'positive': (0.6, 1.0)
     }
 
-      # ==================== 正面情感词典 ====================
-    POSITIVE_WORDS = {
-        '突破', '大涨', '利好', '新高', '夺冠', '创新', '领先', '增长',
-        '成功', '优秀', '进步', '发展', '提升', '改善', '好转', '回暖',
-        '爆发', '崛起', '腾飞', '辉煌', '卓越', '惊艳', '震撼', '火爆',
-        '热销', '抢购', '涨停', '飙升', '暴涨', '猛涨', '大幅上涨',
-        '里程碑', '突破性', '重大进展', '历史性', '首次', '首创',
-        '开源', '开源项目', '发布', '上线', '推出', '亮相', '展示',
-        '攻克', '治愈', '康复', '痊愈', '救活', '挽救', '奇迹',
-        '祝贺', '恭喜', '点赞', '支持', '称赞', '好评', '认可', '肯定',
-        '致敬', '缅怀', '纪念', '感动', '温暖', '振奋',
-        '增长', '回升', '回暖', '复苏', '企稳', '向好', '红利',
+    # ==================== 分级情感词典 ====================
+    # 强正面词（权重3）
+    STRONG_POSITIVE = {
+        '夺冠', '金牌', '胜利', '凯旋', '辉煌', '卓越', '震撼', '奇迹',
+        '里程碑', '历史性', '重大突破', '世界第一', '破纪录', '冠军',
+        '满分', '金牌', '状元', '榜首',
+    }
+    
+    # 中等正面词（权重2）
+    MEDIUM_POSITIVE = {
+        '突破', '大涨', '利好', '新高', '创新', '领先', '增长', '成功',
+        '优秀', '进步', '发展', '提升', '改善', '好转', '回暖', '爆发',
+        '崛起', '腾飞', '热销', '抢购', '涨停', '飙升', '暴涨', '猛涨',
+        '里程碑', '首次', '首创', '开源', '发布', '上线', '推出', '亮相',
+        '攻克', '治愈', '康复', '痊愈', '救活', '挽救', '祝贺', '恭喜',
+        '点赞', '支持', '称赞', '好评', '认可', '肯定', '致敬', '缅怀',
+        '感动', '温暖', '振奋', '回升', '复苏', '企稳', '向好', '红利',
         '幸福', '快乐', '开心', '高兴', '激动', '兴奋', '骄傲', '自豪',
         '期待', '向往', '希望', '信心', '信任',
-        # 教程/推荐类
+    }
+    
+    # 弱正面词（权重1）
+    WEAK_POSITIVE = {
         '教程', '指南', '攻略', '亲测', '实测', '推荐', '神器', '必备',
         '工具', '技巧', '干货', '经验', '分享', '总结', '心得',
         '效率', '拉满', '翻倍', '加速', '优化', '提升',
-        # 正面事件
-        '夺冠', '金牌', '胜利', '凯旋', '荣誉', '表彰', '获奖',
-        '签约', '合作', '战略', '协议', '投资', '融资',
+        '不错', '挺好', '可以', '还行', '值得', '满意',
     }
-
-    # ==================== 负面情感词典（增强版）====================
-    NEGATIVE_WORDS = {
-        # 经济负面
-        '暴跌', '崩盘', '危机', '下跌', '下滑', '亏损', '负债', '破产',
-        '倒闭', '裁员', '降薪', '违约', '失信', '违规', '违法',
-        '净亏损', '由盈转亏',
-        # 社会负面
-        '争议', '风险', '调查', '纠纷', '冲突', '对抗', '紧张',
+    
+    # 强负面词（权重3）
+    STRONG_NEGATIVE = {
+        '去世', '逝世', '猝死', '心梗', '遇难', '牺牲', '身亡', '遗体',
+        '命案', '凶杀', '杀人', '杀害', '谋杀', '血案', '惨案', '悲剧',
+        '崩盘', '破产', '倒闭', '灾难', '爆炸', '火灾', '事故', '车祸',
         '战争', '袭击', '轰炸', '空袭', '导弹',
-        '示威', '抗议', '游行', '暴乱', '骚乱',
-        # 死亡/悲剧（增强）
-        '身亡', '去世', '逝世', '猝死', '心梗', '死亡', '遇难', '牺牲',
-        '离世', '病逝', '过世', '不幸', '悲剧', '惨剧', '惨案', '血案',
-        '命案', '凶杀', '杀人', '杀害', '谋杀', '高发', '蔓延', '爆发',
-        '遗体', '失联', '失踪', '坠毁', '沉没',
-        # 关押/虐待
+    }
+    
+    # 中等负面词（权重2）
+    MEDIUM_NEGATIVE = {
+        '暴跌', '崩盘', '危机', '下跌', '下滑', '亏损', '负债', '裁员',
+        '降薪', '违约', '失信', '违规', '违法', '争议', '风险', '调查',
+        '纠纷', '冲突', '对抗', '紧张', '示威', '抗议', '暴乱', '骚乱',
         '关押', '监禁', '囚禁', '炼狱', '地狱', '折磨', '虐待', '酷刑',
-        '殴打', '施暴', '暴力', '欺凌',
-        # 负面事件（增强）
-        '索赔', '争吵', '打架', '斗殴', '事故', '灾难', '火灾', '爆炸',
-        '地震', '洪水', '台风', '暴雨', '伤亡', '死伤', '受伤',
-        '被拖离', '被带走', '被捕', '被抓', '被拘',
-        # 技术负面（新增）
-        '宕机', '崩溃', '故障', '断网', '卡顿', '延迟', 'bug', '漏洞',
-        '停服', '维护', '修复', '补偿',
-        # 抄袭/造假类（新增）
-        '抄袭', '实锤', '重罚', '处罚', '开除', '辞退',
-        '造假', '欺诈', '骗局', '曝光', '查封', '立案', '罚款',
-        '抓捕', '被捕', '拘留', '起诉', '诉讼',
-        # 其他负面
-        '恶化', '衰退', '萎缩', '低迷', '疲软', '乏力', '警告', '警惕',
-        '质疑', '否认', '反驳',
-        # 国际关系
+        '殴打', '施暴', '暴力', '欺凌', '索赔', '争吵', '打架', '斗殴',
+        '地震', '洪水', '台风', '暴雨', '恶化', '衰退', '萎缩', '低迷',
+        '疲软', '乏力', '警告', '警惕', '质疑', '否认', '反驳',
+    }
+    
+    # 弱负面词（权重1）
+    WEAK_NEGATIVE = {
         '示弱', '妥协', '退让', '屈服', '低头', '认输', '服软',
-        '挑衅', '威胁', '恐吓', '制裁', '封锁', '打压',
-        '侵犯', '干涉', '入侵', '占领', '吞并',
-        # 辱骂/争议类
+        '挑衅', '威胁', '恐吓', '制裁', '封锁', '打压', '侵犯', '干涉',
         '侮辱', '辱骂', '诋毁', '贬低', '羞辱', '蔑视', '鄙视',
         '像狗', '垃圾', '无耻', '可耻', '卑劣', '恶劣', '肮脏',
-        '骗子', '欺诈', '虚假', '伪造', '盗版', '侵权',
-        '痛批', '炮轰', '怒斥', '谴责', '声讨',
-        # 被扒/旧账类
-        '被扒', '旧账', '扒出', '翻旧账', '黑历史', '丑闻',
-        '惹众怒', '引众怒', '激怒', '愤怒', '不满',
-        '投诉', '举报', '曝光', '爆料',
+        '骗子', '欺诈', '虚假', '伪造', '盗版', '侵权', '痛批', '炮轰',
+        '怒斥', '谴责', '声讨', '被扒', '旧账', '扒出', '惹众怒', '引众怒',
+        '激怒', '愤怒', '不满', '投诉', '举报', '曝光', '被查',
     }
+    
+    # ==================== 语境增强词 ====================
+    # 正面语境词（增强正面倾向）
+    POSITIVE_CONTEXT = {
+        '竟是', '原来', '太厉害了', '神操作', '大神', '牛', '厉害',
+        '太牛了', '真牛', '真厉害', '佩服', '惊艳', '没想到',
+        '竟然', '居然', '原来如此', '终于', '成功了', '太棒了',
+        '厉害了', '我的天', '神了', '绝了',
+    }
+    
+    # 负面语境词（增强负面倾向）
+    NEGATIVE_CONTEXT = {
+        '竟然', '居然', '没想到', '可怕', '恐怖', '吓人', '震惊',
+        '无语', '离谱', '过分', '过分了', '太过了', '令人发指',
+    }
+    
+    # 特殊组合规则（曝光+大神 = 正面）
+    SPECIAL_COMBOS = [
+        (['曝光', '被扒'], ['大神', '牛', '厉害', '神操作', '竟是'], 0.85, 'positive_boost'),
+        (['去世', '逝世'], ['哀悼', '缅怀', '致敬'], 0.35, 'negative_boost'),  # 悼念但仍是负面
+    ]
 
     NEGATION_WORDS = {
         '不', '没', '无', '非', '未', '别', '勿', '莫',
@@ -119,48 +135,34 @@ class SentimentAnalyzer:
         '毫不', '毫无', '未能', '未曾', '从未',
     }
 
-    # ==================== 中性事件（扩展）====================
     NEUTRAL_EVENTS = {
-        # 个人事件
         '再婚', '订婚', '结婚', '生子', '生日', '退休', '履新',
         '任职', '卸任', '访华', '会晤', '会谈', '通话',
-        # 政策/法规
         '发布', '宣布', '公布', '出台', '印发', '施行',
         '召开', '举行', '举办', '开幕', '闭幕', '启动', '揭牌',
         '新规', '新政', '政策', '法规', '条例', '办法',
-        '标准', '规范', '指南', '意见', '通知',
-        '公积金', '住房', '贷款', '利率', '调整', '优化',
-        # 签证/旅游
-        '签证', '十年签', '免签', '落地签', '旅游', '出行',
-        '开放', '放宽', '便利', '通行',
-        # 天气/预警（新增）
-        '预警', '冰雹', '暴雨', '雷电', '大风', '寒潮', '降温',
-        '高温', '干旱', '台风', '洪水',
-        # 产品/科技
-        '发布', '上线', '更新', '升级', '版本', '功能',
-        '评测', '体验', '试用', '内测', '公测',
-        # 会议/活动
-        '会议', '论坛', '峰会', '座谈会', '研讨会',
-        '活动', '庆典', '仪式', '展览',
-        # 疑问句特征
-        '如何看待', '如何评价', '为什么', '怎样',
+        '标准', '规范', '指南', '意见', '通知', '公积金', '住房', '贷款',
+        '利率', '调整', '优化', '签证', '免签', '旅游', '出行', '开放',
+        '放宽', '便利', '通行', '预警', '冰雹', '暴雨', '雷电', '大风',
+        '寒潮', '降温', '高温', '干旱', '台风', '洪水',
     }
 
-
-    # ==================== 正则模式 ====================
     PATTERNS = {
-        # 强负面
-        'strong_negative': re.compile(r'(侮辱|辱骂|像狗|垃圾|无耻|可耻|卑劣|恶劣|肮脏|骗子|欺诈|虚假|伪造|盗版|侵权|痛批|炮轰|怒斥|谴责|声讨)'),
-        'death': re.compile(r'(去世|逝世|猝死|心梗|遇难|牺牲)'),
+        'strong_negative': re.compile(r'(去世|逝世|猝死|心梗|遇难|牺牲|身亡|遗体|命案|凶杀|杀人|杀害|谋杀|血案|惨案|悲剧|崩盘|破产|倒闭|灾难|爆炸|火灾|车祸|事故|战争|袭击|轰炸|空袭|导弹)'),
+        'death': re.compile(r'(去世|逝世|猝死|心梗|遇难|牺牲|身亡|遗体|失联)'),
+        'accident': re.compile(r'(爆炸|火灾|车祸|事故|伤亡|死伤|受伤|坍塌|坠落)'),
         'weakness': re.compile(r'(示弱|妥协|退让|屈服|低头|认输|服软)'),
-        # 否定正面
-        'negate_positive': re.compile(r'(不再|无法|未能|难以|很难|几乎没有|很少)(?:\w{0,10})(?:突破|增长|领先|成功|进步|利好)'),
-        # 正面肯定
-        'confirm_positive': re.compile(r'(成功|顺利|圆满)(?:\w{0,10})(?:完成|实现|达成|交付|通过)'),
-        # 新增：正面教程/推荐模式
         'positive_tutorial': re.compile(r'(别再|不要|别)(?:裸用|傻用|乱用|硬用).*?(?:拉满|翻倍|提升|必备|神器|效率|干货)'),
         'positive_guide': re.compile(r'(教程|指南|攻略|亲测|实测|推荐|分享).*?(?:拉满|翻倍|提升|必备|神器|效率|干货)'),
         'positive_combo': re.compile(r'(Skills|MCP|工具|技巧).*?(?:拉满|翻倍|必备|神器|效率)'),
+        'champion': re.compile(r'(夺冠|金牌|胜利|凯旋)'),
+    }
+
+    # 强制中性词库
+    FORCED_NEUTRAL_WORDS = {
+        '总书记', '主席', '总理', '习近平', '李克强', '领导人', '党和国家领导人',
+        '国务院', '中共中央', '全国人大', '全国政协', '中央军委', '中宣部', '中组部',
+        '二十大', '两会', '政府工作报告', '五年规划', '十四五', '中国梦', '复兴',
     }
 
     def __init__(self):
@@ -172,6 +174,16 @@ class SentimentAnalyzer:
         self.output_dir = self.project_root / 'output'
         self.sentiment_dir = self.output_dir / 'sentiment'
         self.sentiment_dir.mkdir(parents=True, exist_ok=True)
+
+        print(f"[初始化] {self.PROJECT_NAME} - 情感分析模块（词典分级+语境词版）")
+        print(f"[初始化] 强正面词: {len(self.STRONG_POSITIVE)}个")
+        print(f"[初始化] 中正面词: {len(self.MEDIUM_POSITIVE)}个")
+        print(f"[初始化] 弱正面词: {len(self.WEAK_POSITIVE)}个")
+        print(f"[初始化] 强负面词: {len(self.STRONG_NEGATIVE)}个")
+        print(f"[初始化] 中负面词: {len(self.MEDIUM_NEGATIVE)}个")
+        print(f"[初始化] 弱负面词: {len(self.WEAK_NEGATIVE)}个")
+        print(f"[初始化] 正面语境词: {len(self.POSITIVE_CONTEXT)}个")
+        print(f"[初始化] 负面语境词: {len(self.NEGATIVE_CONTEXT)}个")
 
     def is_question(self, text: str) -> bool:
         if text.endswith('？') or text.endswith('?'):
@@ -193,25 +205,22 @@ class SentimentAnalyzer:
         return False
 
     def pattern_match(self, text: str) -> Optional[Tuple[float, str]]:
-        # 先检查正面教程模式（优先级高，避免被其他模式误判）
         if self.PATTERNS['positive_tutorial'].search(text):
             return 0.85, "positive_tutorial"
         if self.PATTERNS['positive_guide'].search(text):
             return 0.80, "positive_guide"
         if self.PATTERNS['positive_combo'].search(text):
             return 0.78, "positive_combo"
-        
-        # 强负面
+        if self.PATTERNS['champion'].search(text):
+            return 0.85, "champion"
         if self.PATTERNS['strong_negative'].search(text):
             return 0.05, "strong_negative"
         if self.PATTERNS['death'].search(text):
             return 0.05, "death_pattern"
+        if self.PATTERNS['accident'].search(text):
+            return 0.10, "accident_pattern"
         if self.PATTERNS['weakness'].search(text):
             return 0.30, "weakness_pattern"
-        if self.PATTERNS['negate_positive'].search(text):
-            return 0.35, "negate_positive_pattern"
-        if self.PATTERNS['confirm_positive'].search(text):
-            return 0.75, "confirm_positive_pattern"
         return None
 
     def event_neutral(self, text: str) -> bool:
@@ -220,56 +229,131 @@ class SentimentAnalyzer:
                 return True
         return False
 
+    def should_force_neutral(self, text: str) -> bool:
+        for word in self.FORCED_NEUTRAL_WORDS:
+            if word in text:
+                return True
+        return False
+
+    def check_special_combos(self, text: str) -> Optional[Tuple[float, str]]:
+        """检查特殊组合规则"""
+        for neg_words, pos_words, score, reason in self.SPECIAL_COMBOS:
+            has_neg = any(w in text for w in neg_words)
+            has_pos = any(w in text for w in pos_words)
+            if has_neg and has_pos:
+                return score, reason
+        return None
+
+    def calculate_lexicon_score(self, text: str) -> Tuple[float, int, int]:
+        """
+        计算分级词典得分
+        返回: (得分, 正面计数, 负面计数)
+        """
+        pos_count = 0
+        neg_count = 0
+        
+        # 强正面词（权重3）
+        for word in self.STRONG_POSITIVE:
+            if word in text:
+                if self.has_negation(text, word):
+                    neg_count += 3
+                else:
+                    pos_count += 3
+        
+        # 中等正面词（权重2）
+        for word in self.MEDIUM_POSITIVE:
+            if word in text:
+                if self.has_negation(text, word):
+                    neg_count += 2
+                else:
+                    pos_count += 2
+        
+        # 弱正面词（权重1）
+        for word in self.WEAK_POSITIVE:
+            if word in text:
+                if self.has_negation(text, word):
+                    neg_count += 1
+                else:
+                    pos_count += 1
+        
+        # 强负面词（权重3）
+        for word in self.STRONG_NEGATIVE:
+            if word in text:
+                if self.has_negation(text, word):
+                    pos_count += 3
+                else:
+                    neg_count += 3
+        
+        # 中等负面词（权重2）
+        for word in self.MEDIUM_NEGATIVE:
+            if word in text:
+                if self.has_negation(text, word):
+                    pos_count += 2
+                else:
+                    neg_count += 2
+        
+        # 弱负面词（权重1）
+        for word in self.WEAK_NEGATIVE:
+            if word in text:
+                if self.has_negation(text, word):
+                    pos_count += 1
+                else:
+                    neg_count += 1
+        
+        # 正面语境增强
+        for word in self.POSITIVE_CONTEXT:
+            if word in text:
+                pos_count += 2
+        
+        # 负面语境增强
+        for word in self.NEGATIVE_CONTEXT:
+            if word in text:
+                neg_count += 2
+        
+        # 计算得分
+        if pos_count + neg_count > 0:
+            lexicon_score = pos_count / (pos_count + neg_count)
+        else:
+            lexicon_score = 0.5
+        
+        return lexicon_score, pos_count, neg_count
+
     def sentiment_score(self, text: str) -> Tuple[float, str]:
+        # 0. 强制中性词检查
+        if self.should_force_neutral(text):
+            return 0.50, "forced_neutral"
+
         # 1. 疑问句 -> 中性
         if self.is_question(text):
             return 0.50, "question"
 
-        # 2. 模式匹配
+        # 2. 特殊组合规则
+        special_result = self.check_special_combos(text)
+        if special_result:
+            return special_result
+
+        # 3. 模式匹配
         pattern_result = self.pattern_match(text)
         if pattern_result:
             return pattern_result
 
-        # 3. 中性事件 -> 中性
+        # 4. 中性事件 -> 中性
         if self.event_neutral(text):
             return 0.50, "neutral_event"
 
-        # 4. SnowNLP 基础分
+        # 5. SnowNLP 基础分
         s = SnowNLP(text)
         snow_score = s.sentiments
 
-        # 5. 词典统计
-        pos_count = 0
-        neg_count = 0
-        for word in self.POSITIVE_WORDS:
-            if word in text:
-                if self.has_negation(text, word):
-                    neg_count += 1
-                else:
-                    pos_count += 1
-        for word in self.NEGATIVE_WORDS:
-            if word in text:
-                if self.has_negation(text, word):
-                    pos_count += 1
-                else:
-                    neg_count += 1
+        # 6. 分级词典得分
+        lexicon_score, pos_count, neg_count = self.calculate_lexicon_score(text)
 
-        # 6. 词典倾向分
-        if pos_count + neg_count > 0:
-            lexicon_score = pos_count / (pos_count + neg_count)
-            final_score = snow_score * 0.3 + lexicon_score * 0.7
-        else:
-            final_score = snow_score
+        # 7. 混合得分（词典权重提高到70%）
+        final_score = snow_score * 0.3 + lexicon_score * 0.7
 
-        # 7. 特殊调整
-        if neg_count > pos_count:
-            final_score = min(final_score, 0.35)
-        if pos_count > 0 and neg_count == 0 and final_score < 0.5:
-            final_score = min(0.65, final_score + 0.15)
-        if neg_count > 0 and pos_count == 0 and final_score > 0.5:
-            final_score = max(0.35, final_score - 0.15)
-
+        # 8. 边界调整
         final_score = max(0.0, min(1.0, final_score))
+        
         return round(final_score, 4), "lexicon"
 
     def analyze_single(self, text: str) -> Dict[str, Any]:
@@ -279,9 +363,22 @@ class SentimentAnalyzer:
 
         s = SnowNLP(text)
         keywords = s.keywords(limit=5)
-        pos_found = [w for w in self.POSITIVE_WORDS if w in text]
-        neg_found = [w for w in self.NEGATIVE_WORDS if w in text]
-
+        
+        # 统计情感词（用于调试）
+        pos_found = []
+        neg_found = []
+        
+        for word in self.STRONG_POSITIVE | self.MEDIUM_POSITIVE | self.WEAK_POSITIVE:
+            if word in text:
+                pos_found.append(word)
+        for word in self.STRONG_NEGATIVE | self.MEDIUM_NEGATIVE | self.WEAK_NEGATIVE:
+            if word in text:
+                neg_found.append(word)
+        
+        # 语境词也加入显示
+        context_words = [w for w in self.POSITIVE_CONTEXT if w in text] + \
+                        [w for w in self.NEGATIVE_CONTEXT if w in text]
+        
         return {
             'text': text,
             'sentiment_score': score,
@@ -289,8 +386,9 @@ class SentimentAnalyzer:
             'sentiment_icon': icon,
             'analysis_reason': reason,
             'keywords': keywords,
-            'positive_words': pos_found[:3],
-            'negative_words': neg_found[:3],
+            'positive_words': list(set(pos_found))[:3],
+            'negative_words': list(set(neg_found))[:3],
+            'context_words': context_words[:3],
             'length': len(text)
         }
 
@@ -330,6 +428,7 @@ class SentimentAnalyzer:
                 'sentiment_keywords': analysis['keywords'],
                 'positive_words': analysis['positive_words'],
                 'negative_words': analysis['negative_words'],
+                'context_words': analysis.get('context_words', []),
             })
             results.append(enhanced)
 
