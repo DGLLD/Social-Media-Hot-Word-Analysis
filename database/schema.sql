@@ -35,15 +35,6 @@ CREATE INDEX IF NOT EXISTS idx_crawl_time_tech ON hot_rank_tech(crawl_time);
 CREATE INDEX IF NOT EXISTS idx_title_tech ON hot_rank_tech(title);
 
 
--- ========== 初始测试数据 ==========
--- 插入一条测试数据，验证数据库正常工作
-INSERT OR IGNORE INTO hot_rank_common (normalized_score, title, url, crawl_time)
-VALUES (1.0000, '测试数据_请忽略此条', '#', datetime('now'));
-
-INSERT OR IGNORE INTO hot_rank_tech (normalized_score, title, url, crawl_time)
-VALUES (1.0000, '测试数据_请忽略此条', '#', datetime('now'));
-
-
 -- ========== 查看表信息 ==========
 -- 查询表结构
 SELECT '表 hot_rank_common 创建成功' AS message;

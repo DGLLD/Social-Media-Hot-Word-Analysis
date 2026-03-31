@@ -8,7 +8,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background: linear-gradient(135deg, #f5f7fa 0%, #e9ecef 100%); font-family: 'Segoe UI', sans-serif; color: #1e293b; }
+        /* ========== 直接呈现背景图 ========== */
+        body { 
+            background: url('/static/service1.png') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            color: #1e293b;
+            min-height: 100vh;
+        }
         .navbar { background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); color: white; padding: 1rem 2rem; position: sticky; top: 0; z-index: 100; }
         .navbar-content { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
         .logo h1 { font-size: 1.5rem; }
@@ -16,6 +23,9 @@
         .nav-tabs { display: flex; gap: 0.5rem; background: rgba(255,255,255,0.1); border-radius: 2rem; padding: 0.25rem; }
         .tab-btn { padding: 0.5rem 1.5rem; border: none; background: transparent; color: white; border-radius: 2rem; cursor: pointer; }
         .tab-btn.active { background: #3b82f6; }
+        .refresh-btn { background: #3b82f6; border: none; color: white; padding: 0.4rem 1rem; border-radius: 2rem; cursor: pointer; font-size: 0.8rem; transition: all 0.2s; margin-left: 0.5rem; }
+        .refresh-btn:hover { background: #2563eb; transform: translateY(-1px); }
+        .refresh-btn:disabled { background: #94a3b8; cursor: not-allowed; transform: none; }
         .timestamp { font-size: 0.8rem; opacity: 0.7; }
         .container { max-width: 1400px; margin: 2rem auto; padding: 0 1.5rem; }
         .dashboard { display: grid; grid-template-columns: 1fr 0.9fr; gap: 1.5rem; }
@@ -39,8 +49,51 @@
         .sentiment-positive { background: #d1fae5; color: #059669; }
         .sentiment-neutral { background: #fef3c7; color: #d97706; }
         .sentiment-negative { background: #fee2e2; color: #dc2626; }
-        .wordcloud-container { padding: 1rem; min-height: 320px; display: flex; justify-content: center; align-items: center; }
-        .wordcloud-container img { max-width: 100%; border-radius: 0.75rem; cursor: pointer; }
+        
+        /* ========== 词云区域样式（左图右词） ========== */
+        .wordcloud-container { 
+            padding: 1rem; 
+            min-height: 320px; 
+            display: grid; 
+            grid-template-columns: 1fr 280px; 
+            gap: 1rem;
+        }
+        @media (max-width: 768px) { 
+            .wordcloud-container { grid-template-columns: 1fr; } 
+        }
+        .wordcloud-img-box { 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            background: #fafcff;
+            border-radius: 0.75rem;
+            padding: 0.5rem;
+        }
+        .wordcloud-img-box img { max-width: 100%; border-radius: 0.75rem; cursor: pointer; }
+        
+        /* ========== 热词标签样式 ========== */
+        .keyword-panel { 
+            background: #f8fafc; 
+            border-radius: 0.75rem; 
+            padding: 1rem; 
+            overflow-y: auto; 
+            max-height: 320px;
+        }
+        .keyword-panel h4 { font-size: 0.85rem; color: #64748b; margin-bottom: 0.8rem; }
+        .keyword-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+        .keyword-tag { 
+            padding: 0.4rem 0.8rem; 
+            background: #eef2ff; 
+            color: #3b82f6; 
+            border-radius: 1.5rem; 
+            font-size: 0.75rem; 
+            cursor: pointer; 
+            transition: all 0.2s;
+            border: 1px solid transparent;
+        }
+        .keyword-tag:hover { background: #3b82f6; color: white; transform: translateY(-1px); }
+        .keyword-tag.selected { background: #3b82f6; color: white; box-shadow: 0 2px 8px rgba(59,130,246,0.4); }
+        
         .sentiment-chart { height: 180px; margin: 0.5rem 1rem; }
         .sentiment-stats { display: flex; gap: 1rem; padding: 1rem; background: #f8fafc; border-radius: 1rem; margin: 0.5rem 1rem; }
         .stat-card { flex: 1; text-align: center; padding: 0.5rem; background: white; border-radius: 0.75rem; }
@@ -57,34 +110,102 @@
         ::-webkit-scrollbar { width: 5px; }
         .detail-link { color: #3b82f6; text-decoration: none; }
         .detail-link:hover { text-decoration: underline; }
+        .refresh-status { font-size: 0.7rem; background: rgba(59,130,246,0.2); padding: 0.2rem 0.5rem; border-radius: 1rem; margin-left: 0.5rem; }
+        
+        /* ========== AI 问答板块样式 ========== */
+        .ai-section { margin-top: 1.5rem; }
+        .ai-search-result { 
+            background: #f8fafc; 
+            padding: 1rem; 
+            border-radius: 0.75rem; 
+            margin: 1rem 1.5rem; 
+            max-height: 200px; 
+            overflow-y: auto; 
+        }
+        .ai-search-result li { 
+            padding: 0.5rem 0; 
+            border-bottom: 1px solid #eef2f8; 
+            font-size: 0.85rem; 
+        }
+        .ai-search-result li:last-child { border-bottom: none; }
+        .ai-search-result a { color: #3b82f6; text-decoration: none; }
+        .ai-search-result a:hover { text-decoration: underline; }
+        .ai-analyze-btn { 
+            margin: 0 1.5rem 1rem 1.5rem; 
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); 
+            color: white; 
+            border: none; 
+            padding: 0.6rem 2rem; 
+            border-radius: 2rem; 
+            cursor: pointer; 
+            font-size: 0.9rem; 
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        .ai-analyze-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(59,130,246,0.4); }
+        .ai-analyze-btn:disabled { background: #94a3b8; cursor: not-allowed; transform: none; box-shadow: none; }
+        .ai-result-box { 
+            background: linear-gradient(135deg, #eff6ff 0%, #e0e7ff 100%); 
+            margin: 0 1.5rem 1.5rem 1.5rem; 
+            padding: 1.5rem; 
+            border-radius: 1rem; 
+            border-left: 4px solid #3b82f6;
+        }
+        .ai-result-content { 
+            white-space: pre-wrap; 
+            line-height: 1.8; 
+            color: #1e293b; 
+            font-size: 0.9rem; 
+        }
+        .hidden { display: none; }
     </style>
 </head>
 <body>
     <div class="navbar">
         <div class="navbar-content">
-            <div class="logo"><h1><i class="fas fa-chart-line"></i> 热点洞察</h1><p>社交媒体热点词分析平台</p></div>
+            <div class="logo">
+                <h1><i class="fas fa-chart-line"></i> 热点洞察</h1>
+                <p>社交媒体热点词分析平台</p>
+            </div>
             <div class="nav-tabs">
                 <button class="tab-btn active" data-tab="general">🔥 综合热榜</button>
                 <button class="tab-btn" data-tab="tech">💻 科技热榜</button>
             </div>
-            <div class="timestamp" id="timestamp">加载中...</div>
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <button id="refreshBtn" class="refresh-btn">
+                    <i class="fas fa-sync-alt"></i> 刷新数据
+                </button>
+                <div class="timestamp" id="timestamp">加载中...</div>
+            </div>
         </div>
     </div>
-
     <div class="container">
         <div class="dashboard">
             <!-- 左侧：排行榜 + 词云 -->
             <div>
                 <div class="card">
-                    <div class="card-header"><span><i class="fas fa-fire"></i> 热点排行榜</span><span id="ranking-count" class="heat-badge">0条</span></div>
+                    <div class="card-header"><span><i class="fas fa-fire"></i> 热点排行榜</span><span id="ranking-count" class="heat-badge">0 条</span></div>
                     <div class="ranking-list" id="ranking-list"><div class="loading">加载中...</div></div>
                 </div>
+                
+                <!-- 词云 + 热词选项（左图右词） -->
                 <div class="card" style="margin-top: 1.5rem;">
-                    <div class="card-header"><span><i class="fas fa-cloud"></i> 热点词云</span></div>
-                    <div class="wordcloud-container" id="wordcloud-container"><div class="loading">加载词云中...</div></div>
+                    <div class="card-header"><span><i class="fas fa-cloud"></i> 热点词云</span><span class="heat-badge">Top 20 热词</span></div>
+                    <div class="wordcloud-container">
+                        <!-- 左侧：词云图片 -->
+                        <div class="wordcloud-img-box" id="wordcloud-img-box">
+                            <div class="loading">加载词云中...</div>
+                        </div>
+                        <!-- 右侧：热词选项 -->
+                        <div class="keyword-panel">
+                            <h4><i class="fas fa-tags"></i> 点击热词进行 AI 分析</h4>
+                            <div class="keyword-tags" id="keyword-tags">
+                                <div class="loading" style="width:100%; padding:1rem;">加载中...</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-
             <!-- 右侧：情感分析 + 详情 -->
             <div>
                 <div class="card">
@@ -99,15 +220,45 @@
                 </div>
             </div>
         </div>
+        <!-- AI 热点问答板块 -->
+        <div class="card ai-section" id="ai-qna-section">
+            <div class="card-header">
+                <span><i class="fas fa-robot"></i> AI 热点问答</span>
+                <span class="heat-badge" style="background:#dbeafe; color:#1e40af;">基于数据库实时数据</span>
+            </div>
+            <div style="padding: 0 1.5rem 1rem 1.5rem; color: #64748b; font-size: 0.85rem;">
+                <i class="fas fa-info-circle"></i> 点击上方热词 → 查看相关报道 → 点击按钮启动 AI 分析
+            </div>
+            
+            <!-- 搜索结果展示 -->
+            <div id="ai-search-area" class="hidden">
+                <h4 style="padding: 0 1.5rem; margin-bottom: 0.5rem; color: #3b82f6; font-size: 0.9rem;">
+                    🔍 关于"<span id="selected-keyword-display"></span>"的相关报道
+                </h4>
+                <ul class="ai-search-result" id="ai-search-list">
+                    <li class="loading">搜索中...</li>
+                </ul>
+                <button id="ai-analyze-btn" class="ai-analyze-btn" onclick="startAIAnalysis()">
+                    ✨ 启动 AI 分析
+                </button>
+            </div>
+            
+            <!-- AI 分析结果 -->
+            <div id="ai-result-area" class="hidden">
+                <div class="ai-result-box">
+                    <h4 style="margin-bottom: 0.8rem; color: #1e40af;"><i class="fas fa-chart-bar"></i> AI 分析报告</h4>
+                    <div id="ai-result-content" class="ai-result-content"></div>
+                </div>
+            </div>
+        </div>
     </div>
-
     <script>
-        let currentTab = 'general';
+        let currentTab = 'general'; // 默认板块
         let sentimentChart = null;
-
-        // 情绪类型映射（基于情感分数）
+        let statusCheckInterval = null;
+        let currentKeyword = '';
+        // ========== 原有功能函数（完全保留） ==========
         function getEmotionType(score, positiveWords, negativeWords) {
-            // 优先基于情感词判断
             if (positiveWords.length > 0 && negativeWords.length === 0) {
                 return { type: '喜悦/积极', icon: '😊', color: '#10b981', desc: '表达积极、正面的情绪' };
             }
@@ -117,8 +268,6 @@
             if (positiveWords.length > 0 && negativeWords.length > 0) {
                 return { type: '矛盾/复杂', icon: '🤔', color: '#f59e0b', desc: '同时包含正面和负面情绪' };
             }
-            
-            // 基于分数判断
             if (score >= 0.7) {
                 return { type: '强烈积极', icon: '😄', color: '#10b981', desc: '情绪非常正面，充满期待或喜悦' };
             } else if (score >= 0.6) {
@@ -131,30 +280,24 @@
                 return { type: '强烈消极', icon: '😫', color: '#ef4444', desc: '情绪非常负面，表达不满或愤怒' };
             }
         }
-
         function getSentimentStyle(label) {
             if (label === 'positive') return { label: '正面', class: 'sentiment-positive', icon: '😊' };
             if (label === 'negative') return { label: '负面', class: 'sentiment-negative', icon: '😞' };
             return { label: '中性', class: 'sentiment-neutral', icon: '😐' };
         }
-
         function escapeHtml(str) {
             if (!str) return '';
             return str.replace(/[&<>]/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[m] || m));
         }
-
-        // 更新情感分析面板
         function updateSentimentPanel(item) {
             const score = item.sentiment_score || 0.5;
             const posWords = item.positive_words || [];
             const negWords = item.negative_words || [];
             const emotion = getEmotionType(score, posWords, negWords);
             
-            // 更新标题
             const title = item.title;
             document.getElementById('current-hotword-name').innerText = title.length > 20 ? title.substring(0, 20) + '...' : title;
             
-            // 更新统计卡片
             const statsContainer = document.getElementById('sentiment-stats');
             statsContainer.innerHTML = `
                 <div class="stat-card stat-positive"><div class="stat-number">${(score * 100).toFixed(0)}%</div><div class="stat-label">正面倾向</div></div>
@@ -162,7 +305,6 @@
                 <div class="stat-card stat-negative"><div class="stat-number">${((1 - score) * 100).toFixed(0)}%</div><div class="stat-label">负面倾向</div></div>
             `;
             
-            // 更新饼图
             if (sentimentChart) sentimentChart.dispose();
             sentimentChart = echarts.init(document.getElementById('sentiment-chart'));
             sentimentChart.setOption({
@@ -177,7 +319,6 @@
                 }]
             });
             
-            // 更新情绪类型描述
             const wordsContainer = document.getElementById('sentiment-words');
             let emotionHtml = `
                 <div style="background: ${emotion.color}10; border-left: 4px solid ${emotion.color}; padding: 0.8rem; border-radius: 0.5rem;">
@@ -186,27 +327,20 @@
                 </div>
             `;
             
-            // 添加情感关键词（如果有）
             if (posWords.length > 0 || negWords.length > 0) {
                 emotionHtml += `
                     <div style="margin-top: 0.5rem;">
                         <strong>情感关键词：</strong><br>
-                        ${posWords.length ? `<span style="color:#10b981;">😊 正面词: ${posWords.map(w => `<span class="keyword-tag" style="background:#d1fae5; padding:0.2rem 0.5rem; border-radius:1rem; font-size:0.7rem; margin:0.2rem; display:inline-block;">${escapeHtml(w)}</span>`).join('')}</span><br>` : ''}
-                        ${negWords.length ? `<span style="color:#ef4444;">😞 负面词: ${negWords.map(w => `<span class="keyword-tag" style="background:#fee2e2; padding:0.2rem 0.5rem; border-radius:1rem; font-size:0.7rem; margin:0.2rem; display:inline-block;">${escapeHtml(w)}</span>`).join('')}</span>` : ''}
+                        ${posWords.length ? `<span style="color:#10b981;">😊 正面词：${posWords.map(w => `<span class="keyword-tag" style="background:#d1fae5; padding:0.2rem 0.5rem; border-radius:1rem; font-size:0.7rem; margin:0.2rem; display:inline-block;">${escapeHtml(w)}</span>`).join('')}</span><br>` : ''}
+                        ${negWords.length ? `<span style="color:#ef4444;">😞 负面词：${negWords.map(w => `<span class="keyword-tag" style="background:#fee2e2; padding:0.2rem 0.5rem; border-radius:1rem; font-size:0.7rem; margin:0.2rem; display:inline-block;">${escapeHtml(w)}</span>`).join('')}</span>` : ''}
                     </div>
                 `;
             } else {
-                emotionHtml += `
-                    <div style="margin-top: 0.5rem; color: #94a3b8; font-size: 0.7rem;">
-                        <i class="fas fa-info-circle"></i> 无显著情感关键词
-                    </div>
-                `;
+                emotionHtml += `<div style="margin-top: 0.5rem; color: #94a3b8; font-size: 0.7rem;"><i class="fas fa-info-circle"></i> 无显著情感关键词</div>`;
             }
             
             wordsContainer.innerHTML = emotionHtml;
         }
-
-        // 加载详情面板
         async function loadDetail(rank) {
             const panel = document.getElementById('detail-panel');
             panel.innerHTML = '<div class="loading">加载中...</div>';
@@ -222,20 +356,18 @@
                 panel.innerHTML = `
                     <div class="detail-title">${escapeHtml(item.title)}</div>
                     <div class="detail-meta">
-                        <span class="heat-badge">🔥 热度: ${heat}</span>
+                        <span class="heat-badge">🔥 热度：${heat}</span>
                         <span class="sentiment-badge ${style.class}">${style.icon} ${style.label}</span>
                     </div>
-                    <div class="detail-score">情感分数: ${score.toFixed(4)} <span style="font-size:0.7rem;">(0-1, 越高越正面)</span></div>
+                    <div class="detail-score">情感分数：${score.toFixed(4)} <span style="font-size:0.7rem;">(0-1, 越高越正面)</span></div>
                     <div style="margin-top:0.8rem;"><a href="${item.url || '#'}" target="_blank" class="detail-link">查看搜索结果</a></div>
                 `;
                 
                 updateSentimentPanel(item);
             } catch (err) {
-                panel.innerHTML = `<div class="loading">加载失败: ${err.message}</div>`;
+                panel.innerHTML = `<div class="loading">加载失败：${err.message}</div>`;
             }
         }
-
-        // 加载排行榜
         async function loadRanking() {
             const endpoint = currentTab === 'general' ? '/api/general_ranking' : '/api/tech_ranking';
             const container = document.getElementById('ranking-list');
@@ -279,14 +411,12 @@
                     }
                 }
             } catch (err) {
-                container.innerHTML = `<div class="loading">加载失败: ${err.message}</div>`;
+                container.innerHTML = `<div class="loading">加载失败：${err.message}</div>`;
             }
         }
-
-        // 加载词云
         async function loadWordcloud() {
             const endpoint = currentTab === 'general' ? '/api/general_wordcloud' : '/api/tech_wordcloud';
-            const container = document.getElementById('wordcloud-container');
+            const container = document.getElementById('wordcloud-img-box');
             container.innerHTML = '<div class="loading">加载词云中...</div>';
             try {
                 const img = document.createElement('img');
@@ -295,12 +425,74 @@
                 img.onload = () => { container.innerHTML = ''; container.appendChild(img); };
                 img.onerror = () => { container.innerHTML = '<div class="loading">词云加载失败</div>'; };
             } catch (err) {
-                container.innerHTML = `<div class="loading">加载失败: ${err.message}</div>`;
+                container.innerHTML = `<div class="loading">加载失败：${err.message}</div>`;
             }
         }
-
+        async function refreshData() {
+            const btn = document.getElementById('refreshBtn');
+            const originalHtml = btn.innerHTML;
+            
+            if (btn.disabled) {
+                alert('已有刷新任务正在执行，请稍后再试');
+                return;
+            }
+            
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> 启动中...';
+            
+            try {
+                const response = await fetch('/api/refresh', { method: 'POST' });
+                const result = await response.json();
+                
+                if (!result.success) {
+                    alert('刷新失败：' + (result.message || '未知错误'));
+                    btn.disabled = false;
+                    btn.innerHTML = originalHtml;
+                    return;
+                }
+                
+                alert('数据刷新已启动，请稍后...');
+                btn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> 更新中...';
+                
+                if (statusCheckInterval) clearInterval(statusCheckInterval);
+                
+                statusCheckInterval = setInterval(async () => {
+                    try {
+                        const statusRes = await fetch('/api/refresh/status');
+                        const status = await statusRes.json();
+                        
+                        if (!status.running) {
+                            clearInterval(statusCheckInterval);
+                            statusCheckInterval = null;
+                            
+                            if (status.error) {
+                                alert('刷新失败：' + status.error);
+                                btn.disabled = false;
+                                btn.innerHTML = originalHtml;
+                            } else {
+                                alert('数据更新完成！页面将刷新');
+                                setTimeout(() => { location.reload(); }, 1000);
+                            }
+                        } else {
+                            btn.innerHTML = `<i class="fas fa-spinner fa-pulse"></i> ${status.step || '处理中...'}`;
+                        }
+                    } catch (err) {
+                        console.error('状态查询失败:', err);
+                    }
+                }, 2000);
+                
+            } catch (error) {
+                alert('刷新请求失败：' + error.message);
+                btn.disabled = false;
+                btn.innerHTML = originalHtml;
+                if (statusCheckInterval) {
+                    clearInterval(statusCheckInterval);
+                    statusCheckInterval = null;
+                }
+            }
+        }
         function switchTab(tab) {
-            currentTab = tab;
+            currentTab = tab; // 更新全局变量
             document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.toggle('active', btn.dataset.tab === tab));
             document.getElementById('detail-panel').innerHTML = '<div class="loading">点击左侧热词查看详情</div>';
             document.getElementById('sentiment-stats').innerHTML = '<div class="loading">点击热词查看情感分析</div>';
@@ -310,10 +502,111 @@
             sentimentChart = null;
             loadRanking();
             loadWordcloud();
+            loadAIKeywords();  // 切换标签时也刷新热词
         }
-
+        
+        // ========== AI 功能函数（支持类型区分） ==========
+        async function loadAIKeywords() {
+            const container = document.getElementById('keyword-tags');
+            container.innerHTML = '<div class="loading" style="width:100%; padding:1rem;">加载中...</div>';
+            try {
+                // ⭐ 修改：添加 &type= 参数
+                const res = await fetch(`/api/llm/keywords?type=${currentTab}&t=${Date.now()}`);
+                const result = await res.json();    
+                if (result.success && result.data && result.data.length > 0) {
+                    container.innerHTML = '';
+                    result.data.forEach(word => {
+                        const tag = document.createElement('span');
+                        tag.className = 'keyword-tag';
+                        tag.innerText = word;
+                        tag.onclick = () => selectAIKeyword(word, tag);
+                        container.appendChild(tag);
+                    });
+                } else {
+                    container.innerHTML = '<div style="color:#94a3b8; font-size:0.75rem; padding:1rem;">暂无热词数据<br><small>请先刷新数据</small></div>';
+                }
+            } catch (err) {
+                container.innerHTML = '<div style="color:#ef4444; font-size:0.75rem; padding:1rem;">加载失败</div>';
+                console.error('AI 热词加载失败:', err);
+            }
+        }
+        function selectAIKeyword(word, element) {
+            document.querySelectorAll('.keyword-tag').forEach(t => t.classList.remove('selected'));
+            element.classList.add('selected');
+            
+            currentKeyword = word;
+            document.getElementById('selected-keyword-display').innerText = word;
+            
+            document.getElementById('ai-search-area').classList.remove('hidden');
+            document.getElementById('ai-result-area').classList.add('hidden');
+            document.getElementById('ai-search-list').innerHTML = '<li class="loading">搜索中...</li>';
+            document.getElementById('ai-analyze-btn').disabled = true;
+            document.getElementById('ai-analyze-btn').innerText = '请先查看报道';
+            
+            fetch(`/api/llm/search?keyword=${encodeURIComponent(word)}&t=${Date.now()}`)
+                .then(res => res.json())
+                .then(data => {
+                    const list = document.getElementById('ai-search-list');
+                    list.innerHTML = '';
+                    
+                    if (data.success && data.data && data.data.length > 0) {
+                        data.data.forEach(item => {
+                            const li = document.createElement('li');
+                            li.innerHTML = `<a href="${item.url}" target="_blank">${escapeHtml(item.title)}</a> <span style="color:#94a3b8; font-size:0.7rem;">(${item.crawl_time})</span>`;
+                            list.appendChild(li);
+                        });
+                        document.getElementById('ai-analyze-btn').disabled = false;
+                        document.getElementById('ai-analyze-btn').innerText = '✨ 启动 AI 分析';
+                    } else {
+                        list.innerHTML = '<li style="color:#ef4444; text-align:center;">未找到相关报道</li>';
+                    }
+                })
+                .catch(err => {
+                    document.getElementById('ai-search-list').innerHTML = '<li style="color:#ef4444; text-align:center;">搜索失败</li>';
+                    console.error('AI 搜索失败:', err);
+                });
+        }
+        function startAIAnalysis() {
+            if (!currentKeyword) return;
+            
+            const btn = document.getElementById('ai-analyze-btn');
+            const originalText = btn.innerText;
+            btn.innerText = '⏳ 分析中 (约 10-20 秒)...';
+            btn.disabled = true;
+            
+            document.getElementById('ai-qna-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            
+            fetch('/api/llm/analyze', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ keyword: currentKeyword })
+            })
+            .then(res => res.json())
+            .then(data => {
+                btn.innerText = originalText;
+                btn.disabled = false;
+                
+                const area = document.getElementById('ai-result-area');
+                const content = document.getElementById('ai-result-content');
+                area.classList.remove('hidden');
+                
+                if (data.success) {
+                    content.innerText = data.ai_result;
+                    area.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                } else {
+                    content.innerText = '分析失败：' + (data.message || '未知错误');
+                }
+            })
+            .catch(err => {
+                btn.innerText = originalText;
+                btn.disabled = false;
+                document.getElementById('ai-result-content').innerText = '请求出错，请检查网络连接';
+                console.error('AI 分析失败:', err);
+            });
+        }
         document.addEventListener('DOMContentLoaded', () => {
             document.querySelectorAll('.tab-btn').forEach(btn => btn.addEventListener('click', () => switchTab(btn.dataset.tab)));
+            document.getElementById('refreshBtn').addEventListener('click', refreshData);
             switchTab('general');
         });
     </script>
