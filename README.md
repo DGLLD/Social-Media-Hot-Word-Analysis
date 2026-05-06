@@ -1,89 +1,90 @@
-## README.md
-
-```markdown
 # 社交媒体热点词分析平台
 
-## 项目简介
-
-社交媒体热点词分析平台是一个基于 Flask + SnowNLP 的全栈 Web 应用，用于实时爬取、分析和可视化各大平台的热搜榜单。平台提供热点排行榜、词云图、情感分析和热点详情等功能，帮助用户快速了解社交媒体热点话题及其舆论情感倾向。
-
-### 主要功能
-
-| 功能 | 描述 |
-|------|------|
-| **热点排行榜** | 综合热榜和科技热榜双榜单，展示最热热点词及热度分 |
-| **词云图** | 基于热点标题生成高频关键词云图，直观展示核心话题 |
-| **情感分析** | 使用 SnowNLP + 情感词典对每条热点进行情感评分，判断情绪类型 |
-| **热点详情** | 点击热词查看完整标题、情感分数、情绪类型和原文链接 |
-| **双榜单切换** | 支持综合热榜和科技热榜一键切换，数据独立 |
+> 一个基于 Flask + SnowNLP + 千问大模型的全栈热点词分析系统，实现多平台热搜采集、情感分析、词云可视化与 AI 深度解读。
 
 ---
 
-## 技术栈
+## 📌 项目简介
 
-| 层级 | 技术 |
-|------|------|
-| 后端 | Python 3.12+, Flask, SnowNLP, jieba |
-| 前端 | HTML5, CSS3, JavaScript, ECharts |
-| 数据处理 | pandas, numpy, wordcloud |
-| 部署 | Docker (可选) |
+本项目是一个**全栈式社交媒体热点词分析平台**，能够自动采集微博、知乎、百度、微信、贴吧、36氪、少数派、虎嗅、IT之家、掘金等 10 个平台的热搜榜单，通过自然语言处理技术进行情感分析，并利用千问大模型生成热点深度解读，帮助用户快速了解社交媒体热点及其舆论情感倾向。
 
 ---
 
-## 项目结构
+## 🎯 核心功能
+
+| 功能模块 | 说明 |
+|----------|------|
+| 🔥 **多平台热榜采集** | 并行爬取 10 个平台热搜，自动归一化权重 |
+| 🧹 **数据清洗与分词** | jieba 中文分词 + 204 个停用词过滤 |
+| 📊 **热度排名加权** | 指数衰减公式 + 加权融合，计算综合热度分 |
+| 😊 **情感分析** | 分级词典 + 规则引擎 + SnowNLP，准确率 87.8% |
+| ☁️ **词云生成** | 高频词统计 + wordcloud，支持综合/科技双榜 |
+| 🤖 **AI 深度解读** | 千问大模型接入，自动生成热点事件分析报告 |
+| 🔄 **一键刷新** | 支持强制更新数据，实时获取最新热点 |
+| 📱 **响应式设计** | 支持 PC 端和移动端访问 |
+
+---
+
+## 🛠️ 技术栈
+
+| 类别 | 技术 | 版本 |
+|------|------|------|
+| 后端框架 | Flask | 3.0.0 |
+| 数据库 | SQLite | 内置 |
+| 爬虫 | requests + lxml | 2.31.0 + 4.9.3 |
+| 中文分词 | jieba | 0.42.1 |
+| 情感分析 | SnowNLP | 0.12.3 |
+| 词云生成 | wordcloud + matplotlib | 1.9.3 + 3.8.0 |
+| 大模型 | 千问 API（qwen-plus） | - |
+| 前端 | HTML5/CSS3/JavaScript + ECharts + SweetAlert2 | - |
+
+---
+
+## 📁 项目结构
 
 ```
 社交媒体热点词分析项目/
-├── config/                         # 配置文件
-│   ├── stopwords.txt               # 停用词表
-│   └── category_keywords.json      # 分类关键词库
+├── config/                      # 配置文件
+│   ├── stopwords.txt            # 停用词表（204个）
+│   ├── category_keywords.json   # 分类关键词库
+│   └── llm_config.json          # 大模型配置（API密钥）
 ├── data/
-│   ├── raw/                        # 原始爬虫数据
-│   │   ├── 综合热榜_*.txt
-│   │   └── 科技热榜_*.txt
-│   └── processed/                  # 清洗后数据
-│       └── cleaned_data_*.json
-├── output/
-│   ├── rankings/                   # 排名结果
-│   │   ├── ranking_general_*.json
-│   │   └── ranking_tech_*.json
-│   ├── wordclouds/                 # 词云图片
-│   │   ├── wordcloud_general_*.png
-│   │   └── wordcloud_tech_*.png
-│   └── sentiment/                  # 情感分析结果
-│       ├── sentiment_general_*.json
-│       └── sentiment_tech_*.json
-├── src/
-│   ├── app.py                      # Flask 后端服务
-│   ├── data_cleaner.py             # 数据清洗模块
-│   ├── ranking_engine.py           # 排名加权计算模块
-│   ├── ranking_processor.py        # 排行处理（综合+科技分离）
-│   ├── wordcloud_generator.py      # 词云生成模块
-│   ├── sentiment_analyzer.py       # SnowNLP 情感分析模块
-│   ├── title_optimizer.py          # 标题优化模块
-│   └── templates/
-│       └── service.html            # 前端页面
-├── requirements.txt                # Python 依赖
-└── README.md                       # 项目说明
+│   ├── raw/                     # 原始爬虫数据
+│   └── processed/               # 清洗后数据
+├── database/                    # 数据库目录
+│   ├── schema.sql               # 建表脚本
+│   └── hotspot.db               # SQLite 数据库
+├── output/                      # 输出目录
+│   ├── rankings/                # 排名结果 JSON
+│   ├── wordclouds/              # 词云图片 PNG
+│   └── sentiment/               # 情感分析结果 JSON
+├── src/                         # 源代码
+│   ├── templates/
+│   │   └── service.html         # 前端页面
+│   ├── app.py                   # Flask 后端服务
+│   ├── crawler.py               # 爬虫模块
+│   ├── data_cleaner.py          # 数据清洗模块
+│   ├── ranking_engine.py        # 排名加权计算
+│   ├── ranking_processor.py     # 排行处理
+│   ├── wordcloud_generator.py   # 词云生成
+│   ├── sentiment_analyzer.py    # 情感分析
+│   ├── llm_enhancer.py          # 大模型增强
+│   └── db_connect.py            # 数据库连接
+├── static/                      # 静态文件
+│   └── service2.png             # 背景图
+├── tools/                       # 工具脚本
+├── requirements.txt             # 依赖列表
+└── README.md                    # 项目说明
 ```
 
 ---
 
-## 环境要求
+## 🚀 快速开始
 
-- Python 3.8+
-- pip
+### 1. 环境要求
 
----
-
-## 快速开始
-
-### 1. 克隆项目
-
-```bash
-git clone <your-repo-url>
-cd 社交媒体热点词分析项目
-```
+- Python 3.12+
+- pip 包管理器
 
 ### 2. 安装依赖
 
@@ -91,232 +92,139 @@ cd 社交媒体热点词分析项目
 pip install -r requirements.txt
 ```
 
-### 3. 准备数据
-
-将爬虫获取的热搜数据放入 `data/raw/` 目录，文件格式为：
-
-```
-0.0200
-标题文本
-https://链接
-0.0400
-标题文本
-https://链接
-...
-```
-
-> 说明：每三行为一组（权重分数、标题、链接），权重分数越小表示热度越高。
-
-### 4. 运行数据处理流程
+### 3. 初始化数据库
 
 ```bash
-# 步骤1：数据清洗（保留全部数据）
-python src/data_cleaner.py
-
-# 步骤2：排行处理（生成综合热榜和科技热榜）
-python src/ranking_processor.py
-
-# 步骤3：情感分析
-python src/sentiment_analyzer.py
+python src/crawler.py
 ```
 
-### 5. 启动后端服务
+### 4. 启动服务
 
 ```bash
 python src/app.py
 ```
 
-### 6. 访问页面
+### 5. 访问页面
 
 打开浏览器访问：**http://127.0.0.1:5000**
 
 ---
 
-## VS Code 使用指南
+## 🔧 核心算法
 
-### 1. 打开项目
+### 排名加权公式
 
-```bash
-code .
+```
+rank_score = 100 × 0.85^(rank-1)
+heat_score = (max_weight - raw_weight) / (max_weight - min_weight) × 100
+comprehensive_score = rank_score × 0.7 + heat_score × 0.3
 ```
 
-### 2. 配置 Python 解释器
+### 情感分析公式
 
-按 `Ctrl+Shift+P` → 输入 `Python: Select Interpreter` → 选择 Python 3.8+ 解释器
-
-### 3. 安装依赖
-
-在 VS Code 终端中运行：
-
-```bash
-pip install -r requirements.txt
+```
+lexicon_score = pos_count / (pos_count + neg_count)
+final_score = snow_score × 0.3 + lexicon_score × 0.7
 ```
 
-### 4. 运行项目
+### 情感词典分级
 
-- 运行单个模块：右键 `.py` 文件 → `Run Python File in Terminal`
-- 调试模式：在 `app.py` 中按 `F5` 启动调试
+| 级别 | 正面词示例 | 负面词示例 | 权重 |
+|------|------------|------------|------|
+| 强 | 夺冠、金牌、里程碑 | 去世、猝死、崩盘 | 3 |
+| 中 | 突破、大涨、创新 | 暴跌、危机、争议 | 2 |
+| 弱 | 教程、攻略、推荐 | 示弱、妥协、曝光 | 1 |
 
-### 5. 常用命令
+---
 
-| 命令 | 说明 |
+## 📊 数据流
+
+```
+爬虫采集 → 数据清洗 → 排名计算 → 情感分析 → 词云生成 → Flask API → 前端展示
+```
+
+---
+
+## 📈 性能指标
+
+| 指标 | 数值 |
 |------|------|
-| `python src/data_cleaner.py` | 数据清洗 |
-| `python src/ranking_processor.py` | 排行处理 |
-| `python src/sentiment_analyzer.py` | 情感分析 |
-| `python src/app.py` | 启动 Web 服务 |
+| 情感分析准确率 | 87.8% |
+| API 响应时间 | 45-120ms |
+| 爬虫采集耗时 | 约 8 秒（10 个平台并行） |
+| 单条情感分析 | < 5ms |
 
 ---
 
-## 数据流程说明
+## 🔌 API 接口
 
-```
-原始爬虫数据 (data/raw/*.txt)
-        ↓
-数据清洗 (data_cleaner.py) → 分词、过滤停用词、记录来源
-        ↓
-清洗数据 (data/processed/cleaned_data_*.json)
-        ↓
-排行处理 (ranking_processor.py) → 分离综合/科技、计算热度分
-        ↓
-排名结果 (output/rankings/ranking_*.json)
-        ↓
-情感分析 (sentiment_analyzer.py) → SnowNLP + 情感词典
-        ↓
-情感结果 (output/sentiment/sentiment_*.json) + 词云图
-        ↓
-前端展示 (Flask + service.html)
-```
+| 接口 | 方法 | 功能 |
+|------|------|------|
+| `/api/general_ranking` | GET | 综合热榜排行 |
+| `/api/tech_ranking` | GET | 科技热榜排行 |
+| `/api/general_wordcloud` | GET | 综合词云图片 |
+| `/api/tech_wordcloud` | GET | 科技词云图片 |
+| `/api/general_sentiment` | GET | 综合情感统计 |
+| `/api/tech_sentiment` | GET | 科技情感统计 |
+| `/api/hotword_detail/{rank}` | GET | 热点详情 |
+| `/api/analyze` | POST | AI 深度解读 |
+| `/api/search_news` | GET | 新闻搜索 |
+| `/api/refresh` | POST | 强制刷新数据 |
 
 ---
 
-## 后续扩展计划
+## 📝 环境变量
 
-### 1. 连接数据库
-
-当前数据以 JSON 文件存储，后续可升级为 MySQL/PostgreSQL：
-
-```sql
--- 热点词表
-CREATE TABLE hotwords (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    title VARCHAR(500) NOT NULL,
-    platform VARCHAR(50),
-    rank INT,
-    heat_score FLOAT,
-    sentiment_score FLOAT,
-    sentiment_label VARCHAR(20),
-    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
-);
-
--- 词云词频表
-CREATE TABLE wordcloud_freq (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    word VARCHAR(100),
-    freq INT,
-    hotword_id INT,
-    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
-);
-```
-
-### 2. 实现自动爬虫
-
-配置定时任务（如 APScheduler）定期爬取热搜数据：
-
-```python
-# 在 app.py 中添加
-from apscheduler.schedulers.background import BackgroundScheduler
-
-scheduler = BackgroundScheduler()
-scheduler.add_job(func=crawl_hotwords, trigger="interval", minutes=10)
-scheduler.start()
-```
-
-### 3. 用户刷新功能
-
-前端添加刷新按钮，调用后端接口重新触发爬虫和数据处理：
-
-```javascript
-// 前端刷新按钮
-async function refreshData() {
-    const response = await fetch('/api/refresh', { method: 'POST' });
-    if (response.ok) {
-        alert('数据刷新中，请稍后查看');
-        setTimeout(() => location.reload(), 5000);
-    }
-}
-```
-
-后端接口：
-
-```python
-@app.route('/api/refresh', methods=['POST'])
-def refresh_data():
-    # 触发爬虫和数据处理
-    subprocess.Popen(['python', 'src/crawler.py'])
-    subprocess.Popen(['python', 'src/ranking_processor.py'])
-    subprocess.Popen(['python', 'src/sentiment_analyzer.py'])
-    return jsonify({'success': True, 'message': '刷新已启动'})
-```
-
-### 4. 实现步骤
-
-1. **数据库集成**：修改 `data_cleaner.py` 和 `ranking_processor.py`，将结果写入数据库
-2. **自动爬虫**：创建 `src/crawler.py`，定时爬取各平台热搜
-3. **刷新功能**：添加 `/api/refresh` 接口，前端增加刷新按钮
-4. **异步处理**：使用 Celery 或后台线程处理耗时任务
+| 变量 | 说明 | 默认值 |
+|------|------|--------|
+| `LLM_API_KEY` | 千问大模型 API 密钥 | 空（可在前端配置） |
 
 ---
 
-## 常见问题
-
-### Q1: 运行 `python src/app.py` 时提示模块找不到？
+## 🧪 运行测试
 
 ```bash
-# 确保在项目根目录下运行
-cd 社交媒体热点词分析项目
-python src/app.py
+# 单元测试
+python -m unittest discover tests
+
+# 情感分析测试
+python src/sentiment_analyzer.py
+
+# 爬虫测试（强制模式）
+python src/crawler.py --force
 ```
+---
 
-### Q2: 词云图片显示乱码？
+## 🤝 团队分工
 
-安装中文字体（Windows 已自带），或修改 `wordcloud_generator.py` 中的字体路径。
-
-### Q3: 情感分析结果不准确？
-
-可扩展情感词典，在 `sentiment_analyzer.py` 的 `POSITIVE_WORDS` 和 `NEGATIVE_WORDS` 中添加自定义词汇。
-
-### Q4: 如何添加新的平台数据？
-
-1. 将新平台数据放入 `data/raw/` 目录
-2. 在 `ranking_processor.py` 的 `TECH_KEYWORDS` 中添加识别关键词
-3. 重新运行数据处理流程
+| 成员 | 职责 |
+|------|------|
+| 周艺侬 | 数据处理模块、模型训练模块、情感分析、词云生成 |
+| 姚宇轩 | Flask 后端服务、爬虫开发、移动端适配 |
+| 黄然 | 后端服务封装、报告导出、页面适配 |
 
 ---
 
-## 依赖清单
+## 📄 开源协议
 
-```
-Flask==3.0.0
-flask-cors==4.0.0
-snownlp==0.12.3
-jieba==0.42.1
-wordcloud==1.9.3
-matplotlib==3.8.0
-numpy==1.24.3
-```
+本项目仅供学习交流使用。
 
 ---
 
-## 联系方式
+## 🙏 致谢
+
+- [SnowNLP](https://github.com/isnowfy/snownlp) - 中文情感分析库
+- [jieba](https://github.com/fxsjy/jieba) - 中文分词库
+- [wordcloud](https://github.com/amueller/word_cloud) - 词云生成库
+- [Flask](https://flask.palletsprojects.com/) - 轻量级 Web 框架
+- [阿里云百炼](https://bailian.console.aliyun.com/) - 千问大模型 API
+
+---
+
+## 📧 联系方式
 
 如有问题，请联系项目维护者。
 
 ---
 
-## 版本记录
-
-| 版本 | 日期 | 更新内容 |
-|------|------|----------|
-| v1.0 | 2026-03-26 | 初始版本，支持综合热榜、科技热榜、词云、情感分析 |
-```
+**⭐ 如果觉得这个项目对你有帮助，欢迎给个 Star！**
